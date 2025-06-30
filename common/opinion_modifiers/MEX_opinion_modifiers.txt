@@ -1,3 +1,0 @@
-opinion_modifiers = {
-	MEX_cen_claim = { value = -100 }
-}

@@ -1,28 +1,52 @@
 leader_traits = {
-	peasant_sympathiser = {
+
+	
+##################################
+# Common Traits
+##################################
+
+	peasant_sympathiser = { 
 		type = all
 		trait_type = personality_trait
 		gain_xp = {
 			always = no # not gainable
 		}
+		allowed = {
+			FROM = {
+				OR = {
+					tag = SIL
+					tag = SOH
+					tag = SWI
+					tag = SIA
+				} 
+			}
+		}
+		modifier = {
+			
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
 		new_commander_weight = {
 			factor = 0
 		}
 	}
-	trait_determined = {
-		type = { land navy }
-		trait_type = status_trait
-		attack_skill = 1
-		defense_skill = 1
-	}
-	trait_foreign_military_advisor = {
-		type = { land navy }
-		trait_type = personality_trait
-		gain_xp = {
-			always = no # not gainable
-		}
-		new_commander_weight = {
-			factor = 0
-		}
-	}
+
 }
+
+##################################
+# Field Marshal traits.
+##################################
+	
+##################################
+# Corps Commander traits.
+##################################
+	
+##################################
+# Corps Commander assignabme traits.
+##################################
+
+##################################
+# Naval traits.
+##################################

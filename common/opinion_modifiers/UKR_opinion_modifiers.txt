@@ -1,3 +1,0 @@
-opinion_modifiers = {
-	UKR_following_french = { value = 20 }
-}

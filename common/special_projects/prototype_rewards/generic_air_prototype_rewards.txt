@@ -4,19 +4,19 @@
 #"Good"
 sp_air_scientist_xp_generic_reward = {
 	fire_only_once = no
-
-	threshold = {
+	
+	threshold = { 
 		min = 0
 		max = 100
 	}
-
+	
 	weight = {
 		base = 1
 	}
-
+	
 	option = {
 		token = sp_air_scientist_xp_generic_reward_option
-
+				
 		iteration_output = {
 			scientist_effects = {
 				add_scientist_xp = {
@@ -30,19 +30,19 @@ sp_air_scientist_xp_generic_reward = {
 
 sp_air_generic_major_breakthrough_reward = {
 	fire_only_once = no
-
-	threshold = {
+	
+	threshold = { 
 		min = 0
 		max = 100
 	}
-
+	
 	weight = {
 		base = 1
 	}
-
+	
 	option = {
 		token = sp_air_generic_major_breakthrough_reward_option
-
+				
 		iteration_output = {
 			country_effects = {
 				FROM = { add_project_progress_ratio = constant:sp_progress.gain.medium }
@@ -53,19 +53,19 @@ sp_air_generic_major_breakthrough_reward = {
 
 sp_air_generic_aerodynamics_advancements_reward = {
 	fire_only_once = no
-
-	threshold = {
+	
+	threshold = { 
 		min = 0
 		max = 100
 	}
-
+	
 	weight = {
 		base = 1
 	}
-
+	
 	option = {
-		token = sp_air_generic_avionics_advancements_reward_option
-
+		token =sp_air_generic_avionics_advancements_reward_option
+				
 		iteration_output = {
 			country_effects = {
 				air_experience = 25
@@ -76,19 +76,19 @@ sp_air_generic_aerodynamics_advancements_reward = {
 
 sp_air_generic_discoveries_reward = {
 	fire_only_once = no
-
-	threshold = {
+	
+	threshold = { 
 		min = 0
 		max = 100
 	}
-
+	
 	weight = {
 		base = 1
 	}
-
+	
 	option = {
-		token = sp_air_generic_avionics_advancements_reward_option
-
+		token =sp_air_generic_avionics_advancements_reward_option
+				
 		iteration_output = {
 			country_effects = {
 				add_tech_bonus = {
@@ -96,7 +96,7 @@ sp_air_generic_discoveries_reward = {
 					bonus = 0.25
 					uses = 1
 					category = air_equipment
-				}
+				} 
 			}
 		}
 	}
@@ -105,23 +105,23 @@ sp_air_generic_discoveries_reward = {
 # "Bad"
 sp_air_political_interference_generic_reward = {
 	fire_only_once = no
-
-	threshold = {
+	
+	threshold = { 
 		min = 0
 		max = 70
 	}
-
+	
 	weight = {
 		base = 0.5
 		modifier = {
 			factor = 2
-			FROM = { has_any_authoritarian_government = yes }
+			FROM = { has_government = fascism }
 		}
 	}
-
+	
 	option = {
 		token = sp_air_minor_progress_generic_reward_option
-
+				
 		iteration_output = {
 			country_effects = {
 				FROM = { add_project_progress_ratio = constant:sp_progress.loss.low }
@@ -129,6 +129,7 @@ sp_air_political_interference_generic_reward = {
 		}
 	}
 }
+
 
 # EXPANDED AIR GENERIC AIR REWARDS
 
@@ -163,15 +164,15 @@ sp_air_generic_reward_scientist_xp_1 = {
 			}
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_scientist_xp
-
+		
 		iteration_output = {
 			scientist_effects = {
 				if = {
 					limit = {
-
+						
 					}
 					add_scientist_xp = {
 						experience = constant:sp_scientist_xp_gain.low
@@ -215,10 +216,10 @@ sp_air_generic_reward_scientist_xp_2 = {
 			}
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_scientist_xp
-
+		
 		iteration_output = {
 			scientist_effects = {
 				if = {
@@ -270,10 +271,10 @@ sp_air_generic_reward_scientist_xp_3 = {
 			}
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_scientist_xp
-
+		
 		iteration_output = {
 			scientist_effects = {
 				if = {
@@ -304,12 +305,12 @@ sp_air_generic_reward_scientist_xp_3 = {
 #Low air XP
 sp_air_generic_reward_air_xp_1 = {
 	fire_only_once = yes
-
+	
 	threshold = {
 		min = 50
 		max = 100
 	}
-
+	
 	# ROOT is the project
 	# FROM is the Country
 	# var:facility_state is the State where the facility is (ensured to be set in this case)
@@ -322,10 +323,10 @@ sp_air_generic_reward_air_xp_1 = {
 			has_project_flag = sp_air_generic_reward_air_xp_flag
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_air_xp
-
+		
 		iteration_output = {
 			country_effects = {
 				air_experience = constant:sp_military_xp_gain.low
@@ -338,12 +339,12 @@ sp_air_generic_reward_air_xp_1 = {
 #medium air XP
 sp_air_generic_reward_air_xp_2 = {
 	fire_only_once = yes
-
+	
 	threshold = {
 		min = 50
 		max = 100
 	}
-
+	
 	# ROOT is the project
 	# FROM is the Country
 	# var:facility_state is the State where the facility is (ensured to be set in this case)
@@ -356,10 +357,10 @@ sp_air_generic_reward_air_xp_2 = {
 			has_project_flag = sp_air_generic_reward_air_xp_flag
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_air_xp
-
+		
 		iteration_output = {
 			country_effects = {
 				air_experience = constant:sp_military_xp_gain.medium
@@ -372,12 +373,12 @@ sp_air_generic_reward_air_xp_2 = {
 #High air XP
 sp_air_generic_reward_air_xp_3 = {
 	fire_only_once = yes
-
+	
 	threshold = {
 		min = 50
 		max = 100
 	}
-
+	
 	# ROOT is the project
 	# FROM is the Country
 	# var:facility_state is the State where the facility is (ensured to be set in this case)
@@ -390,14 +391,14 @@ sp_air_generic_reward_air_xp_3 = {
 			has_project_flag = sp_air_generic_reward_air_xp_flag
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_air_xp
-
+		
 		iteration_output = {
 			country_effects = {
 				air_experience = constant:sp_military_xp_gain.high
-
+				
 				add_breakthrough_progress = {
 					specialization = specialization_air
 					value = sp_breakthrough_progress.medium
@@ -417,7 +418,7 @@ sp_air_generic_reward_major_progress_1 = {
 		min = 0
 		max = 100
 	}
-
+	
 	# ROOT is the project
 	# FROM is the Country
 	# var:facility_state is the State where the facility is (ensured to be set in this case)
@@ -430,15 +431,15 @@ sp_air_generic_reward_major_progress_1 = {
 			has_project_flag = sp_air_generic_reward_major_progress_flag
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_major_breakthrough
-
+		
 		iteration_output = {
 			country_effects = {
 				FROM = {
-					add_project_progress_ratio = constant:sp_progress.gain.low
-
+					add_project_progress_ratio = constant:sp_progress.gain.low				
+					
 					set_project_flag = sp_air_generic_reward_major_progress_flag
 				}
 			}
@@ -469,7 +470,7 @@ sp_air_generic_reward_major_progress_2 = {
 		min = 0
 		max = 100
 	}
-
+	
 	# ROOT is the project
 	# FROM is the Country
 	# var:facility_state is the State where the facility is (ensured to be set in this case)
@@ -482,15 +483,15 @@ sp_air_generic_reward_major_progress_2 = {
 			has_project_flag = sp_air_generic_reward_major_progress_flag
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_major_breakthrough
-
+		
 		iteration_output = {
 			country_effects = {
 				FROM = {
-					add_project_progress_ratio = constant:sp_progress.gain.medium
-
+					add_project_progress_ratio = constant:sp_progress.gain.medium				
+					
 					set_project_flag = sp_air_generic_reward_major_progress_flag
 				}
 			}
@@ -521,7 +522,7 @@ sp_air_generic_reward_major_progress_3 = {
 		min = 0
 		max = 100
 	}
-
+	
 	# ROOT is the project
 	# FROM is the Country
 	# var:facility_state is the State where the facility is (ensured to be set in this case)
@@ -534,15 +535,15 @@ sp_air_generic_reward_major_progress_3 = {
 			has_project_flag = sp_air_generic_reward_major_progress_flag
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_major_breakthrough
-
+		
 		iteration_output = {
 			country_effects = {
 				FROM = {
-					add_project_progress_ratio = constant:sp_progress.gain.high
-
+					add_project_progress_ratio = constant:sp_progress.gain.high				
+					
 					set_project_flag = sp_air_generic_reward_major_progress_flag
 				}
 
@@ -573,12 +574,12 @@ sp_air_generic_reward_major_progress_3 = {
 #Low Progress Loss
 sp_air_generic_reward_test_failure_1 = {
 	fire_only_once = yes
-
+	
 	threshold = {
 		min = 15 #Loss is 5
 		max = 100
 	}
-
+	
 	# ROOT is the project
 	# FROM is the Country
 	# var:facility_state is the State where the facility is (ensured to be set in this case)
@@ -591,12 +592,12 @@ sp_air_generic_reward_test_failure_1 = {
 			has_project_flag = sp_air_generic_reward_test_failure_flag
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_test_failure
-
+		
 		iteration_output = {
-			country_effects = {
+			country_effects = { 
 				FROM = {
 					add_project_progress_ratio = constant:sp_progress.loss.low
 
@@ -625,12 +626,12 @@ sp_air_generic_reward_test_failure_1 = {
 #Medium Progress Loss
 sp_air_generic_reward_test_failure_2 = {
 	fire_only_once = yes
-
+	
 	threshold = {
 		min = 30 #Loss is 10
 		max = 100
 	}
-
+	
 	# ROOT is the project
 	# FROM is the Country
 	# var:facility_state is the State where the facility is (ensured to be set in this case)
@@ -643,12 +644,12 @@ sp_air_generic_reward_test_failure_2 = {
 			has_project_flag = sp_air_generic_reward_test_failure_flag
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_test_failure
-
+		
 		iteration_output = {
-			country_effects = {
+			country_effects = { 
 				FROM = {
 					add_project_progress_ratio = constant:sp_progress.loss.medium
 
@@ -677,12 +678,12 @@ sp_air_generic_reward_test_failure_2 = {
 #High Progress Loss
 sp_air_generic_reward_test_failure_3 = {
 	fire_only_once = yes
-
+	
 	threshold = {
 		min = 50 #Loss is 15
 		max = 100
 	}
-
+	
 	# ROOT is the project
 	# FROM is the Country
 	# var:facility_state is the State where the facility is (ensured to be set in this case)
@@ -695,12 +696,12 @@ sp_air_generic_reward_test_failure_3 = {
 			has_project_flag = sp_air_generic_reward_test_failure_flag
 		}
 	}
-
+	
 	option = {
 		token = sp_air_generic_reward_option_test_failure
-
+		
 		iteration_output = {
-			country_effects = {
+			country_effects = { 
 				FROM = {
 					add_project_progress_ratio = constant:sp_progress.loss.high
 

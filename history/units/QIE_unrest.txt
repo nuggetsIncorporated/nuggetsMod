@@ -1,5 +1,0 @@
-focus = {
-	current = "QIE_handling_the_disintegration"
-	progress = 10
-}
-

@@ -15,12 +15,14 @@ should_activate_active_crypto_bonuses = {
 	always = no
 }
 
+
 # called if the ai decides activating bonuses. you can override that decision by returning true here.
 should_not_activate_active_crypto_bonuses = {
 	always = no
 }
 
 #--------------------------------------------------------
+
 
 #~~ Used for checking if resistance should be enabled in a certain state
 
@@ -34,41 +36,12 @@ should_not_activate_active_crypto_bonuses = {
 # can be specialized for states by using should_initiate_resistance_STATEID1_STATEID2 = { }
 # those will override default should_initiate_resistance
 should_initiate_resistance = {
-	impassable = no
-	OR = {
-		check_variable = { core_countries^num > 0 } # have no cores
-		occupied_country_tag = event_target:system
-	}
-	NOT = { is_core_of = FROM } # never for our cores
+   # OR = {
+        check_variable = { core_countries^num > 0 } # have no cores
+    #}
+    NOT = { is_core_of = FROM  } # never for our cores
 }
-
-#should_initiate_resistance_5 = {
-#	# for Germany, this state always has resistance
-#	if = {
-#		limit = { FROM = { tag = GER } }
-#		always = yes
-#	}
-#	else_if = {
-#		should_initiate_resistance = yes
-#	}
-#}
 #
-#should_initiate_resistance_60_65_54 = {
-#	# for facsist Germany, these state always has resistance
-#	# since there are no other cores, the resistor will be Germany
-#	if = {
-#		limit = {
-#			FROM = {
-#				tag = GER
-#				has_government = fascism
-#			}
-#		}
-#		always = yes
-#	}
-#	else_if = {
-#		should_initiate_resistance = yes
-#	}
-#}
 
 # ~~
 

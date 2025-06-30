@@ -3,9 +3,11 @@ equipments = {
 	ship_hull_carrier = {
 		year = 1922
 
-		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_ships }
-		}
+		#can_be_produced = {
+		#	NOT = {
+		#		has_idea = BUL_army_restrictions
+		#	}
+		#}
 
 		is_archetype = yes
 		is_buildable = no
@@ -48,11 +50,11 @@ equipments = {
 			}
 			fixed_ship_secondaries_slot = {
 				required = no
-				allowed_module_categories = { ship_secondaries ship_dp_secondaries }
+				allowed_module_categories = { ship_secondaries ship_dp_secondaries}
 			}
 			fixed_ship_armor_slot = {
 				required = no
-				allowed_module_categories = { ship_cruiser_armor }
+				allowed_module_categories = { ship_cruiser_armor }	
 			}
 			front_1_custom_slot = {
 				required = no
@@ -142,7 +144,6 @@ equipments = {
 		year = 1936
 		visual_level = 1
 		visual_tech_level_addition = 2
-		can_convert_from = { ship_hull_carrier_1 }
 		archetype = ship_hull_carrier
 		priority = 1000
 
@@ -158,7 +159,6 @@ equipments = {
 		year = 1940
 		visual_level = 1
 		archetype = ship_hull_carrier
-		can_convert_from = { ship_hull_carrier_2 }
 		priority = 1000
 		parent = ship_hull_carrier_1
 		module_slots = {
@@ -222,7 +222,6 @@ equipments = {
 		visual_level = 1
 		archetype = ship_hull_carrier
 		priority = 1000
-		can_convert_from = { ship_hull_carrier_3 }
 		parent = ship_hull_carrier_2
 		module_slots = {
 			fixed_ship_deck_slot_1 = inherit
@@ -296,7 +295,6 @@ equipments = {
 		archetype = ship_hull_carrier
 		model = ship_hull_super_carrier
 		priority = 1000
-		can_convert_from = { ship_hull_carrier_modern }
 		parent = ship_hull_carrier_3
 		module_slots = {
 			fixed_ship_deck_slot_1 = inherit
@@ -367,8 +365,8 @@ equipments = {
 		}
 		manpower = 6500
 	}
-
-	#HABAKKUK
+	
+	# TODO MANU HABAKKUK
 	ship_hull_mega_carrier = {
 		abbreviation = "hamc"
 		year = 1944
@@ -376,7 +374,6 @@ equipments = {
 		model = ship_hull_ice_carrier
 		archetype = ship_hull_carrier
 		priority = 1000
-		can_convert_from = { ship_hull_mega_carrier ship_hull_super_heavy_1 }
 		module_slots = {
 			fixed_ship_deck_slot_1 = {
 				required = yes
@@ -443,7 +440,7 @@ equipments = {
 		surface_visibility = 40
 		naval_speed = 18
 
-		fuel_consumption = 95
+		fuel_consumption = 95		
 		resources = {
 			steel = 5
 			chromium = 2
@@ -457,7 +454,7 @@ equipments = {
 		visual_level = 0
 		archetype = ship_hull_carrier
 		priority = 1100
-		can_convert_from = { ship_hull_carrier_conversion_bb ship_hull_heavy_1 ship_hull_heavy_2 ship_hull_heavy_3 ship_hull_heavy_4 }
+		can_convert_from = { ship_hull_heavy_1 ship_hull_heavy_2 ship_hull_heavy_3 ship_hull_heavy_4 ship_hull_super_heavy_1 }
 		module_slots = {
 			fixed_ship_deck_slot_1 = inherit
 			fixed_ship_deck_slot_2 = inherit
@@ -504,7 +501,7 @@ equipments = {
 		visual_level = 0
 		archetype = ship_hull_carrier
 		priority = 1200
-		can_convert_from = { ship_hull_carrier_conversion_ca ship_hull_cruiser_1 ship_hull_cruiser_2 ship_hull_cruiser_3 ship_hull_cruiser_4 ship_hull_armoured_cruiser }
+		can_convert_from = { ship_hull_cruiser_1 ship_hull_cruiser_2 ship_hull_cruiser_3 ship_hull_cruiser_4 ship_hull_cruiser_panzerschiff }
 		module_slots = {
 			fixed_ship_deck_slot_1 = inherit
 			fixed_ship_deck_slot_2 = inherit
@@ -571,11 +568,11 @@ equipments = {
 			}
 			fixed_ship_secondaries_slot = {
 				required = no
-				allowed_module_categories = { ship_secondaries ship_dp_secondaries }
+				allowed_module_categories = { ship_secondaries ship_dp_secondaries}
 			}
 			fixed_ship_armor_slot = {
 				required = no
-				allowed_module_categories = { ship_cruiser_armor }
+				allowed_module_categories = { ship_cruiser_armor }	
 			}
 
 			front_1_custom_slot = {
@@ -608,6 +605,7 @@ equipments = {
 
 		armor_value = 7
 
+
 		surface_detection = 10
 		sub_detection = 5
 		surface_visibility = 30
@@ -617,6 +615,7 @@ equipments = {
 		naval_range = 3000
 
 		max_strength = 250
+
 
 		fuel_consumption = 87
 
@@ -668,7 +667,7 @@ equipments = {
 			}
 			fixed_ship_armor_slot = {
 				required = no
-				allowed_module_categories = { ship_cruiser_armor }
+				allowed_module_categories = { ship_cruiser_armor }	
 			}
 
 			front_1_custom_slot = {
@@ -700,6 +699,7 @@ equipments = {
 
 		armor_value = 9
 
+
 		surface_detection = 10
 		sub_detection = 5
 		surface_visibility = 30
@@ -709,6 +709,8 @@ equipments = {
 		naval_range = 4000
 
 		max_strength = 325
+
+
 
 		build_cost_ic = 4500
 		resources = {
@@ -744,6 +746,7 @@ equipments = {
 
 		armor_value = 11
 
+
 		surface_detection = 20
 		sub_detection = 5
 		surface_visibility = 30
@@ -753,6 +756,8 @@ equipments = {
 		naval_range = 5000
 
 		max_strength = 350
+
+
 
 		build_cost_ic = 5250
 		resources = {
@@ -788,6 +793,7 @@ equipments = {
 
 		armor_value = 13
 
+
 		surface_detection = 30
 		sub_detection = 5
 		surface_visibility = 30
@@ -797,6 +803,8 @@ equipments = {
 		naval_range = 6000
 
 		max_strength = 400
+
+
 
 		build_cost_ic = 6000
 		resources = {
@@ -812,7 +820,6 @@ equipments = {
 		visual_level = 1
 		archetype = ship_hull_carrier
 		model = ship_hull_super_carrier
-		parent = carrier_4
 		priority = 1000
 		upgrades = {
 			ship_deckspace_upgrade
@@ -849,7 +856,7 @@ equipments = {
 			}
 			fixed_ship_armor_slot = {
 				required = no
-				allowed_module_categories = { ship_cruiser_armor }
+				allowed_module_categories = { ship_cruiser_armor }	
 			}
 			front_1_custom_slot = {
 				required = no
@@ -921,13 +928,14 @@ equipments = {
 		max_strength = 475
 		fuel_consumption = 94
 
+
 		build_cost_ic = 6500
 		resources = {
 			#oil = 2
 			steel = 5
 			chromium = 2
 		}
-		manpower = 7000
+		manpower = 7000				
 	}
 
 	mega_carrier = {
@@ -972,7 +980,7 @@ equipments = {
 			}
 			fixed_ship_armor_slot = {
 				required = no
-				allowed_module_categories = { ship_cruiser_armor }
+				allowed_module_categories = { ship_cruiser_armor }	
 			}
 			front_1_custom_slot = {
 				required = no
@@ -1039,4 +1047,6 @@ equipments = {
 		}
 		manpower = 6000
 	}
+
+
 }

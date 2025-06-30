@@ -1,3 +1,0 @@
-opinion_modifiers = {
-	RAJ_bombay_pact_modifier = { value = 200 }
-}

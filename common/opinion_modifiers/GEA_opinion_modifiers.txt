@@ -1,3 +1,0 @@
-opinion_modifiers = {
-	GEA_sinogerman_cooperation = { value = 35 }
-}

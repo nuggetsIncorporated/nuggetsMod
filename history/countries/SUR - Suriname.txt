@@ -1,33 +1,68 @@
-capital = 309
-set_research_slots = 2
-set_war_support = 0.3
+﻿capital = 809
 
+oob = "SUR_1936"
+
+# Starting tech
+set_technology = {
+	infantry_weapons = 1
+}
+
+set_convoys = 5
+
+# 1939.1.1 = {
+# 	#generic focuses
+# 	complete_national_focus = army_effort
+# 	complete_national_focus = equipment_effort
+# 	complete_national_focus = motorization_effort
+# 	complete_national_focus = aviation_effort
+# 	complete_national_focus = naval_effort
+# 	complete_national_focus = flexible_navy
+# 	complete_national_focus = industrial_effort
+# 	complete_national_focus = construction_effort
+# 	complete_national_focus = production_effort
+	
+# 	set_technology = {
+
+# 		#doctrines
+# 		grand_battle_plan = 1
+# 		trench_warfare = 1
+
+# 		#electronics
+# 		electronic_mechanical_engineering = 1
+# 		radio = 1
+# 		radio_detection = 1
+# 		mechanical_computing = 1
+
+# 		#industry
+# 		basic_machine_tools = 1
+# 		improved_machine_tools = 1
+# 		advanced_machine_tools = 1
+# 		construction1 = 1
+# 		construction2 = 1
+# 		dispersed_industry = 1
+# 		dispersed_industry2 = 1
+# 	}
+# }
 set_politics = {
-	ruling_party = radical_socialist
-	last_election = "1933.05.24"
+	ruling_party = democratic
+	last_election = "1936.1.1"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
-
 set_popularities = {
-	totalist = 0
-	radical_socialist = 18
-	syndicalist = 2
-	social_democrat = 45
-	social_liberal = 5
-	market_liberal = 0
-	social_conservative = 30
-	authoritarian_democrat = 0
-	paternal_autocrat = 0
-	national_populist = 0
+	democratic = 75
+	fascism = 1
+	communism = 1
+	neutrality = 23
 }
 
-#recruit_character = WIF_anton_de_kom
-#recruit_character = WIF_archibald_currie
-
-recruit_character = SUR_otto_huiswoud
-recruit_character = SUR_louis_doedel
-recruit_character = SUR_harry_van_ommeren
-recruit_character = SUR_thomas_waller
-recruit_character = SUR_aarnoud_van_heemstra
-recruit_character = SUR_sybren_tulp
+# #create_country_leader = {
+# #	
+# #	name = "Jonas Lote"
+# #	picture = "gfx//leaders//Africa//Portrait_Africa_Generic_2.dds"
+# #	expire = "1965.1.1"
+# #	ideology = centrism
+# #	traits = {
+# #		#
+# #	}
+# #}

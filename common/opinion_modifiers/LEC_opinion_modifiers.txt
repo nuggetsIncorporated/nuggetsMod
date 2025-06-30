@@ -1,3 +1,0 @@
-opinion_modifiers = {
-	LEC_fengtian_objection = { value = -50 decay = 1 }
-}

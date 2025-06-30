@@ -1,89 +1,98 @@
-capital = 316
-oob = "COS"
-set_research_slots = 2
-set_stability = 0.6
-set_war_support = 0
-set_convoys = 10
-
+﻿capital = 474
+oob = "COS_1936"
+# Starting tech
+set_research_slots = 3
 set_technology = {
-	### Infantry ###
-	infantry_weapons = 1
-	tech_trucks = 1
-
-	### Artillery ###
+	# Base Latin American Tech
+	basic_train = 1
 	gw_artillery = 1
+	infantry_weapons = 1
+	interwar_antiair = 1
+	tech_engineers = 1
+	tech_support = 1
+	tech_trucks = 1
+}
+
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		# Base Latin American Tech
+		early_ship_hull_cruiser = 1
+		early_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		mtg_transport = 1
+		submarine_mine_laying = 1
+	}
+	else = {
+		set_technology = {
+			# Base Latin American Tech
+			early_destroyer = 1
+			early_light_cruiser = 1
+			early_submarine = 1
+			transport = 1
+		}
+	}
 }
 
 set_politics = {
-	ruling_party = social_conservative
-	last_election = "1932.02.02"
+	ruling_party = democratic
+	last_election = "1932.2.14"
 	election_frequency = 48
 	elections_allowed = yes
 }
 
 set_popularities = {
-	totalist = 0
-	syndicalist = 11
-	radical_socialist = 0
-	social_democrat = 10
-	social_liberal = 6
-	market_liberal = 12
-	social_conservative = 53
-	authoritarian_democrat = 8
-	paternal_autocrat = 0
-	national_populist = 0
+	democratic = 98
+	fascism = 2
 }
 
 add_ideas = {
-	disarmed_nation
-	free_trade
-	CEN_monroe_doctrine
-	COS_beacon_democracy
-	COS_labour_conflicts
-	COS_influence_of_the_UFC_idea
-	COS_influence_of_the_ZKG_idea
+	agrarian_economy
 }
 
-set_variable = { country_guide_page_count = 1 }
-set_variable = { COS_UFC_influence = 17 }
-game_start_UFC_influence = yes
-add_dynamic_modifier = { modifier = COS_influence_of_the_UFC_dynamic_modifier }
-set_variable = { COS_ZKG_influence = 26 }
-game_start_ZKG_influence = yes
-add_dynamic_modifier = { modifier = COS_influence_of_the_ZKG_dynamic_modifier }
+create_country_leader = {
+	name = "Ricardo Jiménez Oreamuno"
+	desc = "POLITICS_RICARDO_JIMENEZ_OREAMUNO_DESC"
+	picture = "GFX_portrait_costa_rica_ricardo_jiminez_oreamuno"
+	expire = "1965.1.1"
+	ideology = liberalism
+	traits = {
+		#
+	}
+}
 
-country_event = { id = cos.2 days = 17 } #Nomination of the Republican Candidate
-country_event = { id = cos.5 days = 52 } #Black Monday hits the ZKG
-country_event = { id = cos.16 days = 283 } #German Cruiser Schleswig docks in Costa Rica
-country_event = { id = cos.65 days = 763 } #1938 Regional Elections
-country_event = { id = cos.123 days = 1159 } #"Mamita Yunai"
-country_event = { id = cafla.18 days = 258 }
+create_country_leader = {
+	name = "Christopher IV"
+	desc = "POLITICS_CHRIS_COLON_DESC"
+	picture = "columbus.dds"
+	expire = "1965.1.1"
+	ideology = Despotism
+	traits = {
+		#
+	}
+}
 
-activate_targeted_decision = { decision = CEN_unite_central_america target = THIS }
-
-### Country Leaders ###
-recruit_character = COS_manuel_mora_valverde
-recruit_character = COS_rafael_angel_calderon_guardia
-recruit_character = COS_teodoro_picado_michalski
-recruit_character = COS_francisco_vargas_vargas
-recruit_character = COS_carlos_maria_jimenez_ortiz
-recruit_character = COS_ricardo_jimenez_oreamuno
-recruit_character = COS_leon_cortes_castro
-recruit_character = COS_julio_acosta_garcia
-recruit_character = COS_consejo_de_seguridad_nacional
-recruit_character = COS_max_koberg_bolandi
-
-### Generals ###
-recruit_character = COS_jose_figueres_ferrer
-recruit_character = COS_rafael_castro_quesada
-recruit_character = COS_arturo_quiros_carranza
-
-recruit_character = COS_ricardo_castro_beeche
-recruit_character = COS_rafael_calderon_mumoz
-recruit_character = COS_jose_albertazzi_avendano
-recruit_character = COS_juan_rafael_arias_bonilla
-recruit_character = COS_cleto_gonzalez_viquez
-recruit_character = COS_santos_leon_herrera
-recruit_character = COS_jorge_volio_jimenez
-
-COS_jose_figueres_ferrer = { retire = yes }
+1939.1.1 = {
+	set_politics = {
+		ruling_party = democratic
+		last_election = "1936.2.9"
+		election_frequency = 48
+		elections_allowed = yes
+	}
+	set_popularities = {
+		democratic = 95
+		communism = 5
+	}
+	create_country_leader = {
+		name = "León Cortés Castro"
+		desc = "POLITICS_LEON_CORTES_CASTRO_DESC"
+		picture = "gfx/leaders/South America/Portrait_South_America_Generic_navy_3.dds"
+		expire = "1965.1.1"
+		ideology = liberalism
+		traits = {
+			#
+		}
+	}
+}

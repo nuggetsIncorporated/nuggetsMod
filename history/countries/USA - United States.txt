@@ -1,382 +1,671 @@
-capital = 361
-oob = "USA"
-set_naval_oob = "USA_naval"
-set_cosmetic_tag = america_blue #redundant, but simplifies the checks elsewhere
+capital = 44
+oob = "USA_1936"
 set_research_slots = 4
-set_convoys = 500
-set_stability = 0.25
-set_war_support = 0
-starting_train_buffer = 5
+set_technology = {
+	infantry_weapons = 1
+	infantry_weapons1 = 1
+	tech_recon = 1
+	tech_support = 1
+	tech_engineers = 1
+	gw_artillery = 1
+	interwar_antiair = 1
+	early_fighter = 1
+	cv_early_fighter = 1
+	cv_naval_bomber1 = 1
+	cv_CAS1 = 1
+	naval_bomber1 = 1
+	CAS1 = 1
+	early_bomber = 1
+	superior_firepower = 1
+	base_strike = 1
+	motorised_infantry = 1
+	fuel_silos = 1
+	fuel_refining = 1
+	marines = 1
+	basic_train = 1
+	tech_trucks = 1
+}
 
-USA_starting_techs = yes
-USA_starting_tank_variants = yes
-USA_starting_naval_variants = yes
-USA_starting_plane_variants = yes
-
-set_variable = { country_intro_page_count = 2 }
-
-### Planes - BBA ###
 if = {
-	limit = { has_dlc_bba = yes }
-	set_air_oob = "USA_air_bba"
+	limit = {
+		NOT = {
+			has_dlc = "No Step Back"
+		}
+	}
+	set_technology = {
+		gwtank = 1
+	}
 }
 
-### Planes - non BBA ###
 if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "USA_air_legacy"
+	limit = {
+		has_dlc = "No Step Back"
+	}
+	set_technology = {
+		gwtank_chassis = 1
+		basic_light_tank_chassis = 1
+	}
 }
 
-set_variable = { country_guide_page_count = 1 }
-
-activate_mission = USA_help_economy_mission
-
-PAP = { country_event = { id = ustates.17 days = 136 } } #Father Charles Coughlin
-country_event = { id = ustates.538 days = 185 } #Fourth of July
-country_event = { id = america_workers_congress_events.216 days = 1633 random_days = 180 } #Smedley Butler Passes Away
-country_event = { id = ustates.615 days = 1986 random_days = 100 } #Adoption of the M1 helmet
-country_event = { id = ustates.604 days = 2059 random_days = 180 } #Adna Chaffee Dies
-country_event = { id = ustates.187 days = 3197 } #Al Smith Passes Away
-country_event = { id = ustates.188 days = 3201 } #Wendell Willkie Passes Away
-country_event = { id = ustates.186 days = 1479 } #William Borah Passes Away
-country_event = { id = ustates.189 days = 465 } #Floyd Olson Passes Away
-country_event = { id = ustates.285 days = 5114 random_days = 1500 } #Cure for Polio
-country_event = { id = america_constitutional_coalition_events.2060 days = 1582 random_days = 24 } #Chien-Shiung Wu
-
-##New events
-country_event = { id = usleadup.0 days = 3 } #Social Security re-introduced
-country_event = { id = usleadup.3 days = 41 } #Social Security Fails
-country_event = { id = usleadup.6 days = 45 } #Rubber Strike
-country_event = { id = usleadup.5 days = 52 } #The Blame Game
-country_event = { id = usleadup.4 days = 56 } #Modern Times
-#country_event = { id = usleadup.7 days = 60 } #Boulder Dam
-#country_event = { id = usleadup.8 days = 77 } #St Patrick's Day Flood
-#country_event = { id = usleadup.9 days = 85 } #Long Ramps Up Campaign
-#country_event = { id = usleadup.10 days = 92 } #Mt Rushmore
-#country_event = { id = usleadup.11 days = 96 } #Tupelo-Gainesville Tornado Outbreak
-#country_event = { id = usleadup.12 days = 102 } #Mr Deeds Goes to Town
-#country_event = { id = usleadup.13 days = 111 } #Long Escapes Assassination
-#country_event = { id = usleadup.14 days = 122 } #Creepy Karpis captured
-#country_event = { id = usleadup.15 days = 127 } #May Day Violence
-#country_event = { id = usleadup.16 days = 139 } #Ongoing Farm Protests
-#country_event = { id = usleadup.17 days = 144 } #F-L National Convention #18-21 campaign events
-country_event = { id = usleadup.22 days = 146 } #Battle of the Overpass
-#country_event = { id = usleadup.23 days = 162 } #GOP National Convention #24-27 campaign events
-country_event = { id = usleadup.28 days = 169 } #The New Minutemen
-#country_event = { id = usleadup.29 days = 178 } #Dem. National Convention #30-35 campaign events + Union Convention
-country_event = { id = usleadup.36 days = 196 } #Midwest Swelters
-#country_event = { id = usleadup.37 days = 211 } #Gone With the Wind
-#country_event = { id = usleadup.38 days = 221 } #Military Reforms
-#country_event = { id = usleadup.39 days = 240 } #Olson Gains on Long in the Plains
-#country_event = { id = usleadup.40 days = 240 } #Thomas makes a play for NY
-country_event = { id = usleadup.41 days = 246 } #Great Heatwave is Over
-#country_event = { id = usleadup.42 days = 252 } #Shots fired at Robinson
-#country_event = { id = usleadup.43 days = 256 } #The Phantom
-#country_event = { id = usleadup.44 days = 264 } #Lindbergh Endorses Long
-#country_event = { id = usleadup.45 days = 271 } #The Jobless Party
-#country_event = { id = usleadup.46 days = 282 } #Long's New Enforcers
-#country_event = { id = usleadup.47 days = 287 } #The Young Bullmoose
-#country_event = { id = usleadup.48 days = 299 } #Closing Arguments
-#country_event = { id = usleadup.49 days = 304 } #Maritime Strike
-#country_event = { id = usleadup.50 days = 307 } #The Election #51-54 immediate aftermath
-country_event = { id = usleadup.55 days = 335 } #December Strike
-#country_event = { id = usleadup.56 days = 348 } #Electoral College Meets
-#country_event = { id = usleadup.57 days = 359 } #VP Robinson Dies
-#country_event = { id = usleadup.58 days = 364 } #Workers Seize GM Plants
-#country_event = { id = usleadup.59 days = 368 } #75th Congress #60-66 election aftermath
-
-#country_event = { id = usleadup.67 days = 385 } #Inauguration of Floyd Olson
-#country_event = { id = usleadup.68 days = 385 } #Inauguration of William Borah
-#country_event = { id = usleadup.69 days = 385 } #Inauguration of Alf Landon
-#country_event = { id = usleadup.70 days = 385 } #Inauguration of Huey Long
-#country_event = { id = usleadup.71 days = 385 } #Al Smith leaves office
-
-country_event = { id = usleadup.101 days = 30 } #Violence in Harlan
-
-country_event = { id = usleadup.108 days = 121 } #Harlan Massacre
-country_event = { id = usleadup.113 days = 121 } #Harlan Siege
-country_event = { id = usleadup.119 days = 121 } #Harlan Commune
-
-WCA = {
-	country_event = { id = ustates.615 days = 1621 random_days = 100 } #Adoption of the M1 helmet
-	country_event = { id = america_constitutional_coalition_events.2060 days = 1582 random_days = 24 } #Chien-Shiung Wu
-}
-APG = {
-	country_event = { id = ustates.615 days = 1621 random_days = 100 } #Adoption of the M1 helmet
-	country_event = { id = america_constitutional_coalition_events.2060 days = 1582 random_days = 24 } #Chien-Shiung Wu
+if = {
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	set_technology = {
+		early_submarine = 1
+		basic_submarine = 1
+		early_destroyer = 1
+		early_light_cruiser = 1
+		basic_light_cruiser = 1
+		early_heavy_cruiser = 1
+		early_battleship = 1
+		early_battlecruiser = 1
+		early_carrier = 1
+		basic_carrier = 1
+		transport = 1
+	}
 }
 
-ACC = {
-	country_event = { id = ustates.615 days = 1621 random_days = 100 } #Adoption of the M1 helmet
-	country_event = { id = america_constitutional_coalition_events.2060 days = 1582 random_days = 24 } #Chien-Shiung Wu
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		basic_naval_mines = 1
+		submarine_mine_laying = 1
+		early_ship_hull_light = 1
+		basic_ship_hull_light = 1
+		early_ship_hull_submarine = 1
+		basic_ship_hull_submarine = 1
+		early_ship_hull_cruiser = 1
+		basic_ship_hull_cruiser = 1
+		early_ship_hull_heavy = 1
+		early_ship_hull_carrier = 1
+		basic_ship_hull_carrier = 1
+		basic_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_heavy_battery = 1
+		basic_torpedo = 1
+		sonar = 1
+		basic_depth_charges = 1
+		#basic_secondary_battery = 1
+		#improved_secondary_battery = 1
+		basic_cruiser_armor_scheme = 1
+		basic_heavy_armor_scheme = 1
+		mtg_transport = 1
+		improved_airplane_launcher = 1
+	}
 }
-NEE = {
-	country_event = { id = ustates.615 days = 1621 random_days = 100 } #Adoption of the M1 helmet
-	country_event = { id = america_constitutional_coalition_events.2060 days = 1582 random_days = 24 } #Chien-Shiung Wu
+
+1936.1.2 = {
+	add_political_power = 40
+	oob = "USA_1936_1_2"
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_naval_oob = "MEX_1939_naval_mtg"
+		else = {
+			set_naval_oob = "MEX_1939_naval_legacy"
+		}
+	}
+	# Starting tech
+	set_technology = {
+		infantry_weapons = 1
+		infantry_weapons1 = 1
+		tech_recon = 1
+		tech_support = 1
+		tech_engineers = 1
+		gw_artillery = 1
+		interwar_antiair = 1
+		gwtank = 1
+		early_fighter = 1
+		cv_early_fighter = 1
+		cv_naval_bomber1 = 1
+		cv_CAS1 = 1
+		naval_bomber1 = 1
+		CAS1 = 1
+		early_bomber = 1
+		superior_firepower = 1
+		base_strike = 1
+		motorised_infantry = 1
+		fuel_silos = 1
+		fuel_refining = 1
+		marines = 1
+		tech_trucks = 1
+	}
+	if = {
+		limit = {
+			not = {
+				has_dlc = "Man the Guns"
+			}
+		}
+		set_technology = {
+			early_submarine = 1
+			basic_submarine = 1
+			early_destroyer = 1
+			early_light_cruiser = 1
+			basic_light_cruiser = 1
+			early_heavy_cruiser = 1
+			early_battleship = 1
+			early_battlecruiser = 1
+			early_carrier = 1
+			basic_carrier = 1
+			transport = 1
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_technology = {
+			basic_naval_mines = 1
+			submarine_mine_laying = 1
+			early_ship_hull_light = 1
+			basic_ship_hull_light = 1
+			early_ship_hull_submarine = 1
+			basic_ship_hull_submarine = 1
+			early_ship_hull_cruiser = 1
+			basic_ship_hull_cruiser = 1
+			early_ship_hull_heavy = 1
+			early_ship_hull_carrier = 1
+			basic_ship_hull_carrier = 1
+			basic_battery = 1
+			basic_light_battery = 1
+			basic_medium_battery = 1
+			basic_heavy_battery = 1
+			basic_torpedo = 1
+			sonar = 1
+			basic_depth_charges = 1
+			#basic_secondary_battery = 1
+			#improved_secondary_battery = 1
+			basic_cruiser_armor_scheme = 1
+			basic_heavy_armor_scheme = 1
+			mtg_transport = 1
+			improved_airplane_launcher = 1
+		}
+	}
 }
 
-WCA = {
-	embargo_ROOT = yes
-	APG = { embargo_PREV = yes }
-	ACC = { embargo_PREV = yes }
-	NEE = { embargo_PREV = yes }
-}
-APG = {
-	embargo_ROOT = yes
-	ACC = { embargo_PREV = yes }
-	NEE = { embargo_PREV = yes }
-}
-ACC = { embargo_ROOT = yes }
-
-save_global_event_target_as = GTM_holder
-add_opinion_modifier = { target = HAI modifier = HAI_foreign_council }
-DOM = { give_military_access = USA }
-HAI = { give_military_access = USA }
-
-give_guarantee = GUA
-give_guarantee = ELS
-give_guarantee = HON
-give_guarantee = COS
-give_guarantee = "PAN"
-give_guarantee = DOM
-give_guarantee = HAI
-add_to_array = { GUA.guarantor_array = USA }
-add_to_array = { ELS.guarantor_array = USA }
-add_to_array = { HON.guarantor_array = USA }
-add_to_array = { COS.guarantor_array = USA }
-add_to_array = { PAN.guarantor_array = USA }
-add_to_array = { DOM.guarantor_array = USA }
-add_to_array = { HAI.guarantor_array = USA }
-
-ROOT = { 685 = { occupy_state = yes } } #Panama Canal
-
-set_variable = { Long_strength = 0 }
-set_variable = { SPA_strength = 0 }
-set_variable = { USA.coalition_stability = 0.2 }
-
-### Politics
+set_convoys = 72
 set_politics = {
-	ruling_party = social_liberal
-	last_election = "1932.11.03"
-	election_frequency = 48
-	elections_allowed = yes
+	ruling_party = democratic
+	last_election = "1936.1.1"
+	elections_allowed = no
 }
 
 set_popularities = {
-	totalist = 0
-	syndicalist = 6
-	radical_socialist = 9
-	social_democrat = 17
-	social_liberal = 13
-	market_liberal = 34
-	social_conservative = 8
-	authoritarian_democrat = 3
-	paternal_autocrat = 0
-	national_populist = 10
+	democratic = 47
+	fascism = 17
+	communism = 9
+	neutrality = 27
 }
 
-add_ideas = {
-	# national spirits
-	USA_great_depression
-	holds_leases_idea
-	USA_strike_season_1
+# create_country_leader = {
+# 	name = "Herbert Hoover"
+# 	picture = GFX_potrait_herbert_hoover
+# 	expire = "1965.1.1"
+# 	ideology = centrism
+# 	traits = {
+# 		#
+# 	}
+# }
 
-	# laws
-	export_focus
-}
+# create_country_leader = {
+# 	name = "Franklin D. Roosevelt"
+# 	picture = "Portrait_USA_Franklin_Roosevelt.dds"
+# 	expire = "1965.1.1"
+# 	ideology = progressivism_ideology
+# 	traits = {
+# 		#
+# 	}
+# }
 
-### AI strategies ###
-add_ai_strategy = {
-	type = ignore_claim
-	id = "WCA"
-	value = 1
-}
-add_ai_strategy = {
-	type = ignore_claim
-	id = "APG"
-	value = 1
-}
-add_ai_strategy = {
-	type = ignore_claim
-	id = "ACC"
-	value = 1
-}
-add_ai_strategy = {
-	type = ignore_claim
-	id = "NEE"
-	value = 1
-}
+# create_country_leader = {
+# 	name = "Alf Landon"
+# 	picture = "portrait_USA_alf_landon.dds"
+# 	expire = "1965.1.1"
+# 	ideology = conservatism
+# 	traits = {
+# 		staunch_constitutionalist
+# 	}
+# }
 
-### Dummy Leaders ###
-create_country_leader = {
-	name = WCA_william_edward_foster
-	picture = GFX_portrait_WCA_william_foster_civilian_large
-	ideology = totalist_subtype
-}
-create_country_leader = {
-	name = WCA_elizabeth_gurley_flynn
-	picture = GFX_portrait_WCA_elizabeth_gurley_flynn_civilian_large
-	ideology = syndicalist_subtype
-	female = yes
-}
-create_country_leader = {
-	name = WCA_daniel_hoan
-	picture = GFX_portrait_WCA_daniel_hoan_civilian_large
-	ideology = radical_socialist_subtype
-}
-create_country_leader = {
-	name = ACC_henry_wallace
-	desc = ACC_henry_wallace_leader_desc
-	picture = GFX_portrait_ACC_henry_wallace_civilian_large
-	ideology = social_democrat_subtype
-	traits = { ACC_world_planner }
-}
-create_country_leader = {
-	name = APG_martin_dies_jr
-	picture = GFX_portrait_APG_martin_dies_jr_civilian_large
-	desc = APG_martin_dies_jr_leader_desc
-	ideology = authoritarian_democrat_subtype
-	traits = { APG_paranoid_anti_socialist }
-}
-create_country_leader = {
-	name = APG_charles_lindbergh
-	picture = GFX_portrait_APG_charles_lindbergh_civilian_large
-	desc = APG_charles_lindbergh_leader_desc
-	ideology = national_populist_subtype
-	traits = { APG_head_in_the_clouds }
-}
+# create_country_leader = {
+# 	name = "Norman Thomas"
+# 	picture = GFX_potrait_norman_thomas
+# 	expire = "1965.1.1"
+# 	ideology = marxism
+# 	traits = {
+# 		#
+# 	}
+# }
 
-### Country Leaders ###
-#WCA_jack_reed - in WCA file
-#WCA_norman_thomas - in WCA file
-recruit_character = USA_floyd_olson
-recruit_character = USA_al_smith
-recruit_character = USA_alben_barkley
-recruit_character = USA_wendell_willkie
-recruit_character = USA_scott_lucas
-recruit_character = USA_paul_douglas
-recruit_character = USA_herbert_hoover
-recruit_character = USA_alf_landon
-recruit_character = USA_william_borah
-recruit_character = USA_quentin_roosevelt
-recruit_character = USA_robert_taft
-recruit_character = USA_charles_halleck
-recruit_character = USA_john_nance_garner
-recruit_character = USA_harry_byrd
-recruit_character = USA_richard_russell_jr
-recruit_character = USA_happy_chandler
-recruit_character = USA_john_sparkman
-recruit_character = USA_arthur_vandenberg
-recruit_character = USA_harold_stassen
-#APG_huey_long - in APG file
+# create_corps_commander = {
+# 	name = "Bruce Magruder"
+# 	picture = "portrait_bruce_magruder.dds"
+# 	traits = {
+# 		war_hero
+# 		infantry_officer
+# 		old_guard
+# 	}
+# 	skill = 1
+# 	attack_skill = 2
+# 	defense_skill = 3
+# 	planning_skill = 4
+# 	logistics_skill = 1
+# }
 
-promote_character = USA_floyd_olson
+# create_corps_commander = {
+# 	name = "William Kelly Harrison Jr."
+# 	picture = "portrait_william_kelly_harrison.dds"
+# 	traits = {
+# 		cavalry_officer
+# 		old_guard
+# 		naval_liason
+# 	}
+# 	skill = 2
+# 	attack_skill = 2
+# 	defense_skill = 1
+# 	planning_skill = 1
+# 	logistics_skill = 2
+# }
 
-### Second in Command ###
-recruit_character = USA_united_states_congress
-activate_advisor = USA_united_states_congress_sic
-
-### Advisors ###
-recruit_character = USA_john_edgar_hoover
-recruit_character = USA_john_pierpont_morgan_jr
-recruit_character = USA_william_randolph_hearst
-recruit_character = USA_cordell_hull
-recruit_character = USA_charles_andrew_willoughby
-recruit_character = USA_hjalmar_petersen
-recruit_character = USA_walter_francis_white
-recruit_character = USA_robert_ferdinand_wagner
-recruit_character = USA_felix_frankfurter
-recruit_character = USA_samuel_taliaferro_rayburn
-recruit_character = USA_john_davison_rockefeller_jr
-recruit_character = USA_william_signis_knudsen
-
-### Theorists ###
-recruit_character = USA_theodore_edson_chandler
-
-### Field Marshals ###
-recruit_character = USA_malin_craig
-recruit_character = USA_douglas_macarthur
-
-#ACC_george_catlett_marshall - in ACC file
-
-### Generals ###
-recruit_character = USA_dwight_david_eisenhower
-recruit_character = USA_clarence_ralph_huebner
-recruit_character = USA_edward_hale_brooks
-recruit_character = USA_geoffrey_keyes
-recruit_character = USA_jonathan_mayhew_wainwright
-recruit_character = USA_joseph_warren_stilwell
-recruit_character = USA_leonard_townsend_gerow
-recruit_character = USA_lesley_james_mcnair
-recruit_character = USA_lloyd_ralston_fredendall
-recruit_character = USA_lucian_king_truscott_jr
-recruit_character = USA_walter_krueger
-recruit_character = USA_adna_romanza_chaffee_jr
-recruit_character = USA_omar_nelson_bradley
-recruit_character = USA_daniel_van_voorhis
-recruit_character = USA_john_clifford_hodges_lee
-recruit_character = USA_james_garesche_ord
-recruit_character = USA_edwin_forrest_harding
-
-#WCA_smedley_butler - in WCA file
-#WCA_herbert_charles_heitke - in WCA file
-
-#APG_george_van_horn_moseley - in APG file
-#APG_george_smith_patton - in APG file
-#APG_fox_conner - in APG file
-
-#ACC_john_lesesne_dewitt - in ACC file
-#ACC_henry_harley_arnold - in ACC file
-
-### Admirals ###
-recruit_character = USA_william_frederick_halsey_jr
-recruit_character = USA_raymond_ames_spruance
-recruit_character = USA_frank_jack_fletcher
-recruit_character = USA_thomas_cassin_kinkaid
-recruit_character = USA_charles_maynard_cooke_jr
-recruit_character = USA_alfred_melville_pride
-recruit_character = USA_daniel_edward_barbey
-
-#APG_samuel_murray_robinson - in APG file
-#APG_david_worth_bagley - in APG file
-#APG_john_sidney_mccain_sr - in APG file
-
-#ACC_william_daniel_leahy - in ACC file
-#ACC_chester_william_nimitz - in ACC file
-#ACC_ernest_joseph_king - in ACC file
-
-#HAW_james_otto_richardson - in HAW file
-
-#NEE_harold_stark - in NEE file
-
-### Military Staff ###
-recruit_character = USA_kenneth_george_althaus
-recruit_character = USA_carl_andrew_spaatz
-recruit_character = USA_ira_clarence_eaker
-recruit_character = USA_hoyt_sanford_vandenberg
-recruit_character = USA_elwood_richard_quesada
-
-### Scientists ###
-recruit_character = USA_charles_macon_wesson
-recruit_character = USA_john_henry_manley
-recruit_character = USA_john_charles_niedermair
-recruit_character = USA_leslie_alfred_skinner
-recruit_character = USA_william_harvey_tschappat
-
-### Character Setup ###
-USA_charles_maynard_cooke_jr = { retire = yes }
-USA_alfred_melville_pride = { retire = yes }
-USA_daniel_edward_barbey = { retire = yes }
-
-### Operatives ###
 if = {
-	limit = { has_dlc_lar = yes }
-	create_operative_leader = {
-		name = USA_william_joseph_donovan
-		GFX = GFX_portrait_USA_william_joseph_donovan_operative
-		traits = { operative_natural_orator operative_tough }
-		bypass_recruitment = no
-		available_to_spy_master = yes
-		nationalities = { WCA USA APG ACC NEE }
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	### Ship Variants ###
+	create_equipment_variant = {
+		name = "Barracuda Class"
+		type = submarine_1
+		upgrades = {
+			ship_reliability_upgrade = 1
+			sub_engine_upgrade = 1
+			sub_stealth_upgrade = 1
+			sub_torpedo_upgrade = 1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Farragut Class"
+		type = destroyer_1
+		upgrades = {
+			ship_torpedo_upgrade = 3
+			destroyer_engine_upgrade = 3
+			ship_ASW_upgrade = 3
+			ship_anti_air_upgrade = 3
+		}
+	}
+	create_equipment_variant = {
+		name = "Portland Class"
+		type = heavy_cruiser_1
+		upgrades = {
+			ship_reliability_upgrade = 2
+			ship_engine_upgrade = 2
+			ship_armor_upgrade = 2
+			ship_gun_upgrade = 2
+		}
+	}
+	create_equipment_variant = {
+		name = "Pennsylvania Class"
+		type = battleship_1
+		upgrades = {
+			ship_reliability_upgrade = 1
+			ship_engine_upgrade = 1
+			ship_armor_upgrade = 1
+			ship_gun_upgrade = 1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "New Mexico Class"
+		type = battleship_1
+		upgrades = {
+			ship_reliability_upgrade = 2
+			ship_engine_upgrade = 2
+			ship_armor_upgrade = 2
+			ship_gun_upgrade = 2
+		}
+	}
+	create_equipment_variant = {
+		name = "Colorado Class"
+		type = battleship_1
+		upgrades = {
+			ship_reliability_upgrade = 3
+			ship_engine_upgrade = 3
+			ship_armor_upgrade = 3
+			ship_gun_upgrade = 4
+		}
+	}
+	create_equipment_variant = {
+		name = "Yorktown Class"
+		type = carrier_2
+		upgrades = {
+			ship_deckspace_upgrade = 1
+			carrier_armor_upgrade = 1
+			ship_engine_upgrade = 1
+			ship_reliability_upgrade = 1
+		}
+	}
+}
+
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	# Submarines #
+	create_equipment_variant = {
+		# represents O/R class, S class
+		name = "S Class"
+		type = ship_hull_submarine_1
+		name_group = USA_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Barracuda Class"		# represents Barracuda, Dolphin, Cachalot classes
+		type = ship_hull_submarine_2
+		name_group = USA_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Porpoise Class"		# represents Porpoise, Shark, and Perch classes
+		type = ship_hull_submarine_2
+		name_group = USA_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_2
+			rear_1_custom_slot = empty
+		}
+	}
+	# Destroyers #
+	create_equipment_variant = {
+		name = "Clemson Class"		# represents Sampson, Caldwell, Clemson, and Wickes classes
+		type = ship_hull_light_1
+		name_group = USA_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = light_ship_engine_1
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Farragut Class"		# represents Farragut, Porter, Mahan classes
+		type = ship_hull_light_1
+		name_group = USA_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	# Light Cruisers #
+	create_equipment_variant = {
+		name = "Omaha Class"
+		type = ship_hull_cruiser_1
+		name_group = USA_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_light_medium_battery_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Brooklyn Class"
+		type = ship_hull_cruiser_2
+		name_group = USA_CL_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_3
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			front_1_custom_slot = ship_light_medium_battery_2
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_anti_air_1
+			rear_1_custom_slot = ship_light_medium_battery_2
+		}
+	}
+	create_equipment_variant = {
+		name = "Oglala Class"		#cruiser minelayers
+		type = ship_hull_cruiser_1
+		name_group = USA_MINELAYERS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_armor_slot = empty
+			mid_1_custom_slot = empty
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_mine_layer_1
+		}
+	}
+	# Heavy Cruisers #
+	create_equipment_variant = {
+		name = "Pensacola Class"		# Pensacola and Northampton classes
+		type = ship_hull_cruiser_1
+		name_group = USA_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_1
+			mid_1_custom_slot = ship_medium_battery_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_airplane_launcher_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Portland Class"		# Portland and New Orleans classes
+		type = ship_hull_cruiser_2
+		name_group = USA_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_medium_battery_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "New Orleans Class"
+		type = ship_hull_cruiser_2
+		name_group = USA_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_anti_air_1
+			rear_1_custom_slot = ship_medium_battery_2
+		}
+	}
+	# Heavy Cruisers #
+	create_equipment_variant = {
+		name = "Wichita Class"
+		type = ship_hull_cruiser_2
+		name_group = USA_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_2
+			fixed_ship_armor_slot = ship_armor_cruiser_3
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_anti_air_1
+			rear_1_custom_slot = ship_medium_battery_2
+		}
+	}
+	# Battleships #
+	create_equipment_variant = {
+		name = "New York Class"		# represents Wyoming (Arkansas) and New York classes
+		type = ship_hull_heavy_1
+		name_group = USA_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_1
+			front_1_custom_slot = empty
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Pennsylvania Class"		# represents Pennsylvania, Nevada, Tennessee, and New Mexico classes
+		type = ship_hull_heavy_1
+		name_group = USA_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_2
+			front_1_custom_slot = ship_anti_air_1
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = ship_secondaries_1
+			rear_1_custom_slot = ship_heavy_battery_1
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Colorado Class"
+		type = ship_hull_heavy_1
+		name_group = USA_BB_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_heavy_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_bb_2
+			front_1_custom_slot = ship_anti_air_1
+			mid_1_custom_slot = ship_secondaries_1
+			mid_2_custom_slot = ship_airplane_launcher_1
+			rear_1_custom_slot = ship_heavy_battery_2
+		}
+	}
+	# Carriers #
+	create_equipment_variant = {
+		name = "Lexington Class"
+		type = ship_hull_carrier_conversion_bb
+		name_group = USA_CV_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = heavy_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			mid_1_custom_slot = ship_deck_space
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Ranger Class"
+		type = ship_hull_carrier_1
+		name_group = USA_CV_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_1
+			fixed_ship_secondaries_slot = empty
+			front_1_custom_slot = ship_deck_space
+		}
+		obsolete = yes
+	}
+	create_equipment_variant = {
+		name = "Yorktown Class"
+		type = ship_hull_carrier_1
+		name_group = USA_CV_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_deck_slot_1 = ship_deck_space
+			fixed_ship_deck_slot_2 = ship_deck_space
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = carrier_ship_engine_2
+			fixed_ship_secondaries_slot = ship_secondaries_2
+			front_1_custom_slot = ship_deck_space
+		}
 	}
 }

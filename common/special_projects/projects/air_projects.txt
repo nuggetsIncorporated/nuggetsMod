@@ -1,13 +1,13 @@
 
- #####    ####   #    #  #####    ####
- #    #  #    #  ##  ##  #    #  #
- #####   #    #  # ## #  #####    ####
- #    #  #    #  #    #  #    #       #
- #    #  #    #  #    #  #    #  #    #
- #####    ####   #    #  #####    ####
+ #####    ####   #    #  #####    ####  
+ #    #  #    #  ##  ##  #    #  #      
+ #####   #    #  # ## #  #####    ####  
+ #    #  #    #  #    #  #    #       # 
+ #    #  #    #  #    #  #    #  #    # 
+ #####    ####   #    #  #####    ####  
 
 sp_air_bouncing_bomb = {
-	specialization = specialization_air
+	specialization = specialization_air 	
 	icon = GFX_sp_air_bouncing_bomb
 
 	project_tags = {
@@ -16,15 +16,15 @@ sp_air_bouncing_bomb = {
 	}
 
 	allowed = {
-		has_dlc_gtd = yes
+		has_dlc = "Gotterdammerung"		
 	}
 
-	available = {
-		# FROM is country
+	available = { 
+		# FROM is country 
 		# THIS/ROOT is project
 		if = {
 			limit = {
-				has_dlc_bba = yes
+				has_dlc = "By Blood Alone"
 			}
 			FROM = {
 				has_tech = heavy_bombs
@@ -41,7 +41,7 @@ sp_air_bouncing_bomb = {
 	breakthrough_cost = {
 		specialization_air = 1
 	}
-
+	
 	resource_cost = {
 		resources = {
 			steel = 4
@@ -50,15 +50,15 @@ sp_air_bouncing_bomb = {
 		}
 	}
 
-	prototype_time = sp_time.prototype.medium
+	prototype_time = sp_time.prototype.medium	
 
-	complexity = sp_complexity.medium
+	complexity = sp_complexity.medium 
 
 	project_output = {
 		country_effects = {
 			custom_effect_tooltip = sp_air_bouncing_bomb_completion_tt
-		}
-	}
+		}		
+	}	
 
 	generic_prototype_rewards = {
 		sp_air_political_interference_generic_reward
@@ -74,25 +74,25 @@ sp_air_bouncing_bomb = {
 		#sp_air_generic_reward_major_progress_3
 		#sp_air_generic_reward_test_failure_1
 		#sp_air_generic_reward_test_failure_2
-		#sp_air_generic_reward_test_failure_3
+		#sp_air_generic_reward_test_failure_3		
 	}
 
 	unique_prototype_rewards = {
 		sp_air_bouncing_bomb_backspin_mechanism_reward = {
 			fire_only_once = yes
-
-			threshold = {
+			
+			threshold = { 
 				min = 0
 				max = 80
 			}
-
+			
 			weight = {
 				base = 1
 			}
-
+			
 			option = {
 				token = sp_air_bouncing_bomb_backspin_mechanism_reward_option
-
+						
 				iteration_output = {
 					country_effects = {
 						FROM = { add_project_progress_ratio = constant:sp_progress.gain.medium }
@@ -100,7 +100,7 @@ sp_air_bouncing_bomb = {
 					scientist_effects = {
 						add_scientist_xp = {
 							experience = constant:sp_scientist_xp_gain.high
-							specialization = specialization_air
+							specialization = specialization_air 
 						}
 					}
 				}
@@ -109,23 +109,23 @@ sp_air_bouncing_bomb = {
 
 		sp_air_bouncing_bomb_training_accidents_reward = {
 			fire_only_once = yes
-
-			threshold = {
+			
+			threshold = { 
 				min = 0
 				max = 80
 			}
-
+			
 			weight = {
 				base = 1
 			}
-
+			
 			option = {
 				token = sp_air_bouncing_bomb_training_accidents_reward_option
-
+						
 				iteration_output = {
 					country_effects = {
 						FROM = { add_project_progress_ratio = -0.02 }
-						air_experience = 25
+						air_experience = 25 
 					}
 				}
 			}
@@ -133,19 +133,19 @@ sp_air_bouncing_bomb = {
 
 		sp_air_bouncing_bomb_type_of_explosives_reward = {
 			fire_only_once = yes
-
-			threshold = {
+			
+			threshold = { 
 				min = 0
 				max = 80
 			}
-
+			
 			weight = {
 				base = 1
 			}
-
+			
 			option = {
 				token = sp_air_bouncing_bomb_type_of_explosives_reward_option
-
+						
 				iteration_output = {
 					#country_effects = {
 					#	FROM = { add_project_progress_ratio = 0.10 }
@@ -153,7 +153,7 @@ sp_air_bouncing_bomb = {
 					scientist_effects = {
 						add_scientist_xp = {
 							experience = constant:sp_scientist_xp_gain.high
-							specialization = specialization_air
+							specialization = specialization_air 
 						}
 					}
 				}
@@ -162,23 +162,23 @@ sp_air_bouncing_bomb = {
 
 		sp_air_bouncing_bomb_aircraft_modifications_reward = {
 			fire_only_once = yes
-
-			threshold = {
+			
+			threshold = { 
 				min = 0
 				max = 80
 			}
-
+			
 			weight = {
 				base = 1
 			}
-
+			
 			option = {
 				token = sp_air_bouncing_bomb_aircraft_modifications_reward_option
-
+						
 				iteration_output = {
 					country_effects = {
 						FROM = { add_project_progress_ratio = constant:sp_progress.gain.low }
-						air_experience = 5
+						air_experience = 5 
 					}
 				}
 			}
@@ -186,8 +186,9 @@ sp_air_bouncing_bomb = {
 	}
 }
 
+
 sp_air_earthshaker_bomb = {
-	specialization = specialization_air
+	specialization = specialization_air 	
 	icon = GFX_sp_air_earthshaker_bomb
 
 	project_tags = {
@@ -196,12 +197,12 @@ sp_air_earthshaker_bomb = {
 	}
 
 	allowed = {
-		has_dlc_gtd = yes
+		has_dlc = "Gotterdammerung"		
 	}
 
-	available = {
+	available = { 
 		if = {
-			limit = { has_dlc_bba = yes }
+			limit = { has_dlc = "By Blood Alone" }
 			FROM = {
 				has_tech = heavy_bombs
 			}
@@ -216,14 +217,14 @@ sp_air_earthshaker_bomb = {
 	breakthrough_cost = {
 		specialization_air = 1
 	}
-
+	
 	resource_cost = {
 		resources = {
 			steel = 4
 			tungsten = 8
 		}
 	}
-
+	
 	prototype_time = sp_time.prototype.long
 
 	complexity = sp_complexity.medium
@@ -233,9 +234,7 @@ sp_air_earthshaker_bomb = {
 			custom_effect_tooltip = sp_air_earthshaker_bomb_completion_tt
 		}
 		enable_equipment_modules = {
-			limit = {
-				has_dlc = "By Blood Alone"
-			}
+			limit = { has_dlc = "By Blood Alone" }
 			earthshaker_bomb_release
 		}
 	}
@@ -254,14 +253,14 @@ sp_air_earthshaker_bomb = {
 		sp_air_generic_reward_major_progress_3
 		sp_air_generic_reward_test_failure_1
 		sp_air_generic_reward_test_failure_2
-		sp_air_generic_reward_test_failure_3
+		sp_air_generic_reward_test_failure_3		
 	}
 
 	unique_prototype_rewards = {
 		sp_air_earthshaker_bomb_unique_reward = {
 			fire_only_once = yes
 
-			threshold = {
+			threshold = { 
 				min = 40
 				max = 90
 			}
@@ -272,17 +271,17 @@ sp_air_earthshaker_bomb = {
 
 			option = {
 				token = sp_air_earthshaker_bomb_preference_naval_targetting
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
-
+							limit = { has_dlc = "By Blood Alone"}							
+						
 							add_equipment_bonus = {
 								name = sp_earthshaker_bomb_naval_targetting
 								bonus = {
 									large_plane_airframe = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										naval_strike_targetting = 0.1
+										naval_strike_targetting = 0.1									
 									}
 								}
 							}
@@ -307,14 +306,14 @@ sp_air_earthshaker_bomb = {
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
-
+							limit = { has_dlc = "By Blood Alone"}							
+						
 							add_equipment_bonus = {
 								name = sp_earthshaker_bomb_power
 								bonus = {
 									large_plane_airframe = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
 										naval_strike_attack = 0.05
-										air_bombing = 0.05
+										air_bombing = 0.05									
 									}
 								}
 							}
@@ -336,12 +335,12 @@ sp_air_earthshaker_bomb = {
 
 			option = {
 				token = sp_air_earthshaker_bomb_preference_both
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
-
+							limit = { has_dlc = "By Blood Alone"}							
+						
 							add_equipment_bonus = {
 								name = sp_earthshaker_bomb_both
 								bonus = {
@@ -349,7 +348,7 @@ sp_air_earthshaker_bomb = {
 										naval_strike_targetting = 0.1
 										naval_strike_attack = 0.05
 										air_bombing = 0.05
-										build_cost_ic = 0.05
+										build_cost_ic = 0.05								
 									}
 								}
 							}
@@ -374,28 +373,32 @@ sp_air_earthshaker_bomb = {
 	}
 }
 
-   ##    #  #####    ####   #####     ##    ######  #####
-  #  #   #  #    #  #    #  #    #   #  #   #         #
- #    #  #  #    #  #       #    #  #    #  #####     #
- ######  #  #####   #       #####   ######  #         #
- #    #  #  #   #   #    #  #   #   #    #  #         #
- #    #  #  #    #   ####   #    #  #    #  #         #
+
+
+
+   ##    #  #####    ####   #####     ##    ######  ##### 
+  #  #   #  #    #  #    #  #    #   #  #   #         #   
+ #    #  #  #    #  #       #    #  #    #  #####     #   
+ ######  #  #####   #       #####   ######  #         #   
+ #    #  #  #   #   #    #  #   #   #    #  #         #   
+ #    #  #  #    #   ####   #    #  #    #  #         #   
+
 
 sp_air_intercontinental_bomber = {
-	specialization = specialization_air
+	specialization = specialization_air 	
 	icon = GFX_sp_air_intercontinental_bomber
 
 	project_tags = sp_tag_aircraft
 
 	allowed = {
-		has_dlc_gtd = yes
+		has_dlc = "Gotterdammerung"	
 	}
 
-	available = {
+	available = { 
 		FROM = {
 			if = {
-				limit = {
-					has_dlc_bba = yes
+				limit = { 
+					has_dlc = "By Blood Alone"
 				}
 				has_tech = improved_large_airframe
 			}
@@ -408,14 +411,14 @@ sp_air_intercontinental_bomber = {
 	breakthrough_cost = {
 		specialization_air = 2
 	}
-
+	
 	resource_cost = {
 		resources = {
 			aluminium = 24
 			rubber = 12
 		}
 	}
-
+	
 	prototype_time = sp_time.prototype.very_long
 
 	complexity = sp_complexity.large
@@ -426,8 +429,25 @@ sp_air_intercontinental_bomber = {
 		}
 
 		country_effects = {
+			if = {
+				limit = {
+					original_tag = GER
+					has_country_flag = GER_amerikabomber_focke_wulf_flag
+				}
+				custom_effect_tooltip = GER_amerikabomber_focke_wulf_name
+				#SCRIPTED EFFECT BOOSTING AMERIKABOMBER
+				GER_amerika_bomber_focke_wulf_completion_SP_effects = yes
+
+				custom_effect_tooltip = generic_skip_one_line_tt
+				#SCRIPTED EFFECT BOOSTING MIO
+				mio:GER_focke_wulf_organization = {
+					GER_amerika_bomber_focke_wulf_completion_MIO_effects = yes
+				}
+			}
 		}
 	}
+
+	
 
 	generic_prototype_rewards = {
 		sp_air_political_interference_generic_reward
@@ -443,14 +463,14 @@ sp_air_intercontinental_bomber = {
 		sp_air_generic_reward_major_progress_3
 		sp_air_generic_reward_test_failure_1
 		sp_air_generic_reward_test_failure_2
-		sp_air_generic_reward_test_failure_3
+		sp_air_generic_reward_test_failure_3	
 	}
 
 	unique_prototype_rewards = {
 		sp_air_intercontinental_bomber_unique_reward = {
 			fire_only_once = yes
 
-			threshold = {
+			threshold = { 
 				min = 40
 				max = 90
 			}
@@ -461,17 +481,17 @@ sp_air_intercontinental_bomber = {
 
 			option = {
 				token = sp_air_intercontinental_bomber_preference_balanced
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
-
+							limit = { has_dlc = "By Blood Alone"}							
+						
 							add_equipment_bonus = {
 								name = sp_air_intercontinental_bomber_balanced
 								bonus = {
 									strat_bomber_intercontinental_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										reliability = 0.05
+										reliability = 0.05									
 									}
 								}
 							}
@@ -492,18 +512,18 @@ sp_air_intercontinental_bomber = {
 
 			option = {
 				token = sp_air_intercontinental_bomber_preference_bombing_payload
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
-
+							limit = { has_dlc = "By Blood Alone"}							
+						
 							add_equipment_bonus = {
 								name = sp_air_intercontinental_bomber_bombing_payload
 								bonus = {
 									strat_bomber_intercontinental_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
 										air_bombing = 0.15
-										air_defence = -0.05
+										air_defence	= -0.05
 										air_attack = -0.1
 									}
 								}
@@ -514,9 +534,9 @@ sp_air_intercontinental_bomber = {
 								name = sp_air_intercontinental_bomber_bombing_payload
 								bonus = {
 									strat_bomber_intercontinental_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										air_bombing = 0.15
-										air_defence = -0.05
-										air_attack = -0.1
+								      air_bombing = 0.15
+										air_defence	= -0.05
+										air_attack = -0.1	
 									}
 								}
 							}
@@ -527,12 +547,12 @@ sp_air_intercontinental_bomber = {
 
 			option = {
 				token = sp_air_intercontinental_bomber_preference_protection
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
-
+							limit = { has_dlc = "By Blood Alone"}							
+						
 							add_equipment_bonus = {
 								name = sp_air_intercontinental_bomber_protection
 								bonus = {
@@ -564,15 +584,15 @@ sp_air_intercontinental_bomber = {
 }
 
 sp_air_mothership_aircraft = {
-	specialization = specialization_air
+	specialization = specialization_air 	
 	icon = GFX_sp_air_mothership_aircraft
 
 	project_tags = sp_tag_aircraft
 
-	complexity = sp_complexity.medium
+	complexity = sp_complexity.medium 
 
 	allowed = {
-		has_dlc_gtd = yes
+		has_dlc = "Gotterdammerung"		
 	}
 
 	generic_prototype_rewards = {
@@ -589,20 +609,20 @@ sp_air_mothership_aircraft = {
 		sp_air_generic_reward_major_progress_3
 		sp_air_generic_reward_test_failure_1
 		#sp_air_generic_reward_test_failure_2
-		sp_air_generic_reward_test_failure_3
+		sp_air_generic_reward_test_failure_3	
 	}
 
-	available = {
+	available = { 
 		if = {
 			limit = {
-				has_dlc_bba = yes
+				has_dlc = "By Blood Alone"
 			}
 			FROM = {
 				has_tech = improved_large_airframe
 			}
 		}
 		else = {
-			FROM = {
+			FROM = { 
 				has_tech = strategic_bomber2
 			}
 		}
@@ -611,14 +631,14 @@ sp_air_mothership_aircraft = {
 	breakthrough_cost = {
 		specialization_air = 2
 	}
-
+	
 	resource_cost = {
 		resources = {
 			aluminium = 18
 			rubber = 8
 		}
 	}
-
+	
 	prototype_time = sp_time.prototype.long
 
 	project_output = {
@@ -634,8 +654,8 @@ sp_air_mothership_aircraft = {
 			custom_effect_tooltip = {
 				localization_key = SP_UNLOCK_TECH
 				TECH = aerial_hangars
-			}
-		}
+			}			
+		}		
 
 		enable_equipments = {
 			mothership_equipment_0
@@ -646,7 +666,7 @@ sp_air_mothership_aircraft = {
 		sp_air_mothership_unique_reward = {
 			fire_only_once = yes
 
-			threshold = {
+			threshold = { 
 				min = 40
 				max = 90
 			}
@@ -657,12 +677,12 @@ sp_air_mothership_aircraft = {
 
 			option = {
 				token = sp_air_mothership_preference_speed_agility
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
-
+							limit = { has_dlc = "By Blood Alone"}							
+						
 							add_equipment_bonus = {
 								name = sp_air_mothership_speed_agility
 								bonus = {
@@ -673,19 +693,19 @@ sp_air_mothership_aircraft = {
 									}
 								}
 							}
-						}
+						}	
 						else = {
 							add_equipment_bonus = {
 								name = sp_air_mothership_speed_agility
 								bonus = {
 									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										air_agility = 0.1
+								      air_agility = 0.1
 										maximum_speed = 0.1
-										fuel_consumption = 0.15
+										fuel_consumption = 0.15							
 									}
 								}
-							}
-						}
+							}						
+						}		
 					}
 				}
 			}
@@ -696,50 +716,50 @@ sp_air_mothership_aircraft = {
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
-
+							limit = { has_dlc = "By Blood Alone"}							
+						
 							add_equipment_bonus = {
 								name = sp_air_mothership_balanced
 								bonus = {
 									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										reliability = 0.1
+										reliability = 0.1									
 									}
 								}
 							}
-						}
+						}							
 						else = {
 							add_equipment_bonus = {
 								name = sp_air_mothership_balanced
 								bonus = {
 									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
-										reliability = 0.1
+										reliability = 0.1									
 									}
 								}
-							}
+							}						
 						}
-					}
+					} 
 				}
 			}
 
 			option = {
 				token = sp_air_mothership_preference_strength
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
-
+							limit = { has_dlc = "By Blood Alone"}							
+						
 							add_equipment_bonus = {
 								name = sp_air_mothership_strength
 								bonus = {
 									mothership_equipment = { #SETUP IN CASE OF HAVING TO BALANCE DIFFERENTLY FOR NON-BBA AND BBA
 										air_defence = 0.1
-										air_attack = 0.1
-										build_cost_ic = 0.1
+										air_attack = 0.1	
+										build_cost_ic = 0.1						
 									}
 								}
 							}
-						}
+						}	
 						else = {
 							add_equipment_bonus = {
 								name = sp_air_mothership_strength
@@ -750,26 +770,28 @@ sp_air_mothership_aircraft = {
 										build_cost_ic = 0.1
 									}
 								}
-							}
+							}						
 						}
 					}
 				}
-			}
-		}
+			}		
+		}	
 	}
 }
 
 
 
-      #  ######  #####   ####
-      #  #         #    #
-      #  #####     #     ####
-      #  #         #         #
- #    #  #         #    #    #
-  ####   ######    #     ####
+      #  ######  #####   ####  
+      #  #         #    #      
+      #  #####     #     ####  
+      #  #         #         # 
+ #    #  #         #    #    # 
+  ####   ######    #     ####  
+
+
 
 sp_air_jet_engine = {
-	specialization = specialization_air
+	specialization = specialization_air 	
 	icon = GFX_sp_air_jet_engine
 
 	project_tags = {
@@ -777,10 +799,10 @@ sp_air_jet_engine = {
 		sp_tag_jet
 	}
 
-	available = {
+	available = { 
 		FROM = {
 			if = {
-				limit = { has_dlc_bba = yes }
+				limit = { has_dlc = "By Blood Alone" }
 				has_tech = engines_2
 				OR = {
 					has_tech = improved_small_airframe
@@ -792,10 +814,10 @@ sp_air_jet_engine = {
 					has_tech = fighter2
 					has_tech = tactical_bomber2
 				}
-			}
+			}	
 		}
 	}
-
+	
 	breakthrough_cost = {
 		specialization_air = 3
 	}
@@ -817,34 +839,33 @@ sp_air_jet_engine = {
 		country_effects = {
 			if = {
 				limit = {
-					has_dlc_gtd = yes
-				}
+				 	has_dlc = "Gotterdammerung" 
+				 }			
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_TECH
 					TECH = sp_centrifugal_jet_tech
 				}
 			}
-			if = {
-				limit = { has_dlc_bba = yes }
-				if = {
-					limit = { date > 1936.1.1 } #ignore calls from the history files
-					add_design_template_bonus = {
-						name = air_equipment
-						uses = 1
-						cost_factor = 0.75
-						equipment = small_plane_airframe
-						equipment = medium_plane_airframe
-						equipment = large_plane_airframe
-					}
-					add_design_template_bonus = {
-						name = air_equipment
-						uses = 1
-						cost_factor = 0.5
-						equipment = small_plane_airframe
-						equipment = medium_plane_airframe
-						equipment = large_plane_airframe
-					}
+			if =  {	
+				limit = {
+					has_dlc = "By Blood Alone"
 				}
+				add_design_template_bonus = {
+					name = air_equipment
+					uses = 1
+					cost_factor = 0.75
+					equipment = small_plane_airframe
+					equipment = medium_plane_airframe
+					equipment = large_plane_airframe
+				}
+				add_design_template_bonus = {
+					name = air_equipment
+					uses = 1
+					cost_factor = 0.5
+					equipment = small_plane_airframe
+					equipment = medium_plane_airframe
+					equipment = large_plane_airframe
+				}				
 			}
 			else = {
 				custom_effect_tooltip = {
@@ -854,7 +875,7 @@ sp_air_jet_engine = {
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_TECH
 					TECH = jet_tac_bomber_equipment_1
-				}
+				}				
 				add_equipment_bonus = {
 					name = sp_air_jet_engine
 					bonus = {
@@ -876,23 +897,19 @@ sp_air_jet_engine = {
 					}
 				}
 			}
-		}
+		}	
 
 		enable_equipment_modules = {
-			limit = {
-				has_dlc = "By Blood Alone"
-			}
+			limit = { has_dlc = "By Blood Alone" }
 			jet_engine_1x
 			jet_engine_2x
 			jet_engine_3x
 			jet_engine_4x
 			jet_engine_6x
 		}
-
+		
 		enable_equipment_modules = {
-			limit = {
-				has_dlc = "No Step Back"
-			}
+			limit = { has_dlc = "No Step Back"}
 			tank_gas_turbine_engine
 		}
 	}
@@ -911,14 +928,14 @@ sp_air_jet_engine = {
 		sp_air_generic_reward_major_progress_3
 		sp_air_generic_reward_test_failure_1
 		sp_air_generic_reward_test_failure_2
-		sp_air_generic_reward_test_failure_3
+		sp_air_generic_reward_test_failure_3		
 	}
-
+	
 	unique_prototype_rewards = {
 		sp_air_jet_engine_unique_reward = {
 			fire_only_once = yes
 
-			threshold = {
+			threshold = { 
 				min = 40
 				max = 90
 			}
@@ -929,11 +946,11 @@ sp_air_jet_engine = {
 
 			option = {
 				token = sp_air_jet_engine_preference_fighter
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
+							limit = { has_dlc = "By Blood Alone"}							
 							add_tech_bonus = {
 								name = sp_air_light_air_tech_bonus
 								bonus = 0.5
@@ -945,27 +962,28 @@ sp_air_jet_engine = {
 							add_equipment_bonus = {
 								name = sp_air_jet_engine_fighter
 								bonus = {
-									jet_tac_bomber_equipment = {
+									jet_tac_bomber_equipment = { 
 										air_ground_attack = -0.05
 										air_range = -0.05
 										build_cost_ic = 0.05
 									}
 								}
 							}
-							add_equipment_bonus = {
+							add_equipment_bonus = {	
 								name = sp_air_jet_engine_fighter
 								bonus = {
 									jet_fighter_equipment = {
 										maximum_speed = 0.05
 										air_agility = 0.05
 										build_cost_ic = -0.05
-									}
+									}	
 								}
-							}
+							}						
 						}
 					}
 				}
 			}
+		
 
 			option = {
 				token = sp_air_jet_engine_preference_compromise
@@ -973,7 +991,8 @@ sp_air_jet_engine = {
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
+							limit = { has_dlc = "By Blood Alone"}							
+						
 
 							add_tech_bonus = {
 								name = sp_air_air_equipment_tech_bonus
@@ -991,14 +1010,14 @@ sp_air_jet_engine = {
 									}
 								}
 							}
-							add_equipment_bonus = {
+							add_equipment_bonus = {	
 								name = sp_air_jet_engine_compromise
 								bonus = {
 									jet_fighter_equipment = {
 										reliability = 0.03
-									}
+									}	
 								}
-							}
+							}						
 						}
 					}
 				}
@@ -1006,11 +1025,11 @@ sp_air_jet_engine = {
 
 			option = {
 				token = sp_air_jet_engine_preference_bomber
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
+							limit = { has_dlc = "By Blood Alone"}							
 							add_tech_bonus = {
 								name = sp_air_medium_air_tech_bonus
 								bonus = 0.5
@@ -1029,26 +1048,26 @@ sp_air_jet_engine = {
 									}
 								}
 							}
-							add_equipment_bonus = {
+							add_equipment_bonus = {	
 								name = sp_air_jet_engine_bomber
 								bonus = {
 									jet_fighter_equipment = {
 										maximum_speed = -0.05
 										air_agility = -0.05
 										build_cost_ic = 0.05
-									}
+									}	
 								}
-							}
+							}						
 						}
 					}
 				}
-			}
-		}
+			}		
+		}	
 	}
 }
 
 sp_air_axial_jet_engine = {
-	specialization = specialization_air
+	specialization = specialization_air 	
 	icon = GFX_sp_air_axial_jet_engine
 
 	project_tags = {
@@ -1060,10 +1079,10 @@ sp_air_axial_jet_engine = {
 		sp_air_jet_engine
 	}
 
-	available = {
+	available = { 
 		FROM = {
 			if = {
-				limit = { has_dlc_bba = yes }
+				limit = { has_dlc = "By Blood Alone" }
 				has_tech = engines_3
 				OR = {
 					has_tech = advanced_small_airframe
@@ -1075,10 +1094,10 @@ sp_air_axial_jet_engine = {
 					has_tech = jet_fighter1
 					has_tech = jet_tactical_bomber1
 				}
-			}
+			}	
 		}
 	}
-
+	
 	breakthrough_cost = {
 		specialization_air = 2
 	}
@@ -1098,7 +1117,7 @@ sp_air_axial_jet_engine = {
 	project_output = {
 		country_effects = {
 			if = {
-				limit = { has_dlc_bba = yes }
+				limit = { has_dlc = "By Blood Alone" }
 				custom_effect_tooltip = {
 					localization_key = SP_UNLOCK_TECH
 					TECH = modern_small_airframe
@@ -1111,26 +1130,23 @@ sp_air_axial_jet_engine = {
 					localization_key = SP_UNLOCK_TECH
 					TECH = modern_large_airframe
 				}
-
-				if = {
-					limit = { date > 1936.1.1 } #ignore calls from the history files
-					add_design_template_bonus = {
-						name = air_equipment
-						uses = 1
-						cost_factor = 0.75
-						equipment = medium_plane_airframe
-						equipment = small_plane_airframe
-						equipment = large_plane_airframe
-					}
-					add_design_template_bonus = {
-						name = air_equipment
-						uses = 1
-						cost_factor = 0.5
-						equipment = small_plane_airframe
-						equipment = medium_plane_airframe
-						equipment = large_plane_airframe
-					}
+						
+				add_design_template_bonus = {
+					name = air_equipment
+					uses = 1
+					cost_factor = 0.75
+					equipment = medium_plane_airframe
+					equipment = small_plane_airframe
+					equipment = large_plane_airframe
 				}
+				add_design_template_bonus = {
+					name = air_equipment
+					uses = 1
+					cost_factor = 0.5
+					equipment = small_plane_airframe
+					equipment = medium_plane_airframe
+					equipment = large_plane_airframe
+				}				
 			}
 			else = {
 				custom_effect_tooltip = {
@@ -1173,14 +1189,12 @@ sp_air_axial_jet_engine = {
 							instant = yes
 						}
 					}
-				}
-			}
-		}
+				}									
+			}	
+		}		
 
 		enable_equipment_modules = {
-			limit = {
-				has_dlc = "By Blood Alone"
-			}
+			limit = { has_dlc = "By Blood Alone"}
 			jet_engine_axial_1x
 			jet_engine_axial_2x
 			jet_engine_axial_3x
@@ -1203,14 +1217,14 @@ sp_air_axial_jet_engine = {
 		sp_air_generic_reward_major_progress_3
 		sp_air_generic_reward_test_failure_1
 		sp_air_generic_reward_test_failure_2
-		sp_air_generic_reward_test_failure_3
+		sp_air_generic_reward_test_failure_3		
 	}
 
 	unique_prototype_rewards = {
 		sp_air_axial_jet_engine_unique_reward = {
 			fire_only_once = yes
 
-			threshold = {
+			threshold = { 
 				min = 40
 				max = 90
 			}
@@ -1221,11 +1235,11 @@ sp_air_axial_jet_engine = {
 
 			option = {
 				token = sp_air_axial_jet_engine_preference_fighter
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
+							limit = { has_dlc = "By Blood Alone"}												
 							add_tech_bonus = {
 								name = sp_air_light_air_tech_bonus
 								bonus = 0.5
@@ -1244,20 +1258,21 @@ sp_air_axial_jet_engine = {
 									}
 								}
 							}
-							add_equipment_bonus = {
+							add_equipment_bonus = {	
 								name = sp_air_jet_engine_fighter_2
 								bonus = {
 									jet_fighter_equipment = {
 										maximum_speed = 0.03
 										air_agility = 0.03
 										build_cost_ic = -0.03
-									}
+									}	
 								}
-							}
+							}													
 						}
 					}
 				}
 			}
+		
 
 			option = {
 				token = sp_air_axial_jet_engine_preference_compromise
@@ -1265,7 +1280,7 @@ sp_air_axial_jet_engine = {
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
+							limit = { has_dlc = "By Blood Alone"}							
 
 							add_tech_bonus = {
 								name = sp_air_air_equipment_tech_bonus
@@ -1283,14 +1298,14 @@ sp_air_axial_jet_engine = {
 									}
 								}
 							}
-							add_equipment_bonus = {
+							add_equipment_bonus = {	
 								name = sp_air_jet_engine_compromise_2
 								bonus = {
 									jet_fighter_equipment = {
 										reliability = 0.05
-									}
+									}	
 								}
-							}
+							}												
 						}
 					}
 				}
@@ -1298,11 +1313,11 @@ sp_air_axial_jet_engine = {
 
 			option = {
 				token = sp_air_axial_jet_engine_preference_bomber
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
+							limit = { has_dlc = "By Blood Alone"}												
 							add_tech_bonus = {
 								name = sp_air_medium_air_tech_bonus
 								bonus = 0.5
@@ -1321,26 +1336,26 @@ sp_air_axial_jet_engine = {
 									}
 								}
 							}
-							add_equipment_bonus = {
+							add_equipment_bonus = {	
 								name = sp_air_jet_engine_bomber_2
 								bonus = {
 									jet_fighter_equipment = {
 										maximum_speed = -0.03
 										air_agility = -0.03
 										build_cost_ic = 0.03
-									}
+									}	
 								}
-							}
+							}												
 						}
 					}
 				}
-			}
-		}
+			}		
+		}	
 	}
 }
 
 sp_air_supersonic_jet = {
-	specialization = specialization_air
+	specialization = specialization_air 	
 	icon = GFX_sp_air_supersonic_jet
 
 	project_tags = {
@@ -1355,13 +1370,13 @@ sp_air_supersonic_jet = {
 	complexity = sp_complexity.large
 
 	allowed = {
-		has_dlc_gtd = yes
+		has_dlc = "Gotterdammerung"		
 	}
-
+	
 	breakthrough_cost = {
 		specialization_air = 2
 	}
-
+	
 	resource_cost = {
 		resources = {
 			aluminium = 24
@@ -1375,10 +1390,7 @@ sp_air_supersonic_jet = {
 	project_output = {
 		country_effects = {
 			if = {
-				limit = {
-					has_dlc_bba = yes
-					date > 1936.1.1 #ignore calls from the history files
-				}
+				limit = { has_dlc = "By Blood Alone" }
 				add_design_template_bonus = {
 					name = sp_air_supersonic_jet_fighter_free_design
 					uses = 1
@@ -1386,21 +1398,21 @@ sp_air_supersonic_jet = {
 					equipment = small_plane_airframe_5
 				}
 			}
-		}
+		}	
 
 		enable_equipments = {
 			limit = {
 				has_dlc = "By Blood Alone"
 			}
-			small_plane_airframe_5
+			small_plane_airframe_5 
 		}
 
 		enable_equipments = {
 			limit = {
 				NOT = { has_dlc = "By Blood Alone" }
 			}
-			supersonic_fighter_equipment_1
-		}
+			supersonic_fighter_equipment_1 
+		}	
 	}
 
 	generic_prototype_rewards = {
@@ -1417,14 +1429,14 @@ sp_air_supersonic_jet = {
 		sp_air_generic_reward_major_progress_3
 		sp_air_generic_reward_test_failure_1
 		sp_air_generic_reward_test_failure_2
-		sp_air_generic_reward_test_failure_3
+		sp_air_generic_reward_test_failure_3		
 	}
 
 	unique_prototype_rewards = {
 		sp_air_supersonic_jet_unique_reward = {
 			fire_only_once = yes
 
-			threshold = {
+			threshold = { 
 				min = 40
 				max = 90
 			}
@@ -1435,11 +1447,11 @@ sp_air_supersonic_jet = {
 
 			option = {
 				token = sp_air_supersonic_jet_preference_cost_reduction
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
+							limit = { has_dlc = "By Blood Alone"}							
 							add_equipment_bonus = {
 								name = sp_air_supersonic_jet_cost_reduction
 								bonus = {
@@ -1463,11 +1475,12 @@ sp_air_supersonic_jet = {
 										build_cost_ic = -0.1
 									}
 								}
-							}
+							}						
 						}
 					}
 				}
 			}
+		
 
 			option = {
 				token = sp_air_supersonic_jet_preference_compromise
@@ -1475,7 +1488,7 @@ sp_air_supersonic_jet = {
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
+							limit = { has_dlc = "By Blood Alone"}												
 							add_equipment_bonus = {
 								name = sp_air_supersonic_jet_compromise
 								bonus = {
@@ -1493,7 +1506,7 @@ sp_air_supersonic_jet = {
 										reliability = 0.05
 									}
 								}
-							}
+							}						
 						}
 					}
 				}
@@ -1501,11 +1514,11 @@ sp_air_supersonic_jet = {
 
 			option = {
 				token = sp_air_supersonic_jet_preference_cost_increase
-
+				
 				iteration_output = {
 					country_effects = {
 						if = {
-							limit = { has_dlc_bba = yes }
+							limit = { has_dlc = "By Blood Alone"}							
 							add_equipment_bonus = {
 								name = sp_air_supersonic_jet_cost_increase
 								bonus = {
@@ -1529,24 +1542,31 @@ sp_air_supersonic_jet = {
 										air_defence = 0.05
 									}
 								}
-							}
+							}						
 						}
 					}
 				}
-			}
-		}
+			}		
+		}	
 	}
 }
 
- #    #  ######  #       #   ####    ####   #####   #####  ######  #####
- #    #  #       #       #  #    #  #    #  #    #    #    #       #    #
- ######  #####   #       #  #       #    #  #    #    #    #####   #    #
- #    #  #       #       #  #       #    #  #####     #    #       #####
- #    #  #       #       #  #    #  #    #  #         #    #       #   #
- #    #  ######  ######  #   ####    ####   #         #    ######  #    #
+
+
+
+
+
+ #    #  ######  #       #   ####    ####   #####   #####  ######  #####  
+ #    #  #       #       #  #    #  #    #  #    #    #    #       #    # 
+ ######  #####   #       #  #       #    #  #    #    #    #####   #    # 
+ #    #  #       #       #  #       #    #  #####     #    #       #####  
+ #    #  #       #       #  #    #  #    #  #         #    #       #   #  
+ #    #  ######  ######  #   ####    ####   #         #    ######  #    # 
+
+
 
 sp_air_helicopter = {
-	specialization = specialization_air
+	specialization = specialization_air 	
 	icon = GFX_sp_air_helicopter
 
 	project_tags = {
@@ -1555,7 +1575,7 @@ sp_air_helicopter = {
 	}
 
 	allowed = {
-		has_dlc_gtd = yes
+		has_dlc = "Gotterdammerung"		
 	}
 
 	breakthrough_cost = {
@@ -1568,7 +1588,7 @@ sp_air_helicopter = {
 			steel = 8
 		}
 	}
-
+	
 	prototype_time = sp_time.prototype.long
 
 	complexity = sp_complexity.medium
@@ -1587,17 +1607,21 @@ sp_air_helicopter = {
 				localization_key = SP_UNLOCK_TECH
 				TECH = sp_helicopter_med_evac_tech
 			}
-		}
+		}		
 
 		enable_equipments = {
-			helicopter_equipment_1
+			helicopter_equipment_1 
 		}
 
-		enable_subunits = {
+		enable_subunits = { 
 			helicopter_brigade
 		}
 
 		enable_equipment_modules = {
+			limit = {
+				has_dlc = "Gotterdammerung"
+				has_dlc = "No Step Back"
+			}
 			lc_helipad #Module for Land Cruiser
 		}
 	}
@@ -1618,14 +1642,14 @@ sp_air_helicopter = {
 		sp_air_generic_reward_major_progress_3
 		sp_air_generic_reward_test_failure_1
 		sp_air_generic_reward_test_failure_2
-		sp_air_generic_reward_test_failure_3
+		sp_air_generic_reward_test_failure_3		
 	}
 
 	unique_prototype_rewards = {
 		sp_air_helicopter_unique_reward = {
 			fire_only_once = yes
 
-			threshold = {
+			threshold = { 
 				min = 40
 				max = 90
 			}
@@ -1636,13 +1660,13 @@ sp_air_helicopter = {
 
 			option = {
 				token = sp_air_helicopter_preference_speed
-
+				
 				iteration_output = {
 					country_effects = {
 						add_equipment_bonus = {
 							name = sp_air_helicopter_speed
 							bonus = {
-								helicopter_equipment = {
+								helicopter_equipment  = {
 									maximum_speed = 0.1
 									fuel_consumption = 0.05
 									build_cost_ic = 0.05
@@ -1652,6 +1676,7 @@ sp_air_helicopter = {
 					}
 				}
 			}
+		
 
 			option = {
 				token = sp_air_helicopter_preference_compromise
@@ -1661,7 +1686,7 @@ sp_air_helicopter = {
 						add_equipment_bonus = {
 							name = sp_air_helicopter_compromise
 							bonus = {
-								helicopter_equipment = {
+								helicopter_equipment  = {
 									reliability = 0.05
 								}
 							}
@@ -1672,13 +1697,13 @@ sp_air_helicopter = {
 
 			option = {
 				token = sp_air_helicopter_preference_protection
-
+				
 				iteration_output = {
-					country_effects = {
+					country_effects = {					
 						add_equipment_bonus = {
 							name = sp_air_helicopter_protection
 							bonus = {
-								helicopter_equipment = {
+								helicopter_equipment  = {
 									armor_value = 0.1
 									defense = 0.1
 									breakthrough = 0.1
@@ -1688,8 +1713,8 @@ sp_air_helicopter = {
 							}
 						}
 					}
-				}
-			}
+				}		
+			}	
 		}
 	}
 }

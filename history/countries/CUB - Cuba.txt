@@ -1,149 +1,173 @@
-capital = 315
-oob = "CUB"
-set_naval_oob = "CUB_naval"
+﻿capital = 478
+oob = "CUB_1936"
 set_research_slots = 3
-set_stability = 0.3
-set_war_support = 0.15
-set_convoys = 10
-starting_train_buffer = 1
-
 set_technology = {
-	### Infantry ###
+	# Base Latin American Tech
+	basic_train = 1
+	gw_artillery = 1
 	infantry_weapons = 1
-
-	### Support ###
+	interwar_antiair = 1
+	tech_engineers = 1
 	tech_support = 1
 	tech_trucks = 1
-
-	### Artillery ###
-	gw_artillery = 1
-
-	### Trains ###
-	basic_train = 1
 }
 
-### Planes - BBA ###
 if = {
-	limit = { has_dlc_bba = yes }
-	set_air_oob = "CUB_air_bba"
-}
-
-### Planes - non BBA ###
-if = {
-	limit = { has_dlc_bba = no }
-	set_air_oob = "CUB_air_legacy"
-	set_technology = { early_fighter = 1 }
-}
-
-### Navy - MtG ###
-if = {
-	limit = { has_dlc_mtg = yes }
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_naval_oob = "CUB_1936_naval_mtg"
 	set_technology = {
-		### Hulls ###
+		# Base Latin American Tech
+		early_ship_hull_cruiser = 1
 		early_ship_hull_light = 1
-
-		### Modules ###
-		basic_naval_mines = 1
+		early_ship_hull_submarine = 1
+		mtg_transport = 1
+		submarine_mine_laying = 1
+		# Cuba Tech
 		basic_battery = 1
-		basic_torpedo = 1
 		basic_depth_charges = 1
+		basic_heavy_battery = 1
+		basic_light_battery = 1
+		basic_medium_battery = 1
+		basic_naval_mines = 1
+		basic_ship_hull_light = 1
+		basic_ship_hull_submarine = 1
+		basic_torpedo = 1
+	}
+	else = {
+		set_naval_oob = "CUB_1936_naval_legacy"
+		set_technology = {
+			# Base Latin American Tech
+			early_destroyer = 1
+			early_light_cruiser = 1
+			early_submarine = 1
+			transport = 1
+			# Cuba Tech
+			basic_destroyer = 1
+			basic_light_cruiser = 1
+			basic_submarine = 1
+			early_battlecruiser = 1
+			early_battleship = 1
+			early_carrier = 1
+			early_heavy_cruiser = 1
+		}
 	}
 }
 
-### Navy - Non MtG ###
-if = {
-	limit = { has_dlc_mtg = no }
-	set_technology = {
-		### Hulls ###
-		early_destroyer = 1
-	}
+set_convoys = 100
+add_ideas = {
+	CUB_Cuban_Militias
+	agrarian_economy
 }
-
-country_event = { id = cuba.254 days = 20 }
-country_event = { id = cuba.1 days = 28 }
-news_event = { id = cuba.226 days = 139 }
-country_event = { id = cuba.223 days = 769 }
-country_event = { id = cuba.241 days = 1162 }
-country_event = { id = cuba.242 days = 1777 }
-country_event = { id = cuba.251 days = 2076 } #Death of Mario Garcia Menocal
-country_event = { id = cuba.224 days = 2212 }
-country_event = { id = cuba.225 days = 2259 }
-country_event = { id = cuba.245 days = 2706 }
 
 set_politics = {
-	ruling_party = social_democrat
-	last_election = "1935.1.28"
+	ruling_party = neutrality
+	last_election = "1936.1.10"
 	election_frequency = 48
-	elections_allowed = no
+	elections_allowed = yes
 }
 
 set_popularities = {
-	totalist = 2
-	radical_socialist = 5
-	syndicalist = 12
-	social_democrat = 40
-	social_liberal = 13
-	market_liberal = 12
-	social_conservative = 10
-	authoritarian_democrat = 4
-	paternal_autocrat = 0
-	national_populist = 2
+	democratic = 10
+	neutrality = 60
+	communism = 10
+	fascism = 3
+	longism = 17
+	progressivism = 0
 }
 
-add_ideas = {
-	CUB_partial_great_depression
-	CUB_american_influence
-	CUB_mixed_regime
-	gitmo_lease_idea
-	free_trade
-	limited_conscription
+recruit_character = CUB_Batista
+recruit_character = CUB_batistageneral
+recruit_character = CUB_jose_barnet 
+recruit_character = CUB_argiz
+
+if = {
+	limit = {
+		not = {
+			has_dlc = "Man the Guns"
+		}
+	}
+	### Ship Variants ###
+	create_equipment_variant = {
+		name = "Guantanamo Class"
+		type = submarine_1
+		upgrades = {
+			ship_reliability_upgrade = 1
+			sub_engine_upgrade = 1
+			sub_stealth_upgrade = 1
+			sub_torpedo_upgrade = 1
+		}
+	}
+	create_equipment_variant = {
+		name = "Nuevitas Class"
+		type = destroyer_1
+		upgrades = {
+			ship_torpedo_upgrade = 3
+			destroyer_engine_upgrade = 3
+			ship_ASW_upgrade = 3
+			ship_anti_air_upgrade = 3
+		}
+	}
+	create_equipment_variant = {
+		name = "Havana Class"
+		type = heavy_cruiser_1
+		upgrades = {
+			ship_reliability_upgrade = 2
+			ship_engine_upgrade = 2
+			ship_armor_upgrade = 2
+			ship_gun_upgrade = 2
+		}
+	}
 }
 
-### Country Leaders ###
-recruit_character = CUB_lazaro_pena_gonzalez
-recruit_character = CUB_sandalio_junco_camellon
-recruit_character = CUB_julio_mella_mcpartland
-recruit_character = CUB_tina_modotti
-recruit_character = CUB_antonio_guiteras_holmes
-recruit_character = CUB_raul_roa_garcia
-recruit_character = CUB_juan_blas_hernandez
-recruit_character = CUB_alberto_bayo_giroud
-recruit_character = CUB_rafael_trejo_gonzalez
-recruit_character = CUB_manuel_bisbe_alberni
-recruit_character = CUB_carlos_cespedes_quesada
-recruit_character = CUB_miguel_mariano_gomez
-recruit_character = CUB_jose_agripino_barnet_y_vinajeras
-recruit_character = CUB_mario_garcia_menocal
-recruit_character = CUB_carlos_prio_socarras
-recruit_character = CUB_clemente_vazquez_bello
-recruit_character = CUB_carlos_mendieta_montefur
-recruit_character = CUB_ramon_grau_san_martin
-recruit_character = CUB_martin_diaz_tamayo
-recruit_character = CUB_alberto_lamar_schweyer
-
-### Advisors ###
-recruit_character = CUB_nicolas_cristobal_guillen_batista
-recruit_character = CUB_jesus_menendez_larrondo
-recruit_character = CUB_francisco_blas_roca_calderio
-recruit_character = CUB_eduardo_rene_chibas_ribas
-recruit_character = CUB_manuel_urrutia_lleo
-recruit_character = CUB_pedro_pablo_cazanas_y_garcia
-recruit_character = CUB_alfredo_ignacio_llaguno_canals
-recruit_character = CUB_ramon_francisco_crusellas_touzet
-recruit_character = CUB_jaime_marine_montes
-
-### Generals ###
-recruit_character = CUB_alberto_herrera_franchi
-recruit_character = CUB_manuel_lopez_migoya
-recruit_character = CUB_genovevo_perez_damera
-recruit_character = CUB_jose_francisco_marti_zayas_bazan
-
-### Admirals ###
-recruit_character = CUB_ernesto_julio_usatorres_ubieta
-
-### Military Staff ###
-recruit_character = CUB_mario_torres_menier
-
-### Characters Recruited by Effect ###
-CUB_genovevo_perez_damera = { retire = yes }
-CUB_jose_francisco_marti_zayas_bazan = { retire = yes }
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	create_equipment_variant = {
+		name = "Guantanamo Class"
+		type = ship_hull_submarine_2
+		name_group = USA_SS_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_torpedo_slot = ship_torpedo_sub_1
+			fixed_ship_engine_slot = sub_ship_engine_1
+			rear_1_custom_slot = empty
+		}
+	}
+	create_equipment_variant = {
+		name = "Nuevitas Class"
+		type = ship_hull_light_1
+		name_group = USA_DD_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_light_battery_2
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = ship_sonar_1
+			fixed_ship_engine_slot = light_ship_engine_2
+			fixed_ship_torpedo_slot = ship_torpedo_1
+			mid_1_custom_slot = ship_torpedo_1
+			rear_1_custom_slot = ship_depth_charge_1
+		}
+	}
+	create_equipment_variant = {
+		name = "Havana Class"
+		type = ship_hull_cruiser_2
+		name_group = USA_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_battery_slot = ship_medium_battery_1
+			fixed_ship_anti_air_slot = ship_anti_air_1
+			fixed_ship_fire_control_system_slot = ship_fire_control_system_0
+			fixed_ship_radar_slot = empty
+			fixed_ship_engine_slot = cruiser_ship_engine_1
+			fixed_ship_secondaries_slot = ship_secondaries_1
+			fixed_ship_armor_slot = ship_armor_cruiser_2
+			mid_1_custom_slot = ship_airplane_launcher_1
+			mid_2_custom_slot = empty
+			rear_1_custom_slot = ship_medium_battery_1
+		}
+	}
+}

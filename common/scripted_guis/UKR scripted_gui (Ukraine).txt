@@ -1,7 +1,0 @@
-scripted_gui = {
-	ukraine_republican_decision_gui = {
-		context_type = decision_category
-		window_name = "ukraine_republican_decision_gui"
-	}
-}
-

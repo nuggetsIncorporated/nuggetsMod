@@ -1,8 +1,0 @@
-spriteTypes = {
-
-	spriteType = {
-		name = "GFX_portrait_BNG_muzaffar_ahmad_civilian_large"
-		texturefile = "gfx/leaders/BNG/BNG_muzaffar_ahmad.png"
-	}
-
-}

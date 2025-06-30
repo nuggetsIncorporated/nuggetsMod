@@ -10,6 +10,7 @@ types = {
 
 #################################################################
 
+
 	mine_sabotage_raid = {
 		days_to_prepare = 90
 
@@ -27,12 +28,19 @@ types = {
 					}
 				}
 			}
+			# modifier = {
+			# 	# Don't waste Fallschirmjägers on this, unless late in the war and it might help us winning
+			# 	factor = 0
+			# 	tag = GER
+			# 	date < 1944.1.1
+			# 	NOT = { surrender_progress > 0 }
+			# }
 		}
 
 		command_power = 25 # command power allocation cost
 
 		allowed = {
-			has_dlc_gtd = yes
+			has_dlc = "Gotterdammerung"
 		}
 		# Raid Type is visible
 		visible = {
@@ -69,7 +77,19 @@ types = {
 		target_type = {
 			state = {
 				steel > 69
-				NOT = { has_dynamic_modifier = { modifier = steel_mines_damaged_modifier } }
+				NOT = {
+					OR = {
+						has_dynamic_modifier = {
+							modifier = steel_mines_damaged_modifier
+						}
+						has_dynamic_modifier = {
+							modifier = steel_mines_critically_damaged_modifier
+						}
+						has_dynamic_modifier = {
+							modifier = steel_mines_lightly_damaged_modifier
+						}
+					}
+				}
 			}
 		}
 		target_icon = GFX_mine_target_icon
@@ -78,11 +98,11 @@ types = {
 
 		launch_sound = raid_launch_paratrooper
 		arrow = {
-			type = air
+		    type = air
 		}
-		unit_model = {
-			type = transport
-		}
+        unit_model = {
+            type = transport
+        }
 
 		starting_point = {
 			types = { air_base }
@@ -127,6 +147,7 @@ types = {
 					start_weight = -0.25
 				}
 
+
 				anti_air = {
 					reference = 5
 					weight = -0.2
@@ -153,6 +174,15 @@ types = {
 
 		success_levels = {
 			failure = {
+			    victim_effects = {
+					# Effects on target
+					#var:target_state = {
+					#	add_dynamic_modifier = {
+					#		modifier = steel_mines_lightly_damaged_modifier
+					#		days = 30
+					#	}
+					#}
+			    }
 				actor_effects = {
 					# Damage to unit
 					raid_damage_units = {
@@ -162,7 +192,7 @@ types = {
 
 					# Unit Experience
 					raid_add_unit_experience = 0.05
-					add_raid_history_entry = yes
+                    add_raid_history_entry = yes
 
 				}
 				# Other unit effects
@@ -172,18 +202,17 @@ types = {
 				visual_effect = {
 					entity = "raid_failed_entity"
 					animation = "attack"
-				}
+					}
 			}
 			limited_success = {
-				victim_effects = {
+			    victim_effects = {
 					var:target_state = {
-						set_variable = { steel_mines_damaged_value = -0.25 }
 						add_dynamic_modifier = {
-							modifier = steel_mines_damaged_modifier
+							modifier = steel_mines_lightly_damaged_modifier
 							days = 90
 						}
 					}
-				}
+			    }
 				actor_effects = {
 					# Damage to unit
 					raid_damage_units = {
@@ -193,7 +222,7 @@ types = {
 
 					# Unit Experience
 					raid_add_unit_experience = 0.1
-					add_raid_history_entry = yes
+                    add_raid_history_entry = yes
 				}
 				division_effects = {
 					add_divisional_commander_xp = 100
@@ -204,15 +233,14 @@ types = {
 				}
 			}
 			success = {
-				victim_effects = {
+			    victim_effects = {
 					var:target_state = {
-						set_variable = { steel_mines_damaged_value = -0.5 }
 						add_dynamic_modifier = {
 							modifier = steel_mines_damaged_modifier
 							days = 120
 						}
 					}
-				}
+			    }
 				actor_effects = {
 					# Damage to unit
 					raid_damage_units = {
@@ -222,7 +250,7 @@ types = {
 
 					# Unit Experience
 					raid_add_unit_experience = 0.2
-					add_raid_history_entry = yes
+                    add_raid_history_entry = yes
 				}
 				# Other unit effects
 				division_effects = {
@@ -231,18 +259,17 @@ types = {
 				visual_effect = {
 					entity = "air_raids_paradrop_success_entity"
 					animation = "attack"
-				}
+					}
 			}
 			critical_success = {
-				victim_effects = {
+			    victim_effects = {
 					var:target_state = {
-						set_variable = { steel_mines_damaged_value = -0.75 }
 						add_dynamic_modifier = {
-							modifier = steel_mines_damaged_modifier
+							modifier = steel_mines_critically_damaged_modifier
 							days = 180
 						}
 					}
-				}
+			    }
 				actor_effects = {
 					# Damage to unit
 					raid_damage_units = {
@@ -250,9 +277,10 @@ types = {
 						str_damage = 0
 					}
 
+
 					# Unit Experience
 					raid_add_unit_experience = 0.35
-					add_raid_history_entry = yes
+                    add_raid_history_entry = yes
 				}
 				# Other unit effects
 				division_effects = {
@@ -261,7 +289,7 @@ types = {
 				visual_effect = {
 					entity = "air_raids_paradrop_critical_success_entity"
 					animation = "attack"
-				}
+					}
 			}
 		}
 	}
@@ -299,7 +327,7 @@ types = {
 		command_power = 25 # command power allocation cost
 
 		allowed = {
-			has_dlc_gtd = yes
+			has_dlc = "Gotterdammerung"
 		}
 		# Raid Type is visible
 		visible = {
@@ -349,11 +377,11 @@ types = {
 
 		launch_sound = raid_launch_paratrooper
 		arrow = {
-			type = air
+		    type = air
 		}
-		unit_model = {
-			type = transport
-		}
+        unit_model = {
+            type = transport
+        }
 
 		starting_point = {
 			types = { air_base }
@@ -419,6 +447,15 @@ types = {
 
 		success_levels = {
 			failure = {
+			    victim_effects = {
+					# Effects on target
+					#var:target_state = {
+					#	add_dynamic_modifier = {
+					#		modifier = steel_mines_lightly_damaged_modifier
+					#		days = 30
+					#	}
+					#}
+			    }
 				actor_effects = {
 					# Damage to unit
 					raid_damage_units = {
@@ -428,7 +465,7 @@ types = {
 
 					# Unit Experience
 					raid_add_unit_experience = 0.05
-					add_raid_history_entry = yes
+                    add_raid_history_entry = yes
 
 				}
 				# Other unit effects
@@ -438,17 +475,17 @@ types = {
 				visual_effect = {
 					entity = "raid_failed_entity"
 					animation = "attack"
-				}
+					}
 			}
 			limited_success = {
-				victim_effects = {
+			    victim_effects = {
 					var:target_state = {
 						add_dynamic_modifier = {
 							modifier = pathfinder_infiltration_modifier
 							days = 20
 						}
 					}
-				}
+			    }
 				actor_effects = {
 					# Damage to unit
 					raid_damage_units = {
@@ -458,7 +495,7 @@ types = {
 
 					# Unit Experience
 					raid_add_unit_experience = 0.1
-					add_raid_history_entry = yes
+                    add_raid_history_entry = yes
 				}
 				division_effects = {
 					add_divisional_commander_xp = 100
@@ -466,17 +503,17 @@ types = {
 				visual_effect = {
 					entity = "air_raids_paradrop_limited_success_entity"
 					animation = "attack"
-				}
+					}
 			}
 			success = {
-				victim_effects = {
+			    victim_effects = {
 					var:target_state = {
 						add_dynamic_modifier = {
 							modifier = pathfinder_infiltration_modifier
 							days = 40
 						}
 					}
-				}
+			    }
 				actor_effects = {
 					# Damage to unit
 					raid_damage_units = {
@@ -486,7 +523,7 @@ types = {
 
 					# Unit Experience
 					raid_add_unit_experience = 0.2
-					add_raid_history_entry = yes
+                    add_raid_history_entry = yes
 				}
 				# Other unit effects
 				division_effects = {
@@ -495,17 +532,17 @@ types = {
 				visual_effect = {
 					entity = "air_raids_paradrop_success_entity"
 					animation = "attack"
-				}
+					}
 			}
 			critical_success = {
-				victim_effects = {
+			    victim_effects = {
 					var:target_state = {
 						add_dynamic_modifier = {
 							modifier = pathfinder_infiltration_modifier
 							days = 60
 						}
 					}
-				}
+			    }
 				actor_effects = {
 					# Damage to unit
 					raid_damage_units = {
@@ -513,9 +550,10 @@ types = {
 						str_damage = 10
 					}
 
+
 					# Unit Experience
 					raid_add_unit_experience = 0.35
-					add_raid_history_entry = yes
+                    add_raid_history_entry = yes
 
 				}
 				# Other unit effects
@@ -525,7 +563,7 @@ types = {
 				visual_effect = {
 					entity = "air_raids_paradrop_critical_success_entity"
 					animation = "attack"
-				}
+					}
 			}
 		}
 	}

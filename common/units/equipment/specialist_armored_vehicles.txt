@@ -6,7 +6,7 @@ equipments = {
 		year = 1936
 
 		can_be_produced = {
-			NOT = { has_country_flag = cannot_produce_armor }
+			
 		}
 
 		is_archetype = yes
@@ -15,16 +15,16 @@ equipments = {
 		picture = archetype_specialist_armored_vehicles
 		type = armor
 		group_by = archetype
-
+		
 		interface_category = interface_category_armor
-
+		
 		upgrades = {
 			tank_reliability_upgrade
 			tank_engine_upgrade
 			tank_armor_upgrade
 			tank_gun_upgrade
 		}
-
+		
 		#Misc Abilities
 		maximum_speed = 8
 		reliability = 0.8
@@ -43,13 +43,13 @@ equipments = {
 
 		#Space taken in convoy
 		lend_lease_cost = 12
-
-		build_cost_ic = 12 #Same as M Tank (12) - less than H Tank (24)
+		
+		build_cost_ic = 12 #Same as M Tank (12) - less than H Tank (24) 
 		resources = {
 			tungsten = 2
 			steel = 3
 		}
-
+		
 		fuel_consumption = 1.8 #Same as M SPG
 	}
 
@@ -62,3 +62,4 @@ equipments = {
 		#is_convertable = yes
 	}
 }
+

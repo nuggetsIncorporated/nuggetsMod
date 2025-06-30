@@ -1,3 +1,0 @@
-opinion_modifiers = {
-	MAF_Refused_Explain = { value = -30 }
-}

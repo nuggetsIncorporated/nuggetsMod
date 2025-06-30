@@ -12,10 +12,10 @@
  raid_category_header_paratrooper_raids: "Paratrooper Raids"
  raid_category_header_naval_commando_raids: "Marine Raids"
  raid_category_header_land_infiltration_raids: "Land Raids"
- tooltip_raid_category_air_raids: "§HAir Bombing raids§!\nAir strikes by a single air wing aimed at striking a specific target."
- tooltip_raid_category_nuclear_raids: "§HNuclear raids§!\nStrikes carried out by strategic bombers or ballistic missiles carrying nuclear weapons."
- tooltip_raid_category_paratrooper_raids: "§HParatrooper raids§!\nSmall scale raids performed by Paradropping special forces dropping behind enemy lines, to conduct dangerous sabotage missions."
- tooltip_raid_category_naval_commando_raids: "§HMarine Commandos raids§!\nSmall scale raids performed by Marines on coastal areas, using small speedboats and similar equipment to make a quick strike and then disappear before the enemy has time to react."
+ tooltip_raid_category_air_raids: "§HAir Bombing raids§! \nAir strikes by a single air wing aimed at striking a specific target."
+ tooltip_raid_category_nuclear_raids: "§HNuclear raids§! \nStrikes carried out by strategic bombers or ballistic missiles carrying nuclear weapons."
+ tooltip_raid_category_paratrooper_raids: "§HParatrooper raids§! \nSmall scale raids performed by Paradropping special forces dropping behind enemy lines, to conduct dangerous sabotage missions."
+ tooltip_raid_category_naval_commando_raids: "§HMarine Commandos raids§! \nSmall scale raids performed by Marines on coastal areas, using small speedboats and similar equipment to make a quick strike and then disappear before the enemy has time to react."
  tooltip_launch_all_button_first: "§GClick§! to launch all ready raids"
  tooltip_launch_all_button_second: "$NUM|H$ raids are ready to launch"
  tooltip_launch_button_enabled: "§GClick§! to launch the raid"
@@ -25,17 +25,17 @@
  tooltip_for_no_items: "§RNo items§!"
  raid_type_facility_strike: "Facility Strike"
  raid_type_facility_strike_desc: "An Airstrike against an enemy Experimental Facility with the goal of inflicting serious damage to the facility, and any project there."
-
+ 
  raid_type_lock_bombing_raid: "Lock Bombing Raid"
  raid_type_lock_bombing_raid_desc: "Aircraft equipped with special bouncing bombs try to destroy the locks, in order to prevent passage through the canal."
  raid_type_lock_bombing_raid_no_bba: "$raid_type_lock_bombing_raid$"
  raid_type_lock_bombing_raid_no_bba_desc: "$raid_type_lock_bombing_raid_desc$"
-
+ 
  raid_type_dam_bombing_raid: "Dam Bombing Raid"
  raid_type_dam_bombing_raid_desc: "Aircraft equipped with special bouncing bombs try to destroy the dam, reducing the effectiveness of it, and making it harder for the enemy to move in the area."
  raid_type_dam_bombing_raid_no_bba: "$raid_type_dam_bombing_raid$"
  raid_type_dam_bombing_raid_no_bba_desc: "$raid_type_dam_bombing_raid_desc$"
-
+ 
  raid_type_gun_emplacement_raid: "Gun Emplacement Strike"
  raid_type_gun_emplacement_raid_desc: "A flight of bombers equipped with an earthshaker bomb try to destroy an emplacement for a $mega_gun_emplacement$"
  raid_type_gun_emplacement_raid_no_bba: "$raid_type_gun_emplacement_raid$"
@@ -65,6 +65,17 @@
  raid_type_airfield_raid: "Airfield Raid"
  raid_type_supply_hub_raid: "Supply Hub Raid"
  raid_type_demo_dam_raid: "Demo Dambusting Raid"
+ raid_type_AUS_reichstag_bombing: "Reichstag Bombing Raid"
+ raid_type_AUS_reichstag_bombing_desc: "By sending group of bombers to attack the enemy's main headquarter, and the symbolic place of Germany's power, we can boost our people's morale, while inflicting a blow to our enemies at the same time."
+ raid_type_ENG_reichstag_bombing: "Reichstag Bombing Raid"
+ raid_type_ENG_reichstag_bombing_desc: "By sending group of bombers to attack the enemy's main headquarter, and the symbolic place of Germany's power, we can boost our people's morale, while inflicting a blow to our enemy's morale at the same time."
+ raid_type_GER_eben_emael_raid: "Eben Emael Raid"
+ raid_type_GER_eben_emael_raid_desc: "A storm detachment of paratroopers and glider troops will attack the strategically placed fortress from above, as well as capturing key bridges, roads, and railways in the area to pave the way for the main attacking force."
+ raid_type_GER_big_ben_bombing: "Big Ben Bombing Raid"
+ raid_type_GER_statue_of_liberty_bombing: "Statue Of Liberty Bombing Raid"
+ raid_type_GER_kremlin_bombing: "Kremlin Bombing Raid"
+ raid_type_ENG_operation_jericho: "Operation Jericho"
+ raid_type_ENG_operation_jericho_desc: "Based on information from the French resistance, Germany holds a large number of Resistance fighters captures in Amiens. By sending in a squadron of planes to blow a hole in the prison walls, we should be able to free a large number of those resistance fighters."
  raid_type_thermonuclear_strike: "Thermonuclear Strike"
  raid_type_thermonuclear_strike_desc: "A strategic bomber and its escort will fly to the designated target and deploy a thermonuclear bomb. The bomber will then attempt to escape the area to avoid being caught in the blast wave."
  raid_type_thermonuclear_missile_strike: "Thermonuclear Missile Strike"
@@ -219,14 +230,33 @@
  raid_building_destroyed_tt: "The §Y$BUILDING$§! is §Rdestroyed§! by the raid."
  raid_building_levels_destroyed_tt: "The §Y$BUILDING$§! loses §R$DESTROY$§! level, and §R$DAMAGE$§! levels are damaged."
 
+ operation_jericho_failure_tt: "The Raid is a complete disaster, none of the prisoners manage to escape. Enemy control of the area increases"
+ operation_jericho_limited_success_tt: "The daring bombing run manages to blow a hole in the prison wall. However, many of the prisoners are injured and or fail to escape."
+ operation_jericho_success_tt: "The daring bombing run manages to blow a big hole in the prison wall. Some of the prisoners are injured or fail to escape, but a substantial number manage to escape, and are picked up by the local resistance."
+ operation_jericho_critical_success_tt: "The daring bombing run manages to blow a huge hole in the prison wall without injuring any of the prisoners. Most prisoners manage to escape, and are picked up by the local resistance."
+
+ operation_huansheng_failure_tt: "The Raid is a complete disaster, none of bombers reach their designated drop-zones, and many are shot down by naval air defenses."
+ operation_huansheng_limited_success_tt: "The daring bombing run manages to deliver leaflets over most of the designated cities. However, most are scattered in inaccessible areas and quickly cleaned up by enemy forces."
+ operation_huansheng_success_tt: "The daring bombing run manages to deliver leaflets over all of the designated cities. Some leaflets are scattered on roofs or in forested areas, but a majority of them land in accessible and populated areas, and are quickly picked up by local residents."
+ operation_huansheng_critical_success_tt: "The daring bombing run manages to deliver leaflets over all of the designated cities. All of them land in accessible and populated areas, and are quickly picked up by local residents, spreading the news of the Japanese invasion far and wide."
+
+
  # History Entries
  commando_port_raid_history_entry: "Having successfully taken part in a $raid_type_commando_port_raid$"
 
  # Modifiers from raids
  dam_blown_modifier: "Dam Blown"
  refinery_damaged_modifier: "Oil Refineries Damaged"
+ refinery_critically_damaged_modifier: "$refinery_damaged_modifier$"
+ refinery_lightly_damaged_modifier: "$refinery_damaged_modifier$"
  steel_mines_damaged_modifier: "Steel Mines Damaged"
+ steel_mines_critically_damaged_modifier: "$steel_mines_damaged_modifier$"
+ steel_mines_lightly_damaged_modifier: "$steel_mines_damaged_modifier$"
  pathfinder_infiltration_modifier: "Pathfinder infiltration"
+ eben_emael_raided_critical_modifier: "$eben_emael_raided_modifier$"
+ eben_emael_raided_success_modifier: "$eben_emael_raided_modifier$" 
+ eben_emael_raided_limited_success_modifier: "$eben_emael_raided_modifier$" 
+ eben_emael_raided_modifier: "Eben Emael Raided"
  kiel_canal_damaged_modifier: "Kiel Canal Damaged"
  kiel_canal_damaged_tt: "Canal blocked due to damage to locks"
  kiel_canal_damaged_tt_NOT: "$kiel_canal_damaged_tt$"
@@ -325,23 +355,60 @@
  raid_target_intel_from_army_intel: "- From army intel over country: $AMOUNT|+1$"
  raid_target_intel_from_navy_intel: "- From navy intel over country: $AMOUNT|+1$"
  raid_target_intel_from_airforce_intel: "- From air force intel over country: $AMOUNT|+1$"
-
+ 
  raid_target_intel_from_network_strength: "- From network strength: $AMOUNT|+1$"
  raid_target_intel_from_controlled_neighbour_states: "- From controlled neighbour states: $AMOUNT|+1$"
  raid_target_intel_from_air_superiority: "- From air superiority: $AMOUNT|+1$"
  raid_target_intel_from_decryption: "- From having broken enemy ciphers: $AMOUNT|+1$"
  raid_target_intel_from_enemy_counter_intel: "- From enemy counter intel: $AMOUNT|+1$"
 
- # Unlock Tooltip
+ # Unlock Tooltip 
  SP_UNLOCK_RAID: "Unlocks Raid: $RAID_TYPE|Y$"
  SP_UNLOCK_RAID_CATEGORY: "Unlocks: $RAID_CATEGORY|Y$"
 
+ 
  raid_category_fluff_text_air_raids: "§LAir Force Command§!"
  raid_category_fluff_text_nuclear_raids: "§LStrategic Command§!"
  raid_category_fluff_text_naval_commando_raids: "§LNavy Command§!"
  raid_category_fluff_text_paratrooper_raids: "§LAirborne Command§!"
  raid_category_fluff_text_land_infiltration_raids: "§LShady Infiltrator Company§!"
 
+ ENG_raid_category_fluff_text_air_raids: "§LRAF Bomber Command§!"
+ ENG_raid_category_fluff_text_nuclear_raids: "§LStrategic Command§!"
+ ENG_raid_category_fluff_text_naval_commando_raids: "§LSpecial Service Brigade§!"
+ ENG_raid_category_fluff_text_paratrooper_raids: "§LSpecial Air Service§!"
+ ENG_raid_category_fluff_text_land_infiltration_raids: "§LLRDG§!"
+ 
+ USA_raid_category_fluff_text_air_raids: "§LUSAAF§!"
+ USA_raid_category_fluff_text_nuclear_raids: "§LStrategic Air Command§!"
+ USA_raid_category_fluff_text_naval_commando_raids: "§LU.S. Army Rangers§!"
+ USA_raid_category_fluff_text_paratrooper_raids: "§LOffice of Strategic Services§!"
+ USA_raid_category_fluff_text_land_infiltration_raids: "§LOffice of Strategic Services§!"
+ 
+ FRA_raid_category_fluff_text_air_raids: "§LForces Aériennes Françaises§!"
+ FRA_raid_category_fluff_text_nuclear_raids: "§LForces Aériennes Françaises§!"
+ FRA_raid_category_fluff_text_naval_commando_raids: "§LCommandos Marine§!"
+ FRA_raid_category_fluff_text_paratrooper_raids: "§LBCRA§!"
+ FRA_raid_category_fluff_text_land_infiltration_raids: "§LBCRA§!"
+
+ ITA_raid_category_fluff_text_air_raids: "§LRegia Aeronautica§!"
+ ITA_raid_category_fluff_text_nuclear_raids: "§LRegia Aeronautica§!"
+ ITA_raid_category_fluff_text_naval_commando_raids: "§LDecima Flottiglia MAS§!"
+ ITA_raid_category_fluff_text_paratrooper_raids: "§LArditi§!"
+ ITA_raid_category_fluff_text_land_infiltration_raids: "§LArditi§!"
+ 
+ GER_raid_category_fluff_text_air_raids: "§LKG 100§!"
+ GER_raid_category_fluff_text_nuclear_raids: "§LKG 100§!"
+ GER_raid_category_fluff_text_naval_commando_raids: "§LKriegsmarine§!"
+ GER_raid_category_fluff_text_paratrooper_raids: "§LFallschirmjäger§!"
+ GER_raid_category_fluff_text_land_infiltration_raids: "§LBrandenburg Division§!"
+
+ JAP_raid_category_fluff_text_air_raids: "§LImperial Army Air Service§!"
+ JAP_raid_category_fluff_text_nuclear_raids: "§LImperial Army Air Service§!"
+ JAP_raid_category_fluff_text_naval_commando_raids: "§LSNLF§!"
+ JAP_raid_category_fluff_text_paratrooper_raids: "§LTeishin Shudan§!"
+ JAP_raid_category_fluff_text_land_infiltration_raids: "§LGiretsu Kuteitai§!"
+ 
  raid_unit_requirements_equipment_header: "- $EQUIPMENT$ x$AMOUNT|H$"
  raid_unit_requirements_module_header: "§HModules:§!"
  raid_unit_requirements_module: "$NAME$"
@@ -362,16 +429,17 @@
  raid_canceled_title: "Raid Canceled"
  raid_canceled_cannot_unassign_unit: "$UNIT|H$ is currently busy with other orders and cannot be unassigned.\n\n$RAID|H$ has been canceled."
  raid_canceled_cannot_reach_source: "$UNIT|H$ was unable to reach $SOURCE$.\n\n$RAID|H$ has been canceled."
- raid_canceled_source_moved_out_of_range: "$SOURCE|H$ was moved out of range of its raid target.\n\n$RAID|H$ has been canceled."
+ raid_canceled_source_moved_out_of_range: "$SOURCE|H$ was moved out of range of its raid target. \n\n$RAID|H$ has been canceled."
  raid_canceled_no_unit: "The unit assigned to $RAID|H$ does no longer exist."
-
+ 
  raid_unit_not_yet_at_source: "$UNIT|H$ is on its way to $SOURCE$."
-
+ 
  nuclear_bomb: "Nuclear Bomb"
  thermonuclear_bomb: "Thermonuclear Bomb"
 
  raid_target_name_victory_point: "$VICTORY_POINT|H$"
  raid_target_name_mine: "£resources_strip|5 §HMine§! in $LOCATION|H$"
  raid_target_name_oil_field: "£resources_strip|1 §HOil Field§! in $LOCATION|H$"
+ raid_target_name_eben_emael: "§HEben Emael Fortress§!"
  raid_target_name_pathfinder_raid: "$LOCATION|H$ landings"
  raid_target_name_thermonuclear: "$LOCATION|H$"

@@ -1,0 +1,13 @@
+state = {
+	id = 496
+	name = "STATE_496"
+	provinces = {
+		7029
+	}
+	history = {
+		owner = GAY
+	}
+	manpower = 10
+	buildings_max_level_factor = 1
+	state_category = wasteland
+}

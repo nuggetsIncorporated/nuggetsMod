@@ -25,6 +25,14 @@ types = {
 				}
 			}
 			modifier = {
+				factor = 5 # Historical bombing of Japan
+				FROM = {
+					original_tag = JAP
+				}
+				original_tag = USA
+				has_war_with = FROM
+			}
+			modifier = {
 				factor = 0.25 # If possible, during peacetime, prepare strikes against the main enemies
 				NOT = { has_war_with = FROM }
 				FROM = { is_major = no }
@@ -32,7 +40,7 @@ types = {
 		}
 
 		allowed = {
-
+			
 		}
 		# Raid Type is visible
 		visible = {
@@ -71,15 +79,15 @@ types = {
 		}
 
 		starting_point = {
-			types = { air_base }
+		    types = { air_base }
 		}
 
 		arrow = {
 			type = air
 		}
-		unit_model = {
-			type = equipment
-		}
+        unit_model = {
+            type = equipment
+        }
 
 		success_factors = {
 			success = {
@@ -104,11 +112,15 @@ types = {
 					weight = 0.1
 				}
 
+
+
 				air_superiority = {
 					reference = 1.0
 					start_weight = -0.25
 					weight = 0.25
 				}
+
+
 
 				# Target
 				interception = {
@@ -140,6 +152,7 @@ types = {
 						plane_loss = 0.75
 						ratio = yes
 					}
+
 				}
 			}
 			limited_success = {
@@ -168,7 +181,7 @@ types = {
 				}
 			}
 			success = {
-				custom_sound = raid_result_success_nuclear
+			    custom_sound = raid_result_success_nuclear
 				actor_effects = {
 					raid_damage_units = {
 						plane_loss = 0.1
@@ -193,7 +206,7 @@ types = {
 				}
 			}
 			critical_success = {
-				custom_sound = raid_result_critical_success_nuclear
+			    custom_sound = raid_result_critical_success_nuclear
 				actor_effects = {
 					raid_add_unit_experience = 0.5
 				}
@@ -211,6 +224,7 @@ types = {
 							days = 730
 						}
 					}
+					
 				}
 			}
 		}
@@ -236,6 +250,13 @@ types = {
 			}
 			modifier = {
 				factor = 2
+				OR = {
+					original_tag = USA
+					#original_tag = SOV
+				}
+			}
+			modifier = {
+				factor = 2
 				FROM = {
 					is_major = yes
 				}
@@ -250,7 +271,7 @@ types = {
 		command_power = 5 # command power allocation cost
 
 		allowed = {
-			has_dlc_gtd = yes
+			has_dlc = "Gotterdammerung"
 		}
 		# Raid Type is visible
 		visible = {
@@ -287,21 +308,21 @@ types = {
 		}
 
 		starting_point = {
-			types = {
-				rocket_site
-				submarine
-			}
+		    types = {
+		        rocket_site
+		        submarine
+		    }
 		}
 		arrow = {
-			type = ballistic
+		    type = ballistic
 		}
 
 		launch_sound = raid_launch_nuclear_missile
 
-		unit_model = {
-			type = equipment
-			scale = 0.5
-		}
+        unit_model = {
+            type = equipment
+            scale = 0.5
+        }
 
 		success_factors = {
 			success = {
@@ -313,6 +334,8 @@ types = {
 				}
 			}
 		}
+
+
 
 		success_levels = {
 			failure = {
@@ -330,7 +353,7 @@ types = {
 				}
 			}
 			success = {
-				custom_sound = raid_result_success_nuclear
+			    custom_sound = raid_result_success_nuclear
 				actor_effects = {
 				}
 				victim_effects = {
@@ -350,7 +373,7 @@ types = {
 				}
 			}
 			critical_success = {
-				custom_sound = raid_result_critical_success_nuclear
+			    custom_sound = raid_result_critical_success_nuclear
 				actor_effects = {
 				}
 				victim_effects = {
@@ -390,6 +413,13 @@ types = {
 			}
 			modifier = {
 				factor = 2
+				OR = {
+					original_tag = USA
+					#original_tag = SOV
+				}
+			}
+			modifier = {
+				factor = 2
 				FROM = {
 					is_major = yes
 				}
@@ -404,7 +434,7 @@ types = {
 		command_power = 20 # command power allocation cost
 
 		allowed = {
-			has_dlc_gtd = yes
+			has_dlc = "Gotterdammerung"
 		}
 		# Raid Type is visible
 		visible = {
@@ -446,15 +476,15 @@ types = {
 		}
 
 		starting_point = {
-			types = { air_base }
+		    types = { air_base }
 		}
 
 		arrow = {
 			type = air
 		}
-		unit_model = {
-			type = equipment
-		}
+        unit_model = {
+            type = equipment
+        }
 
 		success_factors = {
 			success = {
@@ -479,11 +509,15 @@ types = {
 					weight = 0.1
 				}
 
+
+
 				air_superiority = {
 					reference = 1.0
 					start_weight = -0.25
 					weight = 0.25
 				}
+
+
 
 				# Target
 				interception = {
@@ -515,6 +549,7 @@ types = {
 						plane_loss = 0.5
 						ratio = yes
 					}
+
 				}
 			}
 			limited_success = {
@@ -530,7 +565,7 @@ types = {
 				}
 			}
 			success = {
-				custom_sound = raid_result_success_nuclear
+			    custom_sound = raid_result_success_nuclear
 				actor_effects = {
 					raid_damage_units = {
 						plane_loss = 0.05
@@ -543,11 +578,11 @@ types = {
 						custom_effect_tooltip = raid_nuclear_strike_tt
 						hidden_effect = {
 							IF = {
-								limit = {
+								limit = { 
 									has_dynamic_modifier = {
 										modifier = fallout_atomic
 									}
-								}
+								}	
 								remove_dynamic_modifier = {
 									modifier = fallout_atomic
 								}
@@ -568,7 +603,7 @@ types = {
 				}
 			}
 			critical_success = {
-				custom_sound = raid_result_critical_success_nuclear
+			    custom_sound = raid_result_critical_success_nuclear
 				actor_effects = {
 					raid_add_unit_experience = 0.5
 				}
@@ -577,11 +612,11 @@ types = {
 						custom_effect_tooltip = raid_nuclear_strike_tt
 						hidden_effect = {
 							IF = {
-								limit = {
+								limit = { 
 									has_dynamic_modifier = {
 										modifier = fallout_atomic
 									}
-								}
+								}	
 								remove_dynamic_modifier = {
 									modifier = fallout_atomic
 								}
@@ -604,6 +639,7 @@ types = {
 		}
 	}
 
+
 	thermonuclear_missile_strike = {
 		category = nuclear_raids
 
@@ -624,6 +660,13 @@ types = {
 			}
 			modifier = {
 				factor = 2
+				OR = {
+					original_tag = USA
+					#original_tag = SOV
+				}
+			}
+			modifier = {
+				factor = 2
 				FROM = {
 					is_major = yes
 				}
@@ -638,7 +681,7 @@ types = {
 		command_power = 5 # command power allocation cost
 
 		allowed = {
-			has_dlc_gtd = yes
+			has_dlc = "Gotterdammerung"
 		}
 		# Raid Type is visible
 		visible = {
@@ -676,21 +719,21 @@ types = {
 		}
 		nuke_type = thermonuclear_bomb
 		starting_point = {
-			types = {
-				rocket_site
-				submarine
-			}
+		    types = {
+		        rocket_site
+		        submarine
+		    }
 		}
 		arrow = {
-			type = ballistic
+		    type = ballistic
 		}
 
 		launch_sound = raid_launch_nuclear_missile
 
-		unit_model = {
-			type = equipment
-			scale = 0.5
-		}
+        unit_model = {
+            type = equipment
+            scale = 0.5
+        }
 
 		success_factors = {
 			success = {
@@ -719,7 +762,7 @@ types = {
 				}
 			}
 			success = {
-				custom_sound = raid_result_success_nuclear
+			    custom_sound = raid_result_success_nuclear
 				actor_effects = {
 				}
 				victim_effects = {
@@ -740,7 +783,7 @@ types = {
 				}
 			}
 			critical_success = {
-				custom_sound = raid_result_critical_success_nuclear
+			    custom_sound = raid_result_critical_success_nuclear
 				actor_effects = {
 				}
 				victim_effects = {

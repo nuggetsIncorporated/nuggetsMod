@@ -1,576 +1,471 @@
-army = {
+﻿army = {
 	gfx = GFX_theatre_army_shield
-
+	
 	icon = {
 		#Example of icon script, corresponding to the frame index in the .dds files
 		#color_override = no
 		#name = "EQUAL_ICON"
-		#available = {
+		#available = 
+		#{
 		#	tag = CHI
 		#}
 	}
 	icon = {
 	}
 	icon = {
-	}
-	icon = {
-	}
-	icon = {
-	}
-	icon = {
-	}
-	icon = {
-	}
-	icon = {
-	}
-	icon = {
-	}
-	icon = {
-	}
-	icon = {
-	}
-	icon = {
-	}
-	icon = {
-	}
-	icon = {
+		color_override = no
+		name = "Monarchy"
 	}
 	icon = {
 		color_override = no
-		name = "4. Armee"
-		available = {
-			tag = GER
-		}
+		name = "Democracy"
 	}
 	icon = {
 		color_override = no
-		name = "16. Armee"
-		available = {
-			tag = GER
-		}
+		name = "Fascism"
+	}	
+	icon = {
+		color_override = no
+		name = "Communism"
 	}
 	icon = {
 		color_override = no
-		name = "1. Panzerarmee"
-		available = {
-			tag = GER
-		}
+		name = "Union"
 	}
 	icon = {
 		color_override = no
-		name = "V. Armeekorps"
-		available = {
-			tag = GER
-		}
+		name = "Communist Union"
 	}
 	icon = {
 		color_override = no
-		name = "6. Armee"
-		available = {
-			tag = GER
-		}
+		name = "Fascist Union"
 	}
 	icon = {
 		color_override = no
-		name = "7. Armee"
-		available = {
-			tag = GER
-		}
+		name = "CSA"
 	}
 	icon = {
 		color_override = no
-		name = "2. Armee"
-		available = {
-			tag = GER
-		}
+		name = "Virgina Battle flag"
+	}	
+	icon = {
+		color_override = no
+		name = "Russian"
+	}	
+	icon = {
+		color_override = no
+		name = "Barbados"
+	}	
+	icon = {
+		color_override = no
+		name = "Ontario"
 	}
 	icon = {
 		color_override = no
-		name = "2. Panzerarmee"
-		available = {
-			tag = GER
-		}
+		name = "Red CSA"
 	}
 	icon = {
 		color_override = no
-		name = "10. Armee"
-		available = {
-			tag = GER
-		}
+		name = "Mex"
 	}
 	icon = {
 		color_override = no
-		name = "11. Armee"
-		available = {
-			tag = GER
-		}
+		name = "Red Mex"
 	}
 	icon = {
 		color_override = no
-		name = "14. Armee"
-		available = {
-			tag = GER
-		}
+		name = "Southern Cross"
 	}
 	icon = {
 		color_override = no
-		name = "17. Armee"
-		available = {
-			tag = GER
-		}
+		name = "Georgia"
+	}	
+	icon = {
+		color_override = no
+		name = "Hawaii"
 	}
 	icon = {
 		color_override = no
-		name = "18. Armee"
-		available = {
-			tag = GER
-		}
+		name = "Kingdom of Albania Flag"
+	}	
+	icon = {
+		color_override = no
+		name = "France"
 	}
 	icon = {
 		color_override = no
-		name = "Panzergruppe H"
-		available = {
-			tag = GER
-		}
+		name = "Japan"
 	}
 	icon = {
 		color_override = no
-		name = "Panzergruppe E"
-		available = {
-			tag = GER
-		}
+		name = "Quebec"
 	}
 	icon = {
 		color_override = no
-		name = "Panzergruppe Z"
-		available = {
-			tag = GER
-		}
+		name = "Disney"
 	}
 	icon = {
 		color_override = no
-		name = "Panzergruppe A"
-		available = {
-			tag = GER
-		}
+		name = "Anglo Israelism"
 	}
 	icon = {
 		color_override = no
-		name = "Panzergruppe D"
-		available = {
-			tag = GER
-		}
+		name = "Republicans"
 	}
 	icon = {
 		color_override = no
-		name = "First Army"
-		available = {
-			tag = ENG
-		}
+		name = "Democrats"
 	}
 	icon = {
 		color_override = no
-		name = "Second Army"
-		available = {
-			tag = ENG
-		}
+		name = "Saskatchewan"
 	}
 	icon = {
 		color_override = no
-		name = "Eighth Army"
-		available = {
-			tag = ENG
-		}
+		name = "Manitoba"
 	}
 	icon = {
 		color_override = no
-		name = "Tenth Army"
-		available = {
-			tag = ENG
-		}
+		name = "Alberta"
 	}
 	icon = {
 		color_override = no
-		name = "Fourteenth Army"
-		available = {
-			tag = ENG
-		}
+		name = "Colorado"
 	}
 	icon = {
 		color_override = no
-		name = "Northern Command"
-		available = {
-			tag = ENG
-		}
+		name = "Florida"
 	}
 	icon = {
 		color_override = no
-		name = "Eastern Command"
-		available = {
-			tag = ENG
-		}
+		name = "Freekorps"
 	}
 	icon = {
 		color_override = no
-		name = "Western Command"
-		available = {
-			tag = ENG
-		}
+		name = "Louisiana"
 	}
 	icon = {
 		color_override = no
-		name = "Southern Command"
-		available = {
-			tag = ENG
-		}
+		name = "Cristeros"
 	}
 	icon = {
 		color_override = no
-		name = "Aldershot Command"
-		available = {
-			tag = ENG
-		}
+		name = "Ohio1"
 	}
 	icon = {
 		color_override = no
-		name = "Scottish Command"
-		available = {
-			tag = ENG
-		}
+		name = "Ohio2"
 	}
 	icon = {
 		color_override = no
-		name = "8th Army"
-		available = {
-			tag = USA
-		}
+		name = "Cuba"
 	}
 	icon = {
 		color_override = no
-		name = "1st Army"
-		available = {
-			tag = USA
-		}
+		name = "Maryland"
 	}
 	icon = {
 		color_override = no
-		name = "2nd Army"
-		available = {
-			tag = USA
-		}
+		name = "North Carolina"
 	}
 	icon = {
 		color_override = no
-		name = "3rd Army"
-		available = {
-			tag = USA
-		}
+		name = "Texas"
 	}
 	icon = {
 		color_override = no
-		name = "5th Army"
-		available = {
-			tag = USA
-		}
+		name = "South Carolina"
 	}
 	icon = {
 		color_override = no
-		name = "6th Army"
-		available = {
-			tag = USA
-		}
+		name = "Vinland"
 	}
 	icon = {
 		color_override = no
-		name = "7th Army"
-		available = {
-			tag = USA
-		}
+		name = "Navajo"
 	}
 	icon = {
 		color_override = no
-		name = "9th Army"
-		available = {
-			tag = USA
-		}
+		name = "Haida"
 	}
 	icon = {
 		color_override = no
-		name = "1re Armée"
-		available = {
-			tag = FRA
-		}
+		name = "Illinois"
 	}
 	icon = {
 		color_override = no
-		name = "Forces françaises libres"
-		available = {
-			tag = FRA
-		}
+		name = "Communist Massachusetts"
 	}
 	icon = {
 		color_override = no
-		name = "2e Armée"
-		available = {
-			tag = FRA
-		}
+		name = "Massachusetts"
+	}
+	icon = {
+		color_override = no
+		name = "Cascadia"
+	}
+	icon = {
+		color_override = no
+		name = "Jeffersonia"
+	}
+	icon = {
+		color_override = no
+		name = "Anarchists"
+	}
+	icon = {
+		color_override = no
+		name = "Maoists"
+	}
+	icon = {
+		color_override = no
+		name = "Jolly Roger"
+	}
+	icon = {
+		color_override = no
+		name = "Hobos"
+	}
+	icon = {
+		color_override = no
+		name = "Newfoundland"
+	}
+	icon = {
+		color_override = no
+		name = "Indiana"
+	}
+	icon = {
+		color_override = no
+		name = "Russian Tsarist Flag"
+	}
+	icon = {
+		color_override = no
+		name = "Russian Navy Flag"
+	}
+	icon = {
+		color_override = no
+		name = "Soviet Navy Flag"
+	}
+	icon = {
+		color_override = no
+		name = "Kansas"
+	}
+	icon = {
+		color_override = no
+		name = "Michigan"
+	}
+	icon = {
+		color_override = no
+		name = "Mississippi"
+	}
+	icon = {
+		color_override = no
+		name = "Mississippi 2"
+	}
+	icon = {
+		color_override = no
+		name = "Klan"
+	}
+	icon = {
+		color_override = no
+		name = "Oklahoma"
+	}
+	icon = {
+		color_override = no
+		name = "French Tank Insignia"
+	}
+	icon = {
+		color_override = no
+		name = "Tennessee"
+	}
+	icon = {
+		color_override = no
+		name = "British Flag"
+	}
+	icon = {
+		color_override = no
+		name = "New Mexico"
+	}
+	icon = {
+		color_override = no
+		name = "New York"
+	}
+	icon = {
+		color_override = no
+		name = "New York City Flag"
+	}
+	icon = {
+		color_override = no
+		name = "New Jeresey"
+	}
+	icon = {
+		color_override = no
+		name = "New Hampshire"
+	}
+	icon = {
+		color_override = no
+		name = "Vermont"
+	}
+	icon = {
+		color_override = no
+		name = "Maine"
+	}
+	icon = {
+		color_override = no
+		name = "Deseret"
+	}
+	icon = {
+		color_override = no
+		name = "Utah Beehive"
+	}
+	icon = {
+		color_override = no
+		name = "Canada Flag"
+	}
+	icon = {
+		color_override = no
+		name = "Free Canada Flag"
 	}
 	icon = {
 		color_override = no
 		name = "1. Allied Army"
-		available = {
-			has_democratic_government = yes
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			has_government = democratic
 		}
 	}
 	icon = {
 		color_override = no
 		name = "1. Homeland Defense Army"
-		available = {
-			has_authoritarian_government = yes
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			has_government = fascism
 		}
 	}
 	icon = {
 		color_override = no
 		name = "Sunflower Defense Corps"
-		available = {
-			has_elected_government = yes
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			has_government = neutrality
 		}
 	}
 	icon = {
 		color_override = no
 		name = "I. Army"
-		available = {
-			NOT = {
-				tag = FRA
-				tag = GER
-				tag = ENG
-				tag = USA
-				tag = RUS
-			}
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			
 		}
 	}
 	icon = {
 		color_override = no
 		name = "II. Army"
-		available = {
-			NOT = {
-				tag = FRA
-				tag = GER
-				tag = ENG
-				tag = USA
-				tag = RUS
-			}
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			
 		}
 	}
 	icon = {
 		color_override = no
 		name = "III. Army"
-		available = {
-			NOT = {
-				tag = FRA
-				tag = GER
-				tag = ENG
-				tag = USA
-				tag = RUS
-			}
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			
+			
 		}
 	}
-	icon = {
+	icon = 
+	{
 		color_override = no
 		name = "1. Celestial Penetration Army"
-		available = {
-			has_authoritarian_government = yes
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			has_government = fascism
 		}
 	}
 	icon = {
 		color_override = no
 		name = "1. Liberation Army"
-		available = {
-			has_socialist_government = yes
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			has_government = communism
 		}
 	}
 	icon = {
 		color_override = no
 		name = "IV. Army"
-		available = {
-			NOT = {
-				tag = FRA
-				tag = GER
-				tag = ENG
-				tag = USA
-				tag = RUS
-			}
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			
 		}
 	}
 	icon = {
 		color_override = no
 		name = "V. Army"
-		available = {
-			NOT = {
-				tag = FRA
-				tag = GER
-				tag = ENG
-				tag = USA
-				tag = RUS
-			}
-		}
-	}
-	icon = {
-		color_override = no
-		name = "7. Guards"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "41. Guards"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "90. Tanks"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "8. Artillery"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "1443. Artillery"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "76. Tanks"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "3. Guards Mechanized"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "3. Tanks"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "213. Tanks"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "8. Mechanized"
-		available = {
-			tag = RUS
-		}
-	}
-	icon = {
-		color_override = no
-		name = "Turkish 1"
-		available = {
-			has_dlc = "Battle for the Bosporus"
-			tag = TUR
-		}
-	}
-	icon = {
-		color_override = no
-		name = "Turkish 2"
-		available = {
-			has_dlc = "Battle for the Bosporus"
-			tag = TUR
-		}
-	}
-	icon = {
-		color_override = no
-		name = "Greek 1"
-		available = {
-			has_dlc = "Battle for the Bosporus"
-			tag = GRE
-		}
-	}
-	icon = {
-		color_override = no
-		name = "Greek 2"
-		available = {
-			has_dlc = "Battle for the Bosporus"
-			tag = GRE
-		}
-	}
-	icon = {
-		color_override = no
-		name = "Greek 3"
-		available = {
-			has_dlc = "Battle for the Bosporus"
-			tag = GRE
-		}
-	}
-	icon = {
-		color_override = no
-		name = "Bulgarian 1"
-		available = {
-			has_dlc = "Battle for the Bosporus"
-			tag = BUL
-		}
-	}
-	icon = {
-		color_override = no
-		name = "Bulgarian 2"
-		available = {
-			has_dlc = "Battle for the Bosporus"
-			tag = BUL
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+			
 		}
 	}
 }
 
 army_group = {
 	gfx = GFX_theatre_army_group_shield
-
+	
 	icon = {
 	}
 	icon = {
 		color_override = no
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+		}
 	}
 	icon = {
 		color_override = no
 		name = "15. Army Group"
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+		}
 	}
 	icon = {
 		color_override = no
 		name = "12. Army Group"
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+		}
 	}
 	icon = {
 		color_override = no
 		name = "6. Army Group"
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+		}
 	}
 	icon = {
 		color_override = no
+		available = 
+		{
+			has_dlc = "Waking the Tiger"
+		}
 	}
 }
 
 fleet = {
 	gfx = GFX_theatre_task_force_shield
-
+	
 	icon = {
 	}
 	icon = {
@@ -637,7 +532,7 @@ fleet = {
 
 task_force = {
 	gfx = GFX_theatre_task_force_shield
-
+	
 	icon = {
 	}
 	icon = {
@@ -704,7 +599,7 @@ task_force = {
 
 naval_equipment_role = {
 	gfx = GFX_naval_equipment_role_icons
-
+	
 	icon = {
 		color_override = no
 		name = "Battery"
@@ -741,7 +636,7 @@ naval_equipment_role = {
 
 equipment_niche_insignias = {
 	gfx = GFX_niche_icon_strip
-
+	
 	icon = {
 	}
 	icon = {
@@ -845,5 +740,5 @@ air_niche = {
 	icon = {
 	}
 	icon = {
-	}
+	}	
 }

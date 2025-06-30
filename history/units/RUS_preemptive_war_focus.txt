@@ -1,4 +1,0 @@
-focus = {
-	current = RUS_preemptive_war
-	progress = 0
-}

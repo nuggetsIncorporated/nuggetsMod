@@ -1,12 +1,13 @@
 continents = {
-	europe
-	north_america
-	south_america
-	australia
-	africa
-	asia
-	middle_east
-	india
+	western_canada #Eastern Canada (Whoops!)
+	eastern_canada #Western Canada
+	western_usa
+	midwestern_usa
+	southern_usa
+	northeastern_usa
+	mexico
 	central_america
+	caribbean
+	south_america
+	northern_canada
 }
-
