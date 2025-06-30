@@ -1,0 +1,643 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			PUE = {
+				country_event = { id = pue.205 days = 1433 }
+			}
+
+			USA = {
+				set_temp_variable = { coalition_partner_var = token:social_conservative }
+				add_to_coalition = yes
+				set_temp_variable = { coalition_partner_var = token:authoritarian_democrat }
+				add_to_coalition = yes
+				set_temp_variable = { coalition_partner_var = token:national_populist }
+				add_to_coalition = yes
+				WCA_jack_reed = { promote_character = syndicalist_subtype }
+				WCA_norman_thomas = { promote_character = radical_socialist_subtype }
+				USA_douglas_macarthur = { promote_character = paternal_autocrat_subtype }
+				APG_huey_long = {
+					promote_character = national_populist_subtype
+				}
+			}
+
+			CAN = {
+				diplomatic_relation = {
+					country = USA
+					relation = docking_rights
+					active = yes
+				}
+			}
+
+			150 = { #Louisiana
+				add_dynamic_modifier = { modifier = Long_state_support_even }
+			}
+			261 = { #Ohio
+				add_dynamic_modifier = { modifier = SPA_state_support_low }
+			}
+			358 = { #New York City
+				add_dynamic_modifier = { modifier = SPA_state_support_even }
+			}
+			360 = { #Philadelphia
+				add_dynamic_modifier = { modifier = SPA_state_support_low }
+			}
+			364 = { #South Carolina
+				add_dynamic_modifier = { modifier = Long_state_support_low }
+			}
+			365 = { #Georgia
+				add_dynamic_modifier = { modifier = Long_state_support_low }
+			}
+			366 = { #Florida
+				add_dynamic_modifier = { modifier = Long_state_support_low }
+			}
+			367 = { #Alabama
+				add_dynamic_modifier = { modifier = Long_state_support_low }
+			}
+			370 = { #Mississippi
+				add_dynamic_modifier = { modifier = Long_state_support_low }
+			}
+			371 = { #New Orleans
+				add_dynamic_modifier = { modifier = Long_state_support_even }
+			}
+			372 = { #Arkansas
+				add_dynamic_modifier = { modifier = Long_state_support_low }
+			}
+			375 = { #Northern Texas
+				add_dynamic_modifier = { modifier = Long_state_support_low }
+			}
+			393 = { #Michigan
+				add_dynamic_modifier = { modifier = SPA_state_support_low }
+			}
+			394 = { #Wisconsin
+				add_dynamic_modifier = { modifier = SPA_state_support_low }
+			}
+			395 = { #Illinois
+				add_dynamic_modifier = { modifier = SPA_state_support_even }
+			}
+			396 = { #Indiana
+				add_dynamic_modifier = { modifier = SPA_state_support_low }
+			}
+			929 = { #West Virginia
+				add_dynamic_modifier = { modifier = SPA_state_support_low }
+			}
+			975 = { #Pittsburgh
+				add_dynamic_modifier = { modifier = SPA_state_support_low }
+			}
+
+			#integration setup
+			USA = {
+				every_core_state = {
+					enable_state_integration_50_compliance = yes
+					WCA = { PREV = { enable_state_integration_50_compliance = yes } }
+					ACC = { PREV = { enable_state_integration_50_compliance = yes } }
+					APG = { PREV = { enable_state_integration_50_compliance = yes } }
+					NEE = { PREV = { enable_state_integration_50_compliance = yes } }
+				}
+			}
+		}
+	}
+
+	#ROOT is winner #FROM gets annexed - For civil wars on_civil_war_end is also fired
+	on_annex = {
+		effect = {
+			if = {
+				limit = {
+					FROM = { has_country_flag = ACW_has_deal_with_devil }
+				}
+				clr_global_flag = ACW_deal_with_devil
+				FROM = { clr_country_flag = ACW_has_deal_with_devil }
+				every_country = {
+					limit = { has_country_flag = ACW_deal_with_devil_@FROM }
+					clr_country_flag = ACW_has_deal_with_devil
+					clr_country_flag = ACW_deal_with_devil_@FROM
+					FROM = { clr_country_flag = ACW_deal_with_devil_@PREV }
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						is_american_tag = yes
+						FROM = { is_american_tag = yes }
+					}
+				}
+				random_country = {
+					limit = {
+						OR = {
+							tag = WCA
+							tag = USA
+							tag = APG
+							tag = ACC
+						}
+					}
+					country_event = { id = amcivwar.2400 hours = 22 }
+				}
+				NEE = { country_event = { id = amcivwar.2400 hours = 23 } }
+				var:361.owner = { country_event = { id = amcivwar.2400 hours = 24 } }
+			}
+			FROM = {
+				if = {
+					limit = { tag = APG }
+					if = {
+						limit = { has_country_flag = APG_war_committee_factories }
+						clr_country_flag = APG_war_committee_factories
+						add_offsite_building = { type = arms_factory level = -3 }
+					}
+
+					### Restore the APG VPs to their original values
+					USA_reset_southern_VP_values = yes
+					if = {
+						limit = { has_country_flag = APG_baton_rouge_kept }
+						clr_country_flag = APG_baton_rouge_kept
+						set_victory_points = { province = 1453 value = 12 }
+					}
+				}
+				if = {
+					limit = {
+						tag = NEE
+						ROOT = {
+							OR = {
+								tag = USA
+								tag = ACC
+								tag = APG
+							}
+						}
+					}
+					country_event = { id = amcivwar.768 days = 25 } #Trial event for NEE generals
+				}
+			}
+			if = {
+				limit = { FROM = { has_completed_focus = USA_cooperation_treaties } }
+				if = {
+					limit = { has_idea = USA_league_head_1 }
+					remove_ideas = USA_league_head_1
+				}
+				else_if = {
+					limit = { has_idea = USA_league_head_2 }
+					remove_ideas = USA_league_head_2
+				}
+				else_if = {
+					limit = { has_idea = USA_league_head_3 }
+					remove_ideas = USA_league_head_3
+				}
+			}
+			else = {
+				FROM = {
+					clr_country_flag = USA_sent_league_invite
+					if = {
+						limit = { has_idea = USA_league_of_america_1 }
+						remove_ideas = USA_league_of_america_1
+					}
+					else_if = {
+						limit = { has_idea = USA_league_of_america_2 }
+						remove_ideas = USA_league_of_america_2
+					}
+				}
+			}
+		}
+	}
+
+	# ROOT is capitulated country, FROM is winner
+	on_capitulation_immediate = {
+		effect = {
+			### Rebuilding the US Navy
+			if = {
+				limit = {
+					is_american_tag = yes
+					FROM = { is_american_tag = yes }
+				}
+				transfer_navy = { target = FROM }
+			}
+
+			### JAP-INT peace over HAW
+			if = {
+				limit = {
+					tag = HAW
+					has_war_with = JAP
+					is_in_faction_with = INT
+				}
+				JAP = { activate_mission = JAP_hold_hawaii }
+			}
+
+			### Restore Denver to its original VP value
+			if = {
+				limit = {
+					tag = USA
+					has_country_flag = ACW_denver_made_capital
+				}
+				clr_country_flag = ACW_denver_made_capital
+				set_victory_points = {
+					province = 1827
+					value = 20
+				}
+			}
+		}
+	}
+
+	# ROOT is capitulated country, FROM is winner
+	on_capitulation = {
+		effect = {
+			if = {
+				limit = {
+					tag = USA
+					is_in_faction = no
+					has_global_flag = USA_civil_war_begun_flag
+					NOT = { has_global_flag = USA_civil_war_over_flag }
+				}
+				news_event = amcivwar.607
+			}
+			else_if = {
+				limit = {
+					tag = WCA
+					is_in_faction = no
+					has_global_flag = USA_civil_war_begun_flag
+					NOT = { has_global_flag = USA_civil_war_over_flag }
+				}
+				news_event = amcivwar.608
+			}
+			else_if = {
+				limit = {
+					tag = APG
+					is_in_faction = no
+					has_global_flag = USA_civil_war_begun_flag
+					NOT = { has_global_flag = USA_civil_war_over_flag }
+				}
+				news_event = amcivwar.609
+			}
+			else_if = {
+				limit = {
+					tag = ACC
+					is_in_faction = no
+					has_global_flag = USA_civil_war_begun_flag
+					NOT = { has_global_flag = USA_civil_war_over_flag }
+				}
+				news_event = amcivwar.610
+			}
+			if = {
+				limit = {
+					is_american_tag = yes
+					ROOT = { is_american_tag = yes }
+				}
+				set_global_flag = { flag = ACW_recent_peace_conference days = 15 value = 1 }
+			}
+		}
+	}
+
+	#FROM is war target
+	on_declare_war = {
+		effect = {
+			# Attacking an American country post-ACW while it's in recovery
+			if = {
+				limit = {
+					ROOT = {
+						NOT = {
+							tag = USA
+							tag = ACC
+							tag = APG
+							tag = WCA
+							AND = {
+								tag = NEE
+								is_in_faction = no
+							}
+						}
+					}
+					FROM = {
+						OR = {
+							tag = USA
+							tag = ACC
+							tag = APG
+							tag = WCA
+						}
+					}
+				}
+				FROM = { country_event = amcivwar.615 }
+			}
+		}
+	}
+
+	on_new_term_election = {
+		effect = {
+			### Pacific States of America ###
+			if = {
+				limit = { tag = ACC }
+				country_event = newengland.410 #1940
+				country_event = newengland.411 #1944
+				country_event = newengland.414 #1948
+				country_event = newengland.418 #1952
+			}
+			### Workers' Congress of America ###
+			else_if = {
+				limit = { tag = WCA }
+				country_event = america_workers_congress_events.25 #1940
+				country_event = america_workers_congress_events.28 #1944
+				country_event = america_workers_congress_events.35 #1948
+				country_event = america_workers_congress_events.43 #1952
+				country_event = america_workers_congress_events.51 #Totalist "elections"
+			}
+			### Hawaii ###
+			else_if = {
+				limit = { tag = HAW }
+				country_event = hawaii.27 #monarchy
+				country_event = hawaii.34 #republic
+				country_event = hawaii.64 #socialist
+			}
+			### New England ###
+			else_if = {
+				limit = { tag = NEE }
+				#default
+				country_event = newengland.200 #provisional
+				country_event = newengland.600 #1940
+				country_event = newengland.604 #1944
+				country_event = newengland.607 #1948
+				country_event = newengland.611 #1952
+				#dominant ACC
+				country_event = newengland.410 #1940
+				country_event = newengland.411 #1944
+				country_event = newengland.414 #1948
+				country_event = newengland.418 #1952
+			}
+			### American People's Government ###
+			else_if = {
+				limit = { tag = APG }
+				country_event = america_peoples_government_events.10
+			}
+			### United States of America ###
+			else_if = {
+				limit = { tag = USA }
+				country_event = usleadup.50 #1936
+				country_event = ustates.200 #1940
+				country_event = ustates.205 #1944
+				country_event = ustates.212 #1948
+				country_event = ustates.218 #1952
+			}
+		}
+	}
+
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = {
+		effect = {
+			# Fate of Captured Politicians (WCA event)
+			if = {
+				limit = { tag = WCA }
+				FROM = { save_event_target_as = capture_tag }
+				FROM.FROM = { save_event_target_as = capture_state }
+				country_event = { id = amcivwar.39 days = 15 random_days = 30 }
+			}
+		}
+	}
+
+	on_peace = {
+		effect = {
+			if = {
+				limit = { is_american_tag = yes }
+				country_event = { id = amcivwar.2400 days = 1 } #End of the Civil War
+				country_event = { id = amcivwar.616 days = 2 random_days = 3 } #Remove emergency USA units
+			}
+		}
+	}
+
+	#ROOT is winner #FROM is loser
+	on_peaceconference_ended = {
+		effect = {
+			if = {
+				limit = { is_american_tag = yes }
+				random_country = {
+					limit = {
+						OR = {
+							tag = WCA
+							tag = USA
+							tag = APG
+							tag = ACC
+						}
+					}
+					country_event = { id = amcivwar.2400 hours = 22 }
+				}
+				NEE = { country_event = { id = amcivwar.2400 hours = 23 } }
+				var:361.owner = { country_event = { id = amcivwar.2400 hours = 24 } }
+			}
+			else_if = {
+				limit = { FROM = { is_american_tag = yes } }
+				random_country = {
+					limit = {
+						OR = {
+							tag = WCA
+							tag = USA
+							tag = APG
+							tag = ACC
+						}
+					}
+					country_event = { id = amcivwar.2400 hours = 22 }
+				}
+				NEE = { country_event = { id = amcivwar.2400 hours = 23 } }
+				var:361.owner = { country_event = { id = amcivwar.2400 hours = 24 } }
+			}
+		}
+	}
+
+	on_ruling_party_change_immediate = {
+		# temp var old_ideology_token is available for effects
+		effect = {
+			if = {
+				limit = { tag = USA }
+				if = {
+					limit = { has_dictatorship_government = yes }
+					USA_united_states_congress = {
+						if = {
+							limit = { has_trait = KR_parliament_sic }
+							remove_trait = {
+								trait = KR_parliament_sic
+								slot = second_in_command
+							}
+						}
+						if = {
+							limit = { NOT = { has_trait = KR_authoritarian_sic } }
+							add_trait = {
+								trait = KR_authoritarian_sic
+								slot = second_in_command
+							}
+						}
+					}
+				}
+				else = {
+					USA_united_states_congress = {
+						if = {
+							limit = { has_trait = KR_authoritarian_sic }
+							remove_trait = {
+								trait = KR_authoritarian_sic
+								slot = second_in_command
+							}
+						}
+						if = {
+							limit = { NOT = { has_trait = KR_parliament_sic } }
+							add_trait = {
+								trait = KR_parliament_sic
+								slot = second_in_command
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_war_relation_added = {
+		effect = {
+			# WCA events
+			if = {
+				limit = {
+					OR = {
+						tag = CAN
+						tag = WCA
+					}
+					FROM = {
+						OR = {
+							tag = CAN
+							tag = WCA
+						}
+					}
+				}
+				WCA = { country_event = { id = amcivwar.42 hours = 8 } }
+			}
+			# Clear ceasefire global flag
+			if = {
+				limit = {
+					has_global_flag = ACC_rockies_ceasefire
+					OR = {
+						tag = WCA
+						tag = USA
+						tag = ACC
+						tag = APG
+					}
+					FROM = {
+						OR = {
+							tag = WCA
+							tag = USA
+							tag = ACC
+							tag = APG
+						}
+					}
+				}
+				clr_global_flag = ACC_rockies_ceasefire
+			}
+
+			# Clear Deal with the Devil flags
+			if = {
+				limit = {
+					FROM = {
+						has_country_flag = ACW_has_deal_with_devil
+						has_country_flag = ACW_deal_with_devil_@ROOT
+					}
+				}
+				clr_global_flag = ACW_deal_with_devil
+				FROM = {
+					clr_country_flag = ACW_has_deal_with_devil
+					clr_country_flag = ACW_deal_with_devil_@ROOT
+				}
+				ROOT = {
+					clr_country_flag = ACW_has_deal_with_devil
+					clr_country_flag = ACW_deal_with_devil_@FROM
+				}
+				if = {
+					limit = {
+						CAN = {
+							has_country_flag = CAN_deal_with_devil_@ROOT
+							NOT = {
+								has_war_with = ROOT
+								has_war_with = FROM
+							}
+						}
+					}
+					save_event_target_as = can_ally
+					FROM = { save_event_target_as = can_enemy }
+					CAN = {
+						country_event = { id = amcivwar.526 hours = 4 }
+					}
+				}
+				else_if = {
+					limit = {
+						CAN = {
+							has_country_flag = CAN_deal_with_devil_@FROM
+							NOT = {
+								has_war_with = ROOT
+								has_war_with = FROM
+							}
+						}
+					}
+					save_event_target_as = can_enemy
+					FROM = { save_event_target_as = can_ally }
+					CAN = {
+						country_event = { id = amcivwar.526 hours = 4 }
+					}
+				}
+			}
+		}
+	}
+
+	#ROOT is new controller #FROM is old controller #FROM.FROM is state ID
+	on_state_control_changed = { #Desertions on state control changing
+		effect = {
+			if = {
+				limit = {
+					FROM.FROM = {
+						is_mainland_america = yes
+						NOT = { has_state_flag = ACW_recruited_militias }
+					}
+					has_global_flag = USA_leadup_to_the_war
+					NOT = { has_global_flag = USA_civil_war_over_flag }
+				}
+				if = {
+					limit = {
+						OR = {
+							original_tag = USA
+							original_tag = WCA
+							original_tag = APG
+							original_tag = ACC
+						}
+					}
+					activate_targeted_decision = { decision = ACW_recruit_in_state target = FROM.FROM }
+				}
+				FROM = {
+					if = {
+						limit = {
+							OR = {
+								original_tag = USA
+								original_tag = WCA
+								original_tag = APG
+								original_tag = ACC
+							}
+						}
+						remove_targeted_decision = { decision = ACW_recruit_in_state target = FROM.FROM }
+					}
+				}
+			}
+			if = {
+				limit = { #desertions only occur betwen American tags
+					has_war_with = FROM
+					is_american_tag = yes
+					date > 1938.1.1 #Wait a couple months before desertions start
+					FROM = {
+						is_american_tag = yes
+						surrender_progress < 0.9
+					}
+					FROM.FROM = {
+						NOT = { has_state_flag = ACW_recent_desertions } #Timed flag to stop mass desertions over a city that is frequently changing hands
+					}
+					NOT = { has_global_flag = ACW_recent_peace_conference }
+					NOT = {
+						has_country_flag = NEE_Leader
+						has_country_flag = ACC_Leader
+						has_country_flag = USA_Leader
+					}
+				}
+				FROM.FROM = {
+					save_event_target_as = acw_state_control_changed
+					set_state_flag = { flag = ACW_recent_desertions days = 175 value = 1 }
+				}
+				save_event_target_as = acw_new_controller
+				FROM = {
+					save_event_target_as = acw_old_controller
+					set_country_flag = acw_old_controller_flag
+					country_event = amcivwar.801
+				}
+			}
+		}
+	}
+}

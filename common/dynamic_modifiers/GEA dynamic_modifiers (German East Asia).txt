@@ -1,0 +1,9 @@
+GEA_AOG_BONUS = {
+	consumer_goods_factor = GEA_AOG_CITIES
+}
+
+GER_east_asian_naval_yards = {
+	icon = "GFX_decision_generic_merge_plant_ship"
+
+	local_building_slots = GER_east_asian_slots
+}

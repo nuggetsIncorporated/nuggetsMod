@@ -1,0 +1,3075 @@
+###########################
+# Union of Britain Events
+###########################
+# By Zarasophos
+###########################
+
+add_namespace = uob
+add_namespace = gbp
+
+### Trade Union Congress
+country_event = { # Trade Congress begins
+	id = uob.1
+	title = uob.1.t
+	desc = uob.1.d
+	picture = GFX_report_event_communists_cheer
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1 option uob.1.a"
+		name = uob.1.a
+		hidden_effect = {
+			set_country_flag = { flag = ENG_tuc_maximist value = 0 }
+			set_country_flag = { flag = ENG_tuc_federalist value = 0 }
+			set_country_flag = { flag = ENG_tuc_autonomist value = 0 }
+			country_event = { id = uob.2 days = 7 }
+		}
+	}
+}
+country_event = { # Economic policy
+	id = uob.2
+	title = uob.2.t
+	desc = uob.2.d
+	picture = GFX_report_event_generic_farming
+
+	is_triggered_only = yes
+
+	option = { # Maximist
+		log = "[GetLogInfo]: event uob.2 option uob.2.a"
+		name = uob.2.a
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_MOSLEY_TOTALIST } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_STRACHEY_TOTALIST } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_BLAIR_RADSOC } }
+			}
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ENG_tuc_maximist
+				value = 1
+			}
+			country_event = { id = uob.3 days = 7 }
+		}
+	}
+	option = { # Federalist
+		log = "[GetLogInfo]: event uob.2 option uob.2.b"
+		name = uob.2.b
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_PANKHURST_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_WILKINSON_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_HORNER_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_ATTLEE_SYNDIE } }
+			}
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ENG_tuc_federalist
+				value = 1
+			}
+			country_event = { id = uob.3 days = 7 }
+		}
+	}
+	option = { # Autonomist
+		log = "[GetLogInfo]: event uob.2 option uob.2.c"
+		name = uob.2.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_RADSOC } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_EDWARDS_SYNDIE } }
+			}
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ENG_tuc_autonomist
+				value = 1
+			}
+			country_event = { id = uob.3 days = 7 }
+		}
+	}
+}
+country_event = { # Internal policy
+	id = uob.3
+	title = uob.3.t
+	desc = uob.3.d
+	picture = GFX_report_event_generic_diplomacy2
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.3 option uob.3.a"
+		name = uob.3.a
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_MOSLEY_TOTALIST } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_STRACHEY_TOTALIST } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_BLAIR_RADSOC } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE } }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE }
+				has_country_flag = {
+					flag = ENG_tuc_maximist
+					value = 1
+				}
+			}
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ENG_tuc_maximist
+				value = 1
+			}
+			country_event = { id = uob.5 days = 7 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uob.3 option uob.3.b"
+		name = uob.3.b
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_PANKHURST_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_WILKINSON_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_HORNER_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_ATTLEE_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE } }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE }
+				has_country_flag = {
+					flag = ENG_tuc_federalist
+					value = 1
+				}
+			}
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ENG_tuc_federalist
+				value = 1
+			}
+			country_event = { id = uob.5 days = 7 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uob.3 option uob.3.c"
+		name = uob.3.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_RADSOC } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_EDWARDS_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE } }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE }
+				has_country_flag = {
+					flag = ENG_tuc_autonomist
+					value = 1
+				}
+			}
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ENG_tuc_autonomist
+				value = 1
+			}
+			country_event = { id = uob.5 days = 7 }
+		}
+	}
+}
+country_event = { # Military policy
+	id = uob.5
+	title = uob.5.t
+	desc = uob.5.d
+	picture = GFX_report_event_soviet_tanks
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.5 option uob.5.a"
+		name = uob.5.a
+		ai_chance = {
+			base = 35
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_MOSLEY_TOTALIST } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_STRACHEY_TOTALIST } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_BLAIR_RADSOC } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE } }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE }
+				has_country_flag = {
+					flag = ENG_tuc_maximist
+					value = 1
+				}
+			}
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ENG_tuc_maximist
+				value = 1
+			}
+			country_event = { id = uob.6 days = 7 }
+			country_event = { id = uob.10 days = 20 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uob.5 option uob.5.b"
+		name = uob.5.b
+		ai_chance = {
+			base = 45
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_PANKHURST_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_WILKINSON_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_HORNER_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_ATTLEE_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE } }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE }
+				has_country_flag = {
+					flag = ENG_tuc_federalist
+					value = 1
+				}
+			}
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ENG_tuc_federalist
+				value = 1
+			}
+			country_event = { id = uob.6 days = 7 }
+			country_event = { id = uob.10 days = 20 }
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uob.5 option uob.5.c"
+		name = uob.5.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_RADSOC } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE } }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE }
+				has_country_flag = {
+					flag = ENG_tuc_autonomist
+					value = 1
+				}
+			}
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		hidden_effect = {
+			modify_country_flag = {
+				flag = ENG_tuc_autonomist
+				value = 1
+			}
+			country_event = { id = uob.6 days = 7 }
+			country_event = { id = uob.10 days = 20 }
+		}
+	}
+}
+country_event = { # The Resignation of Tom Mann
+	id = uob.6
+	title = uob.6.t
+	desc = uob.6.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	trigger = {
+		OR = {
+			has_country_flag = {
+				flag = ENG_tuc_maximist
+				value > 1
+			}
+			has_country_flag = {
+				flag = ENG_tuc_federalist
+				value > 1
+			}
+			has_country_flag = {
+				flag = ENG_tuc_autonomist
+				value > 1
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.6 option uob.6.a"
+		name = uob.6.a
+		add_political_power = -50
+		promote_character = ENG_central_committee
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = {
+						flag = ENG_tuc_maximist
+						value > 1
+					}
+				}
+				country_event = { id = uob.7 days = 20 }
+			}
+			else_if = {
+				limit = {
+					has_country_flag = {
+						flag = ENG_tuc_federalist
+						value > 1
+					}
+				}
+				country_event = { id = uob.8 days = 20 }
+			}
+			else_if = {
+				limit = {
+					has_country_flag = {
+						flag = ENG_tuc_autonomist
+						value > 1
+					}
+				}
+				country_event = { id = uob.9 days = 20 }
+			}
+		}
+	}
+}
+country_event = { # Maximist Victory
+	id = uob.7
+	title = uob.7.t
+	desc = uob.7.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = ENG_tuc_maximist
+		clr_country_flag = ENG_tuc_federalist
+		clr_country_flag = ENG_tuc_autonomist
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.7 option uob.7.a"
+		name = uob.7.a
+		retire_character = ENG_tom_mann
+		set_politics = {
+			ruling_party = totalist
+		}
+		hidden_effect = {
+			activate_advisor = ENG_john_strachey_sic
+			unlock_national_focus = ENG_tuc
+			news_event = { id = uob.2000 days = 2 }
+			promote_character = ENG_arthur_horner
+		}
+	}
+}
+country_event = { # Federalist Victory
+	id = uob.8
+	title = uob.8.t
+	desc = uob.8.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = ENG_tuc_maximist
+		clr_country_flag = ENG_tuc_federalist
+		clr_country_flag = ENG_tuc_autonomist
+	}
+
+	option = { # Pankhurst
+		log = "[GetLogInfo]: event uob.8 option uob.8.a"
+		name = uob.8.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = ENG_path option = ENG_PATH_HORNER_SYNDIE }
+					has_game_rule = { rule = ENG_path option = ENG_PATH_ATTLEE_SYNDIE }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = syndicalist
+		}
+		retire_character = ENG_tom_mann
+		promote_character = ENG_sylvia_pankhurst
+		hidden_effect = {
+			set_temp_variable = { coalition_partner_var = token:totalist }
+			remove_from_coalition = yes
+			activate_advisor = ENG_ellen_wilkinson_sic
+			unlock_national_focus = ENG_tuc
+			set_party_name = {
+				ideology = syndicalist
+				long_name = ENG_CON_syndicalist_party_long
+				name = ENG_CON_syndicalist_party
+			}
+			news_event = { id = uob.2000 days = 2 }
+		}
+	}
+
+	option = { # Arthur Horner
+		log = "[GetLogInfo]: event uob.8 option uob.8.b"
+		name = uob.8.b # Arthur Horner
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = ENG_path option = ENG_PATH_PANKHURST_SYNDIE }
+					has_game_rule = { rule = ENG_path option = ENG_PATH_WILKINSON_SYNDIE }
+				}
+			}
+		}
+		set_politics = {
+			ruling_party = syndicalist
+		}
+		retire_character = ENG_tom_mann
+		promote_character = ENG_arthur_horner
+		hidden_effect = {
+			set_temp_variable = { coalition_partner_var = token:totalist }
+			remove_from_coalition = yes
+			activate_advisor = ENG_george_hardy_sic
+			unlock_national_focus = ENG_tuc
+			set_party_name = {
+				ideology = syndicalist
+				long_name = ENG_FED_syndicalist_party_long
+				name = ENG_FED_syndicalist_party
+			}
+			news_event = { id = uob.2000 days = 2 }
+		}
+	}
+}
+country_event = { # Autonomist Victory
+	id = uob.9
+	title = uob.9.t
+	desc = uob.9.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	immediate = {
+		clr_country_flag = ENG_tuc_maximist
+		clr_country_flag = ENG_tuc_federalist
+		clr_country_flag = ENG_tuc_autonomist
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.9 option uob.9.a"
+		name = uob.9.a
+		retire_character = ENG_tom_mann
+		set_politics = {
+			ruling_party = radical_socialist
+		}
+		hidden_effect = {
+			set_temp_variable = { coalition_partner_var = token:totalist }
+			remove_from_coalition = yes
+			activate_advisor = ENG_fenner_brockway_sic
+			unlock_national_focus = ENG_tuc
+			news_event = { id = uob.2000 days = 2 }
+			promote_character = ENG_arthur_horner
+		}
+	}
+}
+country_event = { # No majority achieved
+	id = uob.10
+	title = uob.10.t
+	desc = uob.10.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_country_flag = {
+			flag = ENG_tuc_maximist
+			value < 2
+		}
+		has_country_flag = {
+			flag = ENG_tuc_federalist
+			value < 2
+		}
+		has_country_flag = {
+			flag = ENG_tuc_autonomist
+			value < 2
+		}
+	}
+
+	immediate = {
+		clr_country_flag = ENG_tuc_maximist
+		clr_country_flag = ENG_tuc_federalist
+		clr_country_flag = ENG_tuc_autonomist
+	}
+
+	option = { # Compromise between Federalist and Maximist
+		log = "[GetLogInfo]: event uob.10 option uob.10.a"
+		name = uob.10.a
+		ai_chance = { base = 50 }
+		set_politics = {
+			ruling_party = syndicalist
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = -0.05
+		}
+		hidden_effect = {
+			unlock_national_focus = ENG_tuc
+			news_event = { id = uob.2001 days = 2 }
+		}
+	}
+	option = { # Compromise between Federalist and Autonomist
+		log = "[GetLogInfo]: event uob.10 option uob.10.b"
+		name = uob.10.b
+		ai_chance = {
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE }
+			}
+		}
+		set_politics = {
+			ruling_party = syndicalist
+		}
+		add_popularity = {
+			ideology = totalist
+			popularity = -0.05
+		}
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.05
+		}
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.05
+		}
+		set_temp_variable = { coalition_partner_var = token:totalist }
+		remove_from_coalition = yes
+		set_temp_variable = { coalition_partner_var = token:radical_socialist }
+		add_to_coalition = yes
+		hidden_effect = {
+			activate_advisor = ENG_niclas_y_glais_sic
+			unlock_national_focus = ENG_tuc
+			news_event = { id = uob.2001 days = 2 }
+		}
+	}
+}
+### Show of Force ###
+country_event = { # Canada
+	id = uob.25
+	title = uob.25.t
+	desc = uob.25.d
+	picture = GFX_report_event_usa_heavy_cruiser
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_war_with = FROM }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.25 option uob.25.a"
+		name = uob.25.a #Demonstrate our own power
+		ai_chance = { base = 35 }
+		reverse_add_opinion_modifier = {
+			target = ENG
+			modifier = KR_hates_govt
+		}
+		hidden_effect = {
+			ENG = {
+				news_event = { id = uob.26 days = 3 }
+			}
+			FRA = {
+				news_event = { id = uob.26 days = 3 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uob.25 option uob.25.b"
+		name = uob.25.b #Spend our resources on further buildup
+		ai_chance = { base = 65 }
+		hidden_effect = {
+			ENG = {
+				news_event = { id = uob.27 days = 3 }
+			}
+			FRA = {
+				news_event = { id = uob.27 days = 3 }
+			}
+		}
+	}
+}
+news_event = { # Royal Navy on the Atlantic
+	id = uob.26
+	immediate = { log = "[GetLogInfo]: event uob.26" }
+	title = uob.26.t
+	desc = uob.26.d
+	picture = GFX_news_event_020
+
+	is_triggered_only = yes
+
+	option = {
+		name = uob.26.a
+		trigger = {
+			tag = ENG
+		}
+	}
+
+	option = {
+		name = uob.26.b
+		trigger = {
+			tag = FRA
+		}
+	}
+}
+news_event = { # Canadians cower
+	id = uob.27
+	immediate = { log = "[GetLogInfo]: event uob.27" }
+	title = uob.27.t
+	desc = uob.27.d
+	picture = GFX_news_event_020
+
+	is_triggered_only = yes
+
+	option = {
+		name = uob.27.a
+		trigger = {
+			tag = ENG
+		}
+	}
+
+	option = {
+		name = uob.27.b
+		trigger = {
+			tag = FRA
+		}
+	}
+}
+country_event = { # Germany
+	id = uob.28
+	title = uob.28.t
+	desc = uob.28.d
+	picture = GFX_report_event_usa_heavy_cruiser
+
+	is_triggered_only = yes
+
+	trigger = {
+		NOT = { has_war_with = FROM }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.28 option uob.28.a"
+		name = uob.28.a
+		reverse_add_opinion_modifier = {
+			target = ENG
+			modifier = KR_hates_govt
+		}
+		hidden_effect = {
+			ENG = {
+				news_event = { id = uob.29 days = 3 }
+			}
+			FRA = {
+				news_event = { id = uob.29 days = 3 }
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uob.28 option uob.28.b"
+		name = uob.28.b
+		hidden_effect = {
+			ENG = {
+				news_event = { id = uob.30 days = 3 }
+			}
+			FRA = {
+				news_event = { id = uob.30 days = 3 }
+			}
+		}
+	}
+}
+news_event = { # Hochseeflotte on the Atlantic
+	id = uob.29
+	immediate = { log = "[GetLogInfo]: event uob.29" }
+	title = uob.29.t
+	desc = uob.29.d
+	picture = GFX_news_event_020
+
+	is_triggered_only = yes
+
+	option = {
+		name = uob.29.a
+		trigger = {
+			tag = ENG
+		}
+	}
+
+	option = {
+		name = uob.29.b
+		trigger = {
+			tag = FRA
+		}
+	}
+}
+news_event = { # Germans cower
+	id = uob.30
+	immediate = { log = "[GetLogInfo]: event uob.30" }
+	title = uob.30.t
+	desc = uob.30.d
+	picture = GFX_news_event_020
+
+	is_triggered_only = yes
+
+	option = {
+		name = uob.30.a
+		trigger = {
+			tag = ENG
+		}
+	}
+
+	option = {
+		name = uob.30.b
+		trigger = {
+			tag = FRA
+		}
+	}
+}
+
+################
+### Revolution
+################
+
+# Revolution
+
+country_event = {
+	id = uob.201
+	title = uob.201.t
+	desc = uob.201.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = { # Pass repressive laws
+		log = "[GetLogInfo]: event uob.201 option uob.201.a"
+		name = uob.201.a
+		ai_chance = { base = 33 }
+		hidden_effect = {
+			country_event = uob.205 # Yay...?
+		}
+	}
+
+	option = { # Arrest our enemies
+		log = "[GetLogInfo]: event uob.201 option uob.201.b"
+		name = uob.201.b
+		ai_chance = { base = 33 }
+		hidden_effect = {
+			country_event = uob.208 # Yay...?
+		}
+	}
+
+	option = { # Proclaim martial law
+		log = "[GetLogInfo]: event uob.201 option uob.201.c"
+		name = uob.201.c
+		ai_chance = {
+			base = 33
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = ENG_path option = ENG_PATH_MOSLEY_TOTALIST }
+					has_game_rule = { rule = ENG_path option = ENG_PATH_STRACHEY_TOTALIST }
+					has_game_rule = { rule = ENG_path option = ENG_PATH_BLAIR_RADSOC }
+				}
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				50 = { country_event = uob.211 } # Yay...?
+				50 = { country_event = uob.212 } # Nay
+			}
+		}
+	}
+}
+
+### Civilian
+
+# Yay
+
+country_event = {
+	id = uob.204
+	title = uob.204.t
+	desc = uob.204.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.204 option uob.204.a"
+		name = uob.204.a
+		hidden_effect = {
+			country_event = { id = uob.213 days = 3 } # What to do now?
+			news_event = { # Maximists peacefully take control
+				id = uob.215
+				days = 7
+			}
+		}
+	}
+}
+
+# Yay...?
+
+country_event = {
+	id = uob.205
+	title = uob.205.t
+	desc = uob.205.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.205 option uob.205.a"
+		name = uob.205.a
+		ai_chance = { base = 50 }
+		hidden_effect = {
+			country_event = { id = uob.204 days = 3 } # Yay
+			news_event = { # Maximists peacefully take control after Blair chimes in
+				id = uob.216
+				days = 7
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.205 option uob.205.b"
+		name = uob.205.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = ENG_path option = ENG_PATH_MOSLEY_TOTALIST }
+					has_game_rule = { rule = ENG_path option = ENG_PATH_STRACHEY_TOTALIST }
+					has_game_rule = { rule = ENG_path option = ENG_PATH_BLAIR_RADSOC }
+				}
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				50 = { country_event = uob.204 } # Yay
+				50 = { # Nay
+					country_event = { id = uob.206 days = 7 }
+				}
+			}
+		}
+	}
+}
+
+# Nay
+
+country_event = {
+	id = uob.206
+	title = uob.206.t
+	desc = uob.206.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.206 option uob.206.a"
+		name = uob.206.a
+		hidden_effect = {
+			country_event = uob.214 # What to do now?
+			news_event = { # Maximists can't pass repressive law
+				id = uob.217
+				days = 7
+			}
+		}
+	}
+}
+
+### Low Military
+
+# Yay
+
+country_event = {
+	id = uob.207
+	title = uob.207.t
+	desc = uob.207.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.207 option uob.207.a"
+		name = uob.207.a
+		hidden_effect = {
+			country_event = uob.213 # What to do now?
+			news_event = { # Maximists make threats vanish
+				id = uob.218
+				days = 7
+			}
+		}
+	}
+}
+
+# Yay...?
+
+country_event = {
+	id = uob.208
+	title = uob.208.t
+	desc = uob.208.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.208 option uob.208.a"
+		name = uob.208.a
+		ai_chance = { base = 50 }
+		hidden_effect = {
+			country_event = uob.207 # Yay
+			news_event = { # Maximists eliminate threats
+				id = uob.219
+				days = 7
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.208 option uob.208.b"
+		name = uob.208.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				OR = {
+					has_game_rule = { rule = ENG_path option = ENG_PATH_MOSLEY_TOTALIST }
+					has_game_rule = { rule = ENG_path option = ENG_PATH_STRACHEY_TOTALIST }
+					has_game_rule = { rule = ENG_path option = ENG_PATH_BLAIR_RADSOC }
+				}
+			}
+		}
+		hidden_effect = {
+			random_list = {
+				50 = { country_event = uob.207 } # Yay
+				50 = { country_event = uob.209 } # Nay
+			}
+		}
+	}
+}
+
+# Nay
+
+country_event = {
+	id = uob.209
+	title = uob.209.t
+	desc = uob.209.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.209 option uob.209.a"
+		name = uob.209.a
+		hidden_effect = {
+			country_event = uob.214 # What to do now?
+			news_event = uob.220 # Maximist threats escape capture
+		}
+	}
+}
+
+### High Military
+
+# Yay
+
+country_event = {
+	id = uob.210
+	title = uob.210.t
+	desc = uob.210.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.210 option uob.210.a"
+		name = uob.210.a
+		hidden_effect = {
+			country_event = uob.213 # What to do now?
+			news_event = uob.221 # Maximists take control
+		}
+	}
+}
+
+# Yay...?
+
+country_event = {
+	id = uob.211
+	title = uob.211.t
+	desc = uob.211.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.211 option uob.211.a"
+		name = uob.211.a
+		hidden_effect = {
+			country_event = uob.210 # Yay
+			news_event = uob.222 # Maximists take control with much bloodshed
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.211 option uob.211.b"
+		name = uob.211.b
+		hidden_effect = {
+			random_list = {
+				50 = { # Yay
+					country_event = uob.210
+					news_event = {
+						id = uob.221
+						days = 7
+					}
+				}
+				50 = { # Nay
+					country_event = uob.212
+					news_event = {
+						id = uob.223
+						days = 7
+					}
+				}
+			}
+		}
+	}
+}
+
+# Nay
+
+country_event = {
+	id = uob.212
+	title = uob.212.t
+	desc = uob.212.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.212 option uob.212.a"
+		name = uob.212.a
+		set_politics = {
+			ruling_party = syndicalist
+			name = ENG_FED_syndicalist_party
+			long_name = ENG_FED_syndicalist_party_long
+		}
+		retire_character = ENG_oswald_mosley
+		promote_character = ENG_john_strachey
+		hidden_effect = {
+			activate_advisor = ENG_george_hardy_sic
+		}
+	}
+}
+
+# What to do now?
+
+country_event = {
+	id = uob.213
+	title = uob.213.t
+	desc = uob.213.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = { # The day after a revolution
+		log = "[GetLogInfo]: event uob.213 option uob.213.a"
+		name = uob.213.a
+		swap_ruler_traits = {
+			remove = ENG_grand_protector
+			add = ENG_chairman_for_life
+		}
+	}
+}
+
+country_event = {
+	id = uob.214
+	title = uob.214.t
+	desc = uob.214.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	option = { # The day after no revolution
+		log = "[GetLogInfo]: event uob.214 option uob.214.a"
+		name = uob.214.a
+	}
+}
+
+### News events
+
+# Civilian
+
+news_event = {
+	id = uob.215
+	immediate = { log = "[GetLogInfo]: event uob.215" }
+	title = uob.215.t
+	desc = uob.215.d
+	picture = GFX_news_event_generic_funeral
+
+	trigger = {
+		NOT = { has_global_flag = ENG_maximist_revolt_fired }
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ENG_maximist_revolt_fired
+	}
+
+	option = {
+		name = uob.215.a
+		trigger = {
+			has_government = totalist
+		}
+	}
+
+	option = {
+		name = uob.215.b
+		trigger = {
+			NOT = {
+				has_government = totalist
+			}
+		}
+	}
+}
+
+news_event = {
+	id = uob.216
+	immediate = { log = "[GetLogInfo]: event uob.216" }
+	title = uob.216.t
+	desc = uob.216.d
+	picture = GFX_news_event_generic_funeral
+
+	trigger = {
+		NOT = { has_global_flag = ENG_maximist_revolt_fired }
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ENG_maximist_revolt_fired
+	}
+
+	option = {
+		name = uob.216.a
+		trigger = {
+			has_government = totalist
+		}
+	}
+
+	option = {
+		name = uob.216.b
+		trigger = {
+			NOT = {
+				has_government = totalist
+			}
+		}
+	}
+}
+
+news_event = {
+	id = uob.217
+	immediate = { log = "[GetLogInfo]: event uob.217" }
+	title = uob.217.t
+	desc = uob.217.d
+	picture = GFX_news_event_generic_funeral
+
+	trigger = {
+		NOT = { has_global_flag = ENG_maximist_revolt_fired }
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ENG_maximist_revolt_fired
+	}
+
+	option = {
+		name = uob.217.a
+		trigger = {
+			has_government = totalist
+		}
+	}
+
+	option = {
+		name = uob.217.b
+		trigger = {
+			NOT = {
+				has_government = totalist
+			}
+		}
+	}
+}
+
+# Low military
+
+news_event = {
+	id = uob.218
+	immediate = { log = "[GetLogInfo]: event uob.218" }
+	title = uob.218.t
+	desc = uob.218.d
+	picture = GFX_news_event_generic_funeral
+
+	trigger = {
+		NOT = { has_global_flag = ENG_maximist_revolt_fired }
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ENG_maximist_revolt_fired
+	}
+
+	option = {
+		name = uob.218.a
+		trigger = {
+			has_government = totalist
+		}
+	}
+
+	option = {
+		name = uob.218.b
+		trigger = {
+			NOT = {
+				has_government = totalist
+			}
+		}
+	}
+}
+
+news_event = {
+	id = uob.219
+	immediate = { log = "[GetLogInfo]: event uob.219" }
+	title = uob.219.t
+	desc = uob.219.d
+	picture = GFX_news_event_generic_funeral
+
+	trigger = {
+		NOT = { has_global_flag = ENG_maximist_revolt_fired }
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ENG_maximist_revolt_fired
+	}
+
+	option = {
+		name = uob.219.a
+		trigger = {
+			has_government = totalist
+		}
+	}
+
+	option = {
+		name = uob.219.b
+		trigger = {
+			NOT = {
+				has_government = totalist
+			}
+		}
+	}
+}
+
+news_event = {
+	id = uob.220
+	immediate = { log = "[GetLogInfo]: event uob.220" }
+	title = uob.220.t
+	desc = uob.220.d
+	picture = GFX_news_event_generic_funeral
+
+	trigger = {
+		NOT = { has_global_flag = ENG_maximist_revolt_fired }
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ENG_maximist_revolt_fired
+	}
+
+	option = {
+		name = uob.220.a
+		trigger = {
+			has_government = totalist
+		}
+	}
+
+	option = {
+		name = uob.220.b
+		trigger = {
+			NOT = {
+				has_government = totalist
+			}
+		}
+	}
+}
+
+# High military
+
+news_event = {
+	id = uob.221
+	immediate = { log = "[GetLogInfo]: event uob.221" }
+	title = uob.221.t
+	desc = uob.221.d
+	picture = GFX_news_event_generic_funeral
+
+	trigger = {
+		NOT = { has_global_flag = ENG_maximist_revolt_fired }
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ENG_maximist_revolt_fired
+	}
+
+	option = {
+		name = uob.221.a
+		trigger = {
+			has_government = totalist
+		}
+	}
+
+	option = {
+		name = uob.221.b
+		trigger = {
+			NOT = {
+				has_government = totalist
+			}
+		}
+	}
+}
+
+news_event = {
+	id = uob.222
+	immediate = { log = "[GetLogInfo]: event uob.222" }
+	title = uob.222.t
+	desc = uob.222.d
+	picture = GFX_news_event_generic_funeral
+
+	trigger = {
+		NOT = { has_global_flag = ENG_maximist_revolt_fired }
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ENG_maximist_revolt_fired
+	}
+
+	option = {
+		name = uob.222.a
+		trigger = {
+			has_government = totalist
+		}
+	}
+
+	option = {
+		name = uob.222.b
+		trigger = {
+			NOT = {
+				has_government = totalist
+			}
+		}
+	}
+}
+
+news_event = {
+	id = uob.223
+	immediate = { log = "[GetLogInfo]: event uob.223" }
+	title = uob.223.t
+	desc = uob.223.d
+	picture = GFX_news_event_generic_funeral
+
+	trigger = {
+		NOT = { has_global_flag = ENG_maximist_revolt_fired }
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		set_global_flag = ENG_maximist_revolt_fired
+	}
+
+	option = {
+		name = uob.223.a
+		trigger = {
+			has_government = totalist
+		}
+	}
+
+	option = {
+		name = uob.223.b
+		trigger = {
+			NOT = {
+				has_government = totalist
+			}
+		}
+	}
+}
+
+# The Post-War Economy
+
+country_event = {
+	id = uob.338
+	title = uob.338.t
+	desc = uob.338.d
+	picture = GFX_report_event_generic_economic_policy
+
+	is_triggered_only = yes
+
+	trigger = {
+		has_idea = ENG_class_war_idea
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.338 option uob.338.a"
+		name = uob.338.a
+		swap_ideas = {
+			remove_idea = ENG_class_war_idea
+			add_idea = ENG_silence_idea
+		}
+	}
+}
+
+### Another Congress of the Trade Unions
+
+# Economy
+
+country_event = {
+	id = uob.351
+	title = uob.351.t
+	desc = uob.351.d
+	picture = GFX_report_event_communists_cheer
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.351 option uob.351.a"
+		name = uob.351.a
+		ai_chance = { base = 60 }
+		add_political_power = 50
+		add_timed_idea = {
+			idea = ENG_peace_boom_idea
+			days = 365
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uob.351 option uob.351.b"
+		name = uob.351.b
+		ai_chance = { base = 40 }
+		add_political_power = 100
+		add_timed_idea = {
+			idea = ENG_peace_help_idea
+			days = 365
+		}
+	}
+}
+
+### Offices
+
+# Exchequer
+
+country_event = {
+	id = uob.352
+	title = uob.352.t
+	desc = uob.352.d
+	picture = GFX_report_event_communists_cheer
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.352 option uob.352.a"
+		name = uob.352.a
+		trigger = {
+			NOT = {
+				has_country_leader = { character = ENG_clement_attlee }
+			}
+		}
+		ai_chance = { base = 30 }
+		add_political_power = 25
+		338 = {
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = industrial_complex
+				level = 2
+				instant_build = yes
+			}
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uob.352 option uob.352.b"
+		name = uob.352.b
+		ai_chance = { base = 60 }
+		add_resource = {
+			type = steel
+			amount = 4
+			state = 130
+		}
+		add_resource = {
+			type = steel
+			amount = 4
+			state = 1108
+		}
+	}
+	option = {
+		log = "[GetLogInfo]: event uob.352 option uob.352.c"
+		name = uob.352.c
+		ai_chance = { base = 10 }
+		add_political_power = 100
+	}
+}
+
+### Chairmen/-woman
+
+# Mosley is Chairman
+
+country_event = {
+	id = uob.356
+	title = uob.356.t
+	desc = uob.356.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.356 option uob.356.a"
+		name = uob.356.a
+		ai_chance = {
+			base = 60
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_MOSLEY_TOTALIST } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_BLAIR_RADSOC } }
+			}
+		}
+		add_political_power = -100
+		hidden_effect = {
+			country_event = { id = uob.360 days = 30 }
+			country_event = { id = uob.361 days = 180 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.356 option uob.356.b"
+		name = uob.356.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_STRACHEY_TOTALIST } }
+			}
+		}
+		set_politics = {
+			ruling_party = totalist
+		}
+		add_political_power = 60
+		retire_character = ENG_oswald_mosley
+		promote_character = ENG_john_strachey
+		hidden_effect = {
+			activate_advisor = ENG_eric_blair_sic
+			country_event = { id = uob.360 days = 30 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.356 option uob.356.c"
+		name = uob.356.c
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+			}
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			name = ENG_CON_syndicalist_party
+			long_name = ENG_CON_syndicalist_party_long
+		}
+		promote_character = ENG_sylvia_pankhurst
+		hidden_effect = {
+			activate_advisor = ENG_ellen_wilkinson_sic
+		}
+	}
+}
+
+# Pankhurst is Chairwoman
+
+country_event = {
+	id = uob.357
+	title = uob.357.t
+	desc = uob.357.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.357 option uob.357.a"
+		name = uob.357.a
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+			}
+		}
+		add_political_power = -40
+		set_politics = {
+			ruling_party = totalist
+		}
+		hidden_effect = {
+			activate_advisor = ENG_john_strachey_sic
+			country_event = { id = uob.360 days = 30 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.357 option uob.357.b"
+		name = uob.357.b
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_PANKHURST_SYNDIE } }
+			}
+		}
+		set_temp_variable = { coalition_partner_var = token:radical_socialist }
+		add_to_coalition = yes
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.357 option uob.357.c"
+		name = uob.357.c
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_WILKINSON_SYNDIE } }
+			}
+		}
+		promote_character = ENG_ellen_wilkinson
+		activate_advisor = ENG_eric_blair_sic
+	}
+}
+
+# y Glais is Chairman
+
+country_event = {
+	id = uob.358
+	title = uob.358.t
+	desc = uob.358.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.358 option uob.358.a"
+		name = uob.358.a
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+			}
+		}
+		add_political_power = -40
+		set_politics = {
+			ruling_party = totalist
+		}
+		hidden_effect = {
+			activate_advisor = ENG_john_strachey_sic
+			country_event = { id = uob.360 days = 30 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.358 option uob.358.b1"
+		name = uob.358.b1
+		trigger = {
+			has_character = ENG_tom_mann
+		}
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+			}
+		}
+		set_politics = {
+			ruling_party = syndicalist
+		}
+		hidden_effect = {
+			activate_advisor = ENG_tom_mann_sic
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.358 option uob.358.b2"
+		name = uob.358.b2
+		trigger = {
+			NOT = {
+				has_character = ENG_tom_mann
+			}
+		}
+		ai_chance = {
+			base = 30
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+			}
+		}
+		set_politics = {
+			ruling_party = syndicalist
+		}
+		hidden_effect = {
+			activate_advisor = ENG_gdh_cole_sic
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.358 option uob.358.c"
+		name = uob.358.c
+		ai_chance = { base = 40 }
+	}
+}
+
+# Horner is Chairman
+
+country_event = {
+	id = uob.359
+	title = uob.359.t
+	desc = uob.359.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.359 option uob.359.a"
+		name = uob.359.a
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_HORNER_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_EDWARDS_SYNDIE } }
+			}
+		}
+		activate_advisor = ENG_gdh_cole_sic
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.359 option uob.359.b"
+		name = uob.359.b
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_ATTLEE_SYNDIE } }
+				NOT = { has_game_rule = { rule = ENG_path option = ENG_PATH_NO_MAJORITY_SYNDIE } }
+			}
+		}
+		promote_character = ENG_clement_attlee
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.359 option uob.359.c"
+		name = uob.359.c
+		ai_chance = {
+			base = 40
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+			}
+		}
+		add_political_power = -40
+		set_politics = {
+			ruling_party = totalist
+		}
+		hidden_effect = {
+			activate_advisor = ENG_john_strachey_sic
+			country_event = { id = uob.360 days = 30 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.359 option uob.359.e"
+		name = uob.359.e
+		ai_chance = {
+			base = 20
+			modifier = {
+				factor = 0
+				NOT = { has_game_rule = { rule = ENG_path option = DEFAULT } }
+			}
+		}
+		promote_character = ENG_ellen_wilkinson
+		activate_advisor = ENG_eric_blair_sic
+	}
+}
+
+# Maximists dont like Autonomy
+
+country_event = {
+	id = uob.360
+	title = uob.360.t
+	desc = uob.360.d
+	picture = GFX_report_event_election_vote
+
+	trigger = {
+		has_subject = WLS
+		has_subject = SCO
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.360 option uob.360.a"
+		name = uob.360.a
+		ai_chance = { base = 100 }
+		annex_country = {
+			target = WLS
+			transfer_troops = yes
+		}
+		annex_country = {
+			target = SCO
+			transfer_troops = yes
+		}
+		add_political_power = -400
+		add_timed_idea = {
+			idea = ENG_home_rule_broken_idea
+			days = 365
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.360 option uob.360.b"
+		name = uob.360.b
+		ai_chance = { base = 0 }
+		add_political_power = -200
+	}
+}
+
+# A cold, wet day for Eric Blair
+
+country_event = {
+	id = uob.361
+	title = uob.361.t
+	desc = uob.361.d
+	picture = GFX_report_event_NOR_black_monday
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	trigger = {
+		has_country_leader_with_trait = ENG_chairman_for_life
+		has_character = ENG_eric_blair
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.361 option uob.361.a"
+		name = uob.361.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = ENG_path option = ENG_PATH_MOSLEY_TOTALIST }
+			}
+		}
+		promote_character = ENG_eric_blair
+		add_political_power = -50
+		set_politics = {
+			ruling_party = radical_socialist
+			long_name = ENG_BLR_radical_socialist_party_long
+			name = ENG_BLR_radical_socialist_party
+		}
+		hidden_effect = {
+			activate_advisor = ENG_fenner_brockway_sic
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.361 option uob.361.b"
+		name = uob.361.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = ENG_path option = ENG_PATH_BLAIR_RADSOC }
+			}
+		}
+		add_political_power = -600
+		retire_character = ENG_eric_blair
+	}
+}
+
+# Damn we need oil
+
+country_event = {
+	id = uob.363
+	title = uob.363.t
+	desc = uob.363.d
+	picture = GFX_report_event_BRM_oil_fields
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.363 option uob.363.a"
+		name = uob.363.a
+		add_ideas = ENG_synthetic_oil_lover
+	}
+}
+
+country_event = {
+	id = uob.364
+	title = uob.364.t
+	desc = uob.364.d
+	picture = GFX_report_event_ENG_uobflag
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.364 option uob.364.a"
+		name = uob.364.a
+		ENG_support_effect = yes
+	}
+}
+
+# Mosley was Couped
+
+country_event = {
+	id = uob.365
+	title = uob.365.t
+	desc = uob.365.d
+	picture = GFX_report_event_election_vote
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.365 option uob.365.a"
+		name = uob.365.a
+		ai_chance = { base = 30 }
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.365 option uob.365.b"
+		name = uob.365.b
+		ai_chance = { base = 30 }
+		promote_character = ENG_clement_attlee
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.365 option uob.365.c"
+		name = uob.365.c
+		ai_chance = { base = 10 }
+		promote_character = ENG_john_strachey
+		set_politics = {
+			ruling_party = totalist
+		}
+		hidden_effect = {
+			activate_advisor = ENG_eric_blair_sic
+			country_event = { id = uob.360 days = 30 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.365 option uob.365.e"
+		name = uob.365.e
+		ai_chance = { base = 30 }
+		promote_character = ENG_ellen_wilkinson
+		activate_advisor = ENG_eric_blair_sic
+	}
+}
+
+##############################
+### British Flavour Events ###
+##############################
+
+### The Imitation Game
+
+# A riddle
+
+country_event = {
+	id = uob.1000
+	title = uob.1000.t
+	desc = uob.1000.d
+	picture = GFX_report_event_generic_sign_treaty2
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1000 option uob.1000.a"
+		name = uob.1000.a
+		hidden_effect = {
+			random_list = {
+				75 = {
+					country_event = { id = uob.1001 days = 60 }
+				}
+				15 = {
+					country_event = { id = uob.1001 days = 45 }
+				}
+				5 = {
+					country_event = { id = uob.1001 days = 25 }
+				}
+				5 = {
+					country_event = { id = uob.1001 days = 10 }
+				}
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.1000 option uob.1000.b"
+		name = uob.1000.b
+	}
+}
+
+# Wrapped in a mystery
+
+country_event = {
+	id = uob.1001
+	title = uob.1001.t
+	desc = uob.1001.d
+	picture = GFX_report_event_Smoke_filled_room
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1001 option uob.1001.a"
+		name = uob.1001.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_political_power > 100
+				factor = 2
+			}
+			modifier = {
+				has_political_power > 75
+				factor = 1.5
+			}
+		}
+		add_political_power = -50
+		hidden_effect = {
+			country_event = { id = uob.1002 days = 150 }
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.1001 option uob.1001.b"
+		name = uob.1001.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_political_power < 50
+				factor = 0.5
+			}
+			modifier = {
+				has_political_power < 0
+				factor = 0
+			}
+		}
+	}
+}
+
+# Inside an Enigma
+
+country_event = {
+	id = uob.1002
+	title = uob.1002.t
+	desc = {
+		text = uob.1002.d_1
+		trigger = {
+			NOT = {
+				has_completed_focus = ENG_bletchley_park
+			}
+		}
+	}
+	desc = {
+		text = uob.1002.d_2
+		trigger = {
+			has_completed_focus = ENG_bletchley_park
+		}
+	}
+	picture = GFX_report_event_physics_lab_02
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1002 option uob.1002.a"
+		name = uob.1002.a
+		add_tech_bonus = {
+			name = uob.1002.t
+			bonus = 2
+			uses = 1
+			category = electronics
+		}
+		add_political_power = 100
+	}
+}
+
+# The Encylopedia
+
+country_event = {
+	id = uob.1003
+	title = uob.1003.t
+	desc = uob.1003.d
+	picture = GFX_report_event_communists_cheer
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1003 option uob.1003.a"
+		name = uob.1003.a
+		ai_chance = { base = 30 }
+		add_political_power = 25
+		every_other_country = {
+			limit = {
+				has_socialist_government = yes
+			}
+			add_opinion_modifier = {
+				target = ENG
+				modifier = KR_pleased
+			}
+		}
+		hidden_effect = {
+			news_event = {
+				id = uob.1006
+				days = 7
+			}
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.1003 option uob.1003.b"
+		name = uob.1003.b
+		ai_chance = { base = 45 }
+		add_political_power = 50
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.1003 option uob.1003.c"
+		name = uob.1003.c
+		ai_chance = { base = 25 }
+	}
+}
+
+# The Smuggler's Island
+
+country_event = {
+	id = uob.1004
+	title = uob.1004.t
+	desc = uob.1004.d
+	picture = GFX_report_event_communists_cheer
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1004 option uob.1004.a"
+		name = uob.1004.a
+	}
+}
+
+# The Union in forty years
+
+country_event = {
+	id = uob.1005
+	title = uob.1005.t
+	desc = uob.1005.d
+	picture = GFX_report_event_communists_cheer
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1005 option uob.1005.a"
+		name = uob.1005.a
+	}
+}
+
+# The Encyclopedia - News
+
+news_event = {
+	id = uob.1006
+	immediate = { log = "[GetLogInfo]: event uob.1006" }
+	title = uob.1006.t
+	desc = uob.1006.d
+	picture = GFX_news_event_006
+
+	is_triggered_only = yes
+
+	option = {
+		name = uob.1006.a
+		trigger = {
+			has_socialist_government = yes
+		}
+	}
+
+	option = {
+		name = uob.1006.b
+		trigger = {
+			has_socialist_government = no
+		}
+	}
+}
+
+#######################
+### Death Events
+#######################
+
+country_event = {
+	id = uob.1014
+	title = uob.1014.t
+
+	desc = {
+		text = uob.1014.d.leader
+		trigger = {
+			has_country_leader = { character = ENG_tom_mann }
+		}
+	}
+	desc = {
+		text = uob.1014.d.default
+		trigger = {
+			NOT = { has_country_leader = { character = ENG_tom_mann } }
+		}
+	}
+
+	picture = GFX_report_event_ENG_mann_1
+
+	trigger = {
+		has_character = ENG_tom_mann
+	}
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1014 option uob.1014.a"
+		name = uob.1014.a
+		if = {
+			limit = { has_country_leader = { character = ENG_tom_mann } }
+			promote_character = ENG_arthur_horner
+		}
+		if = {
+			limit = {
+				ENG_tom_mann = { is_second_in_command = yes }
+			}
+			activate_advisor = ENG_george_hardy_sic
+		}
+		ENG_tom_mann = { kill_character = yes }
+	}
+}
+
+### Dinner parties with a twist
+
+# Canada
+
+news_event = {
+	id = uob.1017
+	immediate = { log = "[GetLogInfo]: event uob.1017" }
+	title = uob.1017.t
+	desc = uob.1017.d
+	picture = GFX_report_event_BEL_Protest_Peacefull
+
+	is_triggered_only = yes
+
+	trigger = {
+		ENG = {
+			exists = yes
+			NOT = {
+				has_war_with = CAN
+				has_war_with = IRE
+			}
+		}
+		CAN = {
+			is_faction_leader = yes
+		}
+		IRE = {
+			exists = yes
+			NOT = { has_war_with = CAN }
+		}
+	}
+
+	option = {
+		name = uob.1017.a
+		trigger = {
+			tag = ENG
+		}
+		add_political_power = -10
+	}
+
+	option = {
+		name = uob.1017.b
+		trigger = {
+			OR = {
+				tag = CAN
+				tag = IRE
+			}
+		}
+		add_political_power = -20
+	}
+
+	option = {
+		name = uob.1017.c
+		trigger = {
+			NOT = {
+				tag = ENG
+				tag = IRE
+				tag = CAN
+			}
+		}
+	}
+}
+
+# Germany
+
+news_event = {
+	id = uob.1018
+	immediate = { log = "[GetLogInfo]: event uob.1018" }
+	title = uob.1018.t
+	desc = uob.1018.d
+	picture = GFX_report_event_BEL_Protest_Peacefull
+
+	is_triggered_only = yes
+
+	trigger = {
+		ENG = {
+			exists = yes
+			NOT = {
+				has_war_with = GER
+				has_war_with = IRE
+			}
+		}
+		GER = {
+			is_faction_leader = yes
+		}
+		IRE = {
+			exists = yes
+			NOT = { has_war_with = GER }
+		}
+	}
+
+	option = {
+		name = uob.1018.a
+		trigger = {
+			tag = ENG
+		}
+		add_political_power = -10
+	}
+
+	option = {
+		name = uob.1018.b
+		trigger = {
+			OR = {
+				tag = GER
+				tag = IRE
+			}
+		}
+		add_political_power = -20
+	}
+
+	option = {
+		name = uob.1018.c
+		trigger = {
+			NOT = {
+				tag = ENG
+				tag = IRE
+				tag = GER
+			}
+		}
+	}
+}
+
+# The John MacLean
+
+news_event = {
+	id = uob.1019
+	immediate = { log = "[GetLogInfo]: event uob.1019" }
+	title = uob.1019.t
+	desc = uob.1019.d
+	picture = GFX_news_event_025
+
+	is_triggered_only = yes
+
+	option = {
+		name = uob.1019.a
+	}
+}
+
+### The Totalist Charter
+
+country_event = {
+	id = uob.1020
+	title = uob.1020.t
+	desc = uob.1020.d
+	picture = GFX_report_event_generic_diplomacy1
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1020 option uob.1020.a"
+		name = uob.1020.a
+		hidden_effect = {
+			SRI = {
+				country_event = { id = uob.1021 days = 5 }
+			}
+			FRA = {
+				country_event = { id = uob.1022 days = 5 }
+			}
+			HUN = {
+				country_event = { id = uob.1023 days = 5 }
+			}
+			SWI = {
+				country_event = { id = swiss.80 days = 5 }
+			}
+			news_event = {
+				id = uob.2002
+				days = 10
+			}
+		}
+	}
+}
+
+country_event = {
+	id = uob.1021
+	title = uob.1021.t
+	desc = uob.1021.d
+	picture = GFX_report_event_journalists_speech
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1021 option uob.1021.a"
+		name = uob.1021.a
+	}
+}
+
+country_event = {
+	id = uob.1022
+	title = uob.1022.t
+	desc = uob.1022.d
+	picture = GFX_report_event_journalists_speech
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1022 option uob.1022.a"
+		name = uob.1022.a
+	}
+}
+
+country_event = {
+	id = uob.1023
+	title = uob.1023.t
+	desc = uob.1023.d
+	picture = GFX_report_event_journalists_speech
+
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1023 option uob.1023.a"
+		name = uob.1023.a
+	}
+}
+
+country_event = {
+	id = uob.1025
+	title = uob.1025.t
+	desc = uob.1025.d
+	picture = GFX_report_event_ENG_architecture
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1025 option uob.1025.a"
+		name = uob.1025.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_government = totalist
+				factor = 1.5
+			}
+			modifier = {
+				NOT = {
+					has_government = totalist
+				}
+				factor = 0.5
+			}
+		}
+		add_political_power = 50
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.05
+		}
+	}
+
+	option = {
+		log = "[GetLogInfo]: event uob.1025 option uob.1025.b"
+		name = uob.1025.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				NOT = {
+					has_government = totalist
+				}
+				factor = 1.5
+			}
+			modifier = {
+				has_government = totalist
+				factor = 0.5
+			}
+		}
+		add_political_power = 25
+	}
+}
+
+# The Crystal Palace
+
+country_event = { # The Crystal Palace?
+	id = uob.1026
+	title = uob.1026.t
+	desc = uob.1026.d
+	picture = GFX_report_event_ENG_crystal_palace
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { # Turn it into a Palace for the people
+		log = "[GetLogInfo]: event uob.1026 option uob.1026.a"
+		name = uob.1026.a
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_government = totalist
+				factor = 1.5
+			}
+			modifier = {
+				NOT = {
+					has_government = totalist
+				}
+				factor = 0.5
+			}
+		}
+		add_political_power = -40
+		hidden_effect = {
+			country_event = { id = uob.1027 days = 150 }
+		}
+	}
+	option = { # Turn it into a park for the people
+		log = "[GetLogInfo]: event uob.1026 option uob.1026.b"
+		name = uob.1026.b
+		ai_chance = {
+			base = 50
+			modifier = {
+				NOT = {
+					has_government = totalist
+				}
+				factor = 1.5
+			}
+			modifier = {
+				has_government = totalist
+				factor = 0.5
+			}
+		}
+		add_political_power = 20
+	}
+}
+
+country_event = { # The Worker's Palace
+	id = uob.1027
+	title = uob.1027.t
+	desc = uob.1027.d
+	picture = GFX_report_event_ENG_crystal_palace
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event uob.1027 option uob.1027.a"
+		name = uob.1027.a
+		add_political_power = 80
+	}
+}
+
+news_event = {
+	id = uob.1033
+	immediate = { log = "[GetLogInfo]: event uob.1033" }
+	title = uob.1033.t
+	desc = uob.1033.d
+	picture = GFX_report_event_BEL_Protest
+
+	is_triggered_only = yes
+
+	option = {
+		name = uob.1033.a
+		trigger = {
+			tag = ENG
+		}
+		add_political_power = -10
+	}
+
+	option = {
+		name = uob.1033.b
+		trigger = {
+			tag = GER
+		}
+		add_political_power = -20
+	}
+
+	option = {
+		name = uob.1033.c
+		trigger = {
+			NOT = {
+				tag = ENG
+				tag = GER
+			}
+		}
+	}
+}
+
+country_event = { # Helen Duncan's Wild Ride
+	id = uob.1034
+	title = uob.1034.t
+	desc = uob.1034.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # Uh oh
+		log = "[GetLogInfo]: event uob.1034 option uob.1034.a"
+		name = uob.1034.a
+
+	}
+}
+
+country_event = { # The WHRA
+	id = uob.1035
+	title = uob.1035.t
+	desc = uob.1035.d
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	option = { # Execute
+		log = "[GetLogInfo]: event uob.1035 option uob.1035.a"
+		name = uob.1035.a
+
+		add_stability = -0.02
+		add_popularity = {
+			ideology = totalist
+			popularity = 0.01
+		}
+	}
+
+	option = { # Arrest
+		log = "[GetLogInfo]: event uob.1035 option uob.1035.b"
+		name = uob.1035.b
+
+		add_political_power = -20
+		add_popularity = {
+			ideology = syndicalist
+			popularity = 0.01
+		}
+	}
+
+	option = { # Acquit
+		log = "[GetLogInfo]: event uob.1035 option uob.1035.c"
+		name = uob.1035.c
+
+		add_stability = -0.01
+		add_political_power = -5
+		add_popularity = {
+			ideology = radical_socialist
+			popularity = 0.02
+		}
+	}
+}
+
+### Legacy News Events ###
+# Elections
+# Chairman/Chairwoman Elected
+news_event = {
+	id = uob.2000
+	immediate = { log = "[GetLogInfo]: event uob.2000" }
+	title = {
+		trigger = { NOT = { ENG = { has_country_leader = { character = ENG_sylvia_pankhurst ruling_only = yes } } } }
+		text = uob.2000.chairman
+	}
+	title = {
+		trigger = { ENG = { has_country_leader = { character = ENG_sylvia_pankhurst ruling_only = yes } } }
+		text = uob.2000.chairwoman
+	}
+
+	desc = {
+		trigger = { ENG = { has_country_leader = { character = ENG_oswald_mosley ruling_only = yes } } }
+		text = uob.2000.mosley
+	}
+	desc = {
+		trigger = { ENG = { has_country_leader = { character = ENG_niclas_y_glais ruling_only = yes } } }
+		text = uob.2000.niclas_y_glais
+	}
+	desc = {
+		trigger = { ENG = { has_country_leader = { character = ENG_sylvia_pankhurst ruling_only = yes } } }
+		text = uob.2000.sylvia_pankhurst
+	}
+	desc = {
+		trigger = { ENG = { has_country_leader = { character = ENG_arthur_horner ruling_only = yes } } }
+		text = uob.2000.arthur_horner
+	}
+
+	picture = "[GetTUCElectionVictorPicture]"
+
+	major = yes
+	fire_for_sender = no
+	is_triggered_only = yes
+
+	trigger = {
+		wants_world_news = yes
+	}
+
+	show_major = {
+		OR = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			has_socialist_government = yes
+			is_ally_with = CAN
+		}
+	}
+
+	option = {
+		name = uob.2000.a
+	}
+}
+
+# English elections - No majority
+news_event = {
+	id = uob.2001
+	immediate = { log = "[GetLogInfo]: event uob.2001" }
+	title = uob.2001.t
+	desc = uob.2001.d
+	picture = GFX_news_event_POL_election
+
+	major = yes
+	fire_for_sender = no
+	is_triggered_only = yes
+
+	trigger = {
+		wants_world_news = yes
+	}
+
+	show_major = {
+		OR = {
+			regional_europe_news = yes
+			regional_north_america_news = yes
+			has_socialist_government = yes
+			is_ally_with = CAN
+		}
+	}
+
+	option = {
+		name = uob.2001.a
+	}
+}
+
+news_event = { #The Totalist Charter is drafted
+	id = uob.2002
+	immediate = { log = "[GetLogInfo]: event uob.2002" }
+	title = uob.2002.t
+	desc = uob.2002.d
+	picture = GFX_news_event_totalist_charter
+	is_triggered_only = yes
+	major = yes
+	trigger = {
+		wants_world_news = yes
+	}
+	show_major = {
+		regional_europe_news = yes
+	}
+	immediate = {
+		hidden_effect = {
+			SRI = {
+				country_event = { id = socitaly.2 days = 3 }
+			}
+			DEN = {
+				country_event = { id = den.1003 days = 3 }
+			}
+		}
+	}
+
+	option = {
+		name = uob.2002.a
+		trigger = {
+			has_socialist_government = yes
+		}
+	}
+
+	option = {
+		name = uob.2002.b
+		trigger = {
+			NOT = {
+				has_socialist_government = yes
+			}
+		}
+	}
+}
+
+### Post-war Annexation Stuff ###
+
+###############################
+#### The British Partition ####
+###############################
+
+country_event = { #Should Britain become a monarchy?
+	id = gbp.1
+	title = gbp.1.t
+	desc = gbp.1.d
+	picture = GFX_report_event_generic_map_brit
+	is_triggered_only = yes
+
+	option = { #Restore the monarchy GB
+		log = "[GetLogInfo]: event gbp.1 option gbp.1.a"
+		name = gbp.1.a
+		ai_chance = { base = 70 }
+		custom_effect_tooltip = GBP_british_monarchy
+		add_political_power = 25
+		hidden_effect = {
+			GBP = { GBP_create_monarchy = yes }
+			reverse_add_opinion_modifier = {
+				target = GBP
+				modifier = KR_hates_govt
+			}
+		}
+	}
+
+	option = { #Let them become a republic instead.
+		log = "[GetLogInfo]: event gbp.1 option gbp.1.b"
+		name = gbp.1.b
+		ai_chance = { base = 30 }
+		add_stability = 0.02
+		hidden_effect = {
+			reverse_add_opinion_modifier = {
+				target = GBP
+				modifier = KR_pleased
+			}
+		}
+	}
+}
+
+country_event = { #
+	id = gbp.2
+	title = gbp.2.t
+	desc = gbp.2.d
+	picture = GFX_report_event_generic_map_brit
+	is_triggered_only = yes
+
+	option = { #
+		log = "[GetLogInfo]: event gbp.2 option gbp.2.a"
+		name = gbp.2.a
+
+	}
+}
+
+country_event = { #
+	id = gbp.3
+	title = gbp.3.t
+	desc = gbp.3.d
+	picture = GFX_report_event_generic_map_brit
+	is_triggered_only = yes
+
+	option = { #
+		log = "[GetLogInfo]: event gbp.3 option gbp.3.a"
+		name = gbp.3.a
+
+	}
+}
+
+country_event = { #GB OOBs
+	id = gbp.4
+	title = gbp.4.t
+	desc = gbp.4.d
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gbp.4 option gbp.4.a"
+		name = gbp.4.a
+		load_oob = GBP_independent_GER
+		add_one_random_military_factory = yes
+		add_one_random_military_factory = yes
+		add_one_random_military_factory = yes
+		add_manpower = 100000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 7500
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 750
+		}
+	}
+}
+
+country_event = { #SCO OOBs
+	id = gbp.5
+	title = gbp.5.t
+	desc = gbp.5.d
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gbp.5 option gbp.5.a"
+		name = gbp.5.a
+		load_oob = SCO_independent_GER
+		load_oob = SCO_naval
+		add_one_random_military_factory = yes
+		add_one_random_military_factory = yes
+		add_one_random_civilian_factory = yes
+		add_manpower = 80000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 5000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 500
+		}
+	}
+}
+
+country_event = { #WLS OOBs
+	id = gbp.6
+	title = gbp.6.t
+	desc = gbp.6.d
+	is_triggered_only = yes
+
+	option = {
+		log = "[GetLogInfo]: event gbp.6 option gbp.6.a"
+		name = gbp.6.a
+		load_oob = WLS_independent_GER
+		load_oob = WLS_naval
+		add_one_random_military_factory = yes
+		add_one_random_military_factory = yes
+		add_one_random_civilian_factory = yes
+		122 = {
+			add_extra_state_shared_building_slots = 1
+			add_building_construction = {
+				type = dockyard
+				level = 1
+				instant_build = yes
+			}
+		}
+		add_manpower = 60000
+		add_equipment_to_stockpile = {
+			type = infantry_equipment
+			amount = 3000
+		}
+		add_equipment_to_stockpile = {
+			type = artillery_equipment
+			amount = 300
+		}
+	}
+}
+country_event = { #
+	id = gbp.7
+	title = gbp.7.t
+	desc = gbp.7.d
+	picture = GFX_report_event_generic_map_brit
+	is_triggered_only = yes
+
+	option = { #
+		log = "[GetLogInfo]: event gbp.7 option gbp.7.a"
+		name = gbp.7.a
+
+	}
+}

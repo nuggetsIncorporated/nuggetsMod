@@ -1,0 +1,83 @@
+on_actions = {
+	on_ruling_party_change_immediate = {
+		effect = {
+			if = {
+				limit = { original_tag = AST }
+				if = {
+					limit = {
+						OR = {
+							AST_is_dominion = no
+							has_socialist_government = yes
+							has_government = paternal_autocrat
+						}
+					}
+					activate_advisor = AST_federal_parliament_sic
+				}
+				else = {
+					if = {
+						limit = { has_government = social_democrat }
+						if = {
+							limit = { has_character = AST_john_curtin }
+							activate_advisor = AST_john_curtin_sic
+						}
+						else_if = {
+							limit = {
+								has_character = NZL_peter_fraser
+								NZL_peter_fraser = { has_advisor_role = second_in_command }
+							}
+							activate_advisor = NZL_peter_fraser_sic
+						}
+						else = {
+							activate_advisor = AST_joseph_benedict_chifley_sic
+						}
+					}
+					else_if = {
+						limit = { has_government = social_liberal }
+						activate_advisor = AST_john_thomas_lang_sic
+					}
+					else_if = {
+						limit = { has_government = market_liberal }
+						if = {
+							limit = { has_character = AST_earle_christmas_grafton_page }
+							activate_advisor = AST_earle_christmas_grafton_page_sic
+						}
+						else = {
+							activate_advisor = AST_arthur_william_fadden_sic
+						}
+					}
+					else_if = {
+						limit = { has_government = social_conservative }
+						if = {
+							limit = { has_character = AST_stanley_melbourne_bruce }
+							activate_advisor = AST_stanley_melbourne_bruce_sic
+						}
+						else_if = {
+							limit = {
+								has_character = NZL_sidney_george_holland
+								NZL_sidney_george_holland = { has_advisor_role = second_in_command }
+							}
+							activate_advisor = NZL_sidney_george_holland_sic
+						}
+						else = {
+							activate_advisor = AST_robert_gordon_menzies_sic
+						}
+					}
+					else_if = {
+						limit = { has_government = authoritarian_democrat }
+						activate_advisor = AST_william_morris_hughes_sic
+					}
+					else_if = {
+						limit = {
+							has_government = national_populist
+							has_character = AST_eric_campbell
+						}
+						activate_advisor = AST_eric_campbell_sic
+					}
+					else = {
+						activate_advisor = AST_federal_parliament_sic
+					}
+				}
+			}
+		}
+	}
+}

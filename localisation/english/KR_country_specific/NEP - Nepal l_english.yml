@@ -1,0 +1,111 @@
+﻿l_english:
+
+### Events ###
+ nepal.10.t: "Nepal Winning the War"
+ nepal.10.d: "Impossibly, the Nepalese Gurkhas have streamed out of the mountains and are turning the tide against us. Perhaps the time has come to give in to their demands and sue for peace?"
+ nepal.10.a: "Yes, let's end this now."
+ nepal.10.b: "No, we can still turn this around!"
+
+ nepal.11.t: "[From.GetNameDefCap] Sues for Peace with Nepal"
+ nepal.11.d: "Amazingly, the Nepalese army has outmanoeuvred us. [From.GetNameDefCap] has sued for peace and given into their demands, to at last put an end to our humiliation."
+ nepal.11.a: "Unbelievable!"
+
+ nepal.20.t: "Stalemate in War with Nepal"
+ nepal.20.d.claims: "Our war with the Nepalese has ground down in the mountains, territory they are far too adept at fighting in. Perhaps we should sue for peace - they can give us our claimed territories and walk away now, and we will abandon our efforts to conquer them. Surely they know that, given enough time, we would win... but at what cost?"
+ nepal.20.d.noclaims: "Our war with the Nepalese has ground down in the mountains, territory they are far too adept at fighting in. Perhaps we should sue for peace and just walk away from this, before the battle drags on for too long."
+ nepal.20.a: "Yes, let's end this now."
+ nepal.20.b: "We will ask [THIS.faction_leader.GetNameDef] to negotiate a peace."
+ nepal.20.c: "No! We will take Kathmandu or die trying!"
+
+ nepal.21.t: "Peace with Nepal?"
+ nepal.21.d.claims: "The war with the Nepalese has ground down in the mountains, territory they are far too adept at fighting in. Envoys from the [From.GetAdjective] government has approached us and asked that we sue for peace - the Nepalese can give them their claimed territories and walk away now, and the [Root.GetFactionName] will abandon efforts to conquer them. Surely [NEP.GetNameDef] knows that, given enough time, we would win... but at what cost?"
+ nepal.21.d.noclaims: "The war with the Nepalese has ground down in the mountains, territory they are far too adept at fighting in. Envoys from the [From.GetAdjective] government has approached us and asked that we sue for peace - the [Root.GetFactionName] would surely win in the long term, but at what cost? They say the war isn't worth pursuing further."
+ nepal.21.a: "Then let's end this now."
+ nepal.21.b: "The war doesn't end until Kathmandu falls!"
+
+ nepal.22.t: "Peace with [From.GetNameDef]?"
+ nepal.22.d.claims: "The war with [From.GetNameDef] has ground down in the mountains, as we knew it would, but we are a long, long way from victory. Representatives from the [From.GetAdjective] government have suggested we hand over the claimed [claimant.GetAdjective] territories and walk away now, our independence intact."
+ nepal.22.d.noclaims: "The war with [From.GetNameDef] has ground down in the mountains, as we knew it would, but we are a long, long way from victory. Representatives from the [From.GetAdjective] government have suggested we end the war and walk away now, neither side having gained anything but our independence intact."
+ nepal.22.a: "Yes, let's end this now."
+ nepal.22.b: "Absolutely not!"
+
+### Parties ###
+ NEP_totalist_party: "Labour Swatantra Party"
+ NEP_syndicalist_party: "Labour Swatantra Party"
+ NEP_radical_socialist_party: "Labour Swatantra Party"
+ NEP_social_democrat_party: "Nepal Praja Parishad"
+ NEP_social_liberal_party: "Nepal Praja Parishad"
+ NEP_market_liberal_party: "Nepal Praja Parishad"
+ NEP_social_conservative_party: "Nepal Praja Parishad"
+ NEP_authoritarian_democrat_party: "National Government"
+ NEP_paternal_autocrat_party: "Rana Dynasty"
+ NEP_national_populist_party: "Royal Council"
+
+### Ideas ###
+ NEP_gurkha_brigades: "Gurkha Brigades"
+
+### Country Names ###
+ NEP: "Nepal"
+ NEP_ADJ: "Nepali"
+ NEP_DEF: "Nepal"
+
+### Intro Screen ###
+ NEP_country_intro_background: "GFX_NEP_intro"
+
+### Decisions ###
+ NEP_hold_out_vs_india: "Hold Out Against [From.GetNameDef]"
+ NEP_defeat_nepal: "Defeat Nepal"
+ NEP_defeat_india: "Defeat [From.GetNameDef]"
+
+### Characters ###
+ NEP_tribhuvan: "Tribhuvan"
+ NEP_tribhuvan_leader_desc: "§YBorn:§! §LJune 30th, 1906, in Kathmandu, Kingdom of Nepal§!\n§YBackground:§! §LKing Tribhuvan ascended to the throne of Nepal at merely five years of age. Tribhuvan, however, was born king in name only, in reality, the boy-king was nothing more than a figurehead for the powerful Rana family. As he has grown into a man, Nepalese politics have become increasingly defined by the antagonistic relationship between the king and the Ranas. Time alone will reveal the victor of the struggle both politically and economically.§!"
+
+ NEP_subarna_shamsher_rana: "Subarna Shamsher Rana"
+ NEP_subarna_shamsher_rana_advisor_desc: "§YBorn:§! §L1910, in Kathmandu, Kingdom of Nepal§!"
+ NEP_matrika_prasad_koirala: "Matrika Prasad Koirala"
+ NEP_matrika_prasad_koirala_advisor_desc: "§YBorn:§! §LJanuary 1st, 1912, in Benares, United Provinces of Agra and Oudh, British India§!"
+ NEP_tanka_prasad_acharya: "Tanka Prasad Acharya"
+ NEP_tanka_prasad_acharya_leader_desc: "§YBorn:§! §LFebruary 11th, 1912, in Nawalparasi, Kingdom of Nepal§!"
+ NEP_bishweshwar_prasad_koirala: "Bishweshwar Prasad Koirala"
+ NEP_bishweshwar_prasad_koirala_advisor_desc: "§YBorn:§! §LSeptember 8th, 1914, in Benares, United Provinces of Agra and Oudh, British India§!"
+ NEP_kunwar_inderjit_singh: "Kunwar Inderjit Singh"
+ NEP_kunwar_inderjit_singh_leader_desc: "§YBorn:§! §L1906, in Dumrakot, Kingdom of Nepal§!"
+ NEP_juddha_shumsher_jang_bahadur_rana: "Juddha Shumsher Rana"
+ NEP_juddha_shumsher_jang_bahadur_rana_leader_desc: "§YBorn:§! §LApril 19th, 1875, in Kathmandu, Kingdom of Nepal§!"
+ NEP_kaiser_shumsher_jang_bahadur_rana: "Kaiser Shumsher Rana"
+ NEP_kaiser_shumsher_jang_bahadur_rana_sic_desc: "§YBorn:§! §LJanuary 8th, 1892, in the Kingdom of Nepal§!"
+ NEP_mutilal_gurung: "Mutilal Gurung"
+ NEP_mutilal_gurung_commander_desc: "§YBorn:§! §Lin the Kingdom of Nepal§!"
+
+ NEP_dashrath_chand: "Dashrath Chand"
+ NEP_dashrath_chand_sic_desc: "§YBorn:§! §L1903, in Baskot, Kingdom of Nepal§!"
+ NEP_bharat_mani_sharma: "Bharat Mani Sharma"
+ NEP_bharat_mani_sharma_advisor_desc: "§YBorn:§! §Lin the Kingdom of Nepal§!"
+ NEP_dharma_bhakta_mathema: "Dharma Bhakta Mathema"
+ NEP_dharma_bhakta_mathema_advisor_desc: "§YBorn:§! §LSeptember 24th, 1909, in Kathmandu, Kingdom of Nepal§!"
+ NEP_shukraraj_shastri: "Shukraraj Shastri"
+ NEP_shukraraj_shastri_advisor_desc: "§YBorn:§! §L1894, in Benares, United Provinces of Agra and Oudh, British India§!"
+ NEP_krishna_prasad_koirala: "Krishna Prasad Koirala"
+ NEP_krishna_prasad_koirala_advisor_desc: "§YBorn:§! §Lin Dumja, Kingdom of Nepal§!"
+ NEP_laxmi_prasad_devkota: "Laxmi Prasad Devkota"
+ NEP_laxmi_prasad_devkota_advisor_desc: "§YBorn:§! §LNovember 12th, 1909, in Kathmandu, Kingdom of Nepal§!"
+ NEP_nrip_jang_rana: "Nrip Jang Rana"
+ NEP_nrip_jang_rana_advisor_desc: "§YBorn:§! §LFebruary 15th, 1890, in Calcutta, Presidency of Fort William in Bengal, British India§!"
+ NEP_mohan_shumsher_jang_bahadur_rana: "Mohan Shumsher Rana"
+ NEP_mohan_shumsher_jang_bahadur_rana_army_chief_desc: "§YBorn:§! §LDecember 23rd, 1885, in Kathmandu, Kingdom of Nepal§!"
+ NEP_baber_shumsher_jang_bahadur_rana: "Baber Shumsher Rana"
+ NEP_baber_shumsher_jang_bahadur_rana_army_chief_desc: "§YBorn:§! §LJanuary 27th, 1888, in Kathmandu, Kingdom of Nepal§!"
+ NEP_padma_shumsher_jang_bahadur_rana: "Padma Shumsher Rana"
+ NEP_padma_shumsher_jang_bahadur_rana_advisor_desc: "§YBorn:§! §LDecember 5th, 1882, in Kathmandu, Kingdom of Nepal§!"
+ NEP_ranaji_vishnu_shumsher_jang_bahadur_rana: "Ranaji Vishnu Shumsher Rana"
+ NEP_ranaji_vishnu_shumsher_jang_bahadur_rana_advisor_desc: "§YBorn:§! §LNovember 13th, 1906, in Kathmandu, Kingdom of Nepal§!"
+ NEP_purendra_bikram_shah: "Purendra Bikram Shah"
+ NEP_purendra_bikram_shah_high_command_desc: "§YBorn:§! §LJanuary 20th, 1900, in Kathmandu, Kingdom of Nepal§!"
+ NEP_karan_bahadur_rana: "Karan Bahadur Rana"
+ NEP_karan_bahadur_rana_high_command_desc: "§YBorn:§! §LDecember 21st, 1898, in Mangalthan Gulmi, Kingdom of Nepal§!"
+ NEP_kulbir_thapa: "Kulbir Thapa"
+ NEP_kulbir_thapa_high_command_desc: "§YBorn:§! §LDecember 15th, 1888, in Palpa, Kingdom of Nepal§!"
+
+### Traits ###
+ NEP_defiant_hostage: "Defiant Hostage"

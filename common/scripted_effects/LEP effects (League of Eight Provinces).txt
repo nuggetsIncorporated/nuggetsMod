@@ -1,0 +1,523 @@
+
+LEP_modify_tsingtau_spirit = {
+	if = {
+		limit = { has_variable = LEP_tsingtau_level }
+		### Calculation ###
+		# Get Old LEP_tsingtau_level for meta effect later
+		set_temp_variable = { LEP_tsingtau_level_old = LEP_tsingtau_level }
+
+		# Get new LEP party pop before effect for party pop executes
+		set_temp_variable = { LEP_var_popularity = party_popularity@market_liberal }
+		add_to_temp_variable = { LEP_var_popularity = LEP_market_liberal_pp_change }
+
+		# Determine new LEP_tsingtau_level
+		if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.05 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 0 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.15 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 1 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.20 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 2 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.24 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 3 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.28 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 4 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.31 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 5 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.34 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 6 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.37 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 7 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.40 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 8 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.42 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 9 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.44 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 10 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.46 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 11 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.48 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 12 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.5 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 13 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.6 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 14 }
+		}
+		else_if = {
+			limit = {
+				check_variable = { LEP_var_popularity < 0.75 }
+			}
+			set_temp_variable = { LEP_tsingtau_level_new = 15 }
+		}
+		else = {
+			set_temp_variable = { LEP_tsingtau_level_new = 16 }
+		}
+
+		### Tooltip ###
+		if = {
+			limit = { NOT = { check_variable = { LEP_market_liberal_pp_change = 0 } } }
+			add_popularity = { ideology = market_liberal popularity = LEP_market_liberal_pp_change }
+		}
+		if = {
+			limit = {
+				NOT = { check_variable = { LEP_tsingtau_level_new = LEP_tsingtau_level_old } }
+			}
+			meta_effect = {
+				text = {
+					swap_ideas = {
+						remove_idea = LEP_Tsingtau_Collaboration[TSINGTAU_LEVEL_OLD]
+						add_idea = LEP_Tsingtau_Collaboration[TSINGTAU_LEVEL_NEW]
+					}
+				}
+				TSINGTAU_LEVEL_OLD = "[?LEP_tsingtau_level_old]"
+				TSINGTAU_LEVEL_NEW = "[?LEP_tsingtau_level_new]"
+			}
+		}
+		else = {
+			meta_effect = {
+				text = {
+					custom_effect_tooltip = {
+						localization_key = LEP_Tsingtau_Collaboration_idea_unchanged
+						IDEA = LEP_Tsingtau_Collaboration[TSINGTAU_LEVEL_OLD]
+					}
+				}
+				TSINGTAU_LEVEL_OLD = "[?LEP_tsingtau_level_old]"
+			}
+		}
+
+		### Additonal Hidden Effects ###
+		hidden_effect = {
+			set_variable = { LEP_tsingtau_level = LEP_tsingtau_level_new }
+			if = {
+				limit = { check_variable = { LEP_tsingtau_level = 3 } }
+				country_event = lepaog.50
+			}
+			else_if = {
+				limit = { check_variable = { LEP_tsingtau_level = 4 } }
+				country_event = lepaog.53
+			}
+			else_if = {
+				limit = { check_variable = { LEP_tsingtau_level = 5 } }
+				country_event = lepaog.31
+			}
+			else_if = {
+				limit = { check_variable = { LEP_tsingtau_level = 7 } }
+				country_event = lepaog.54
+			}
+			else_if = {
+				limit = { check_variable = { LEP_tsingtau_level = 8 } }
+				country_event = lepaog.55
+			}
+			else_if = {
+				limit = { check_variable = { LEP_tsingtau_level = 13 } }
+				country_event = lepaog.56
+			}
+			else_if = {
+				limit = { check_variable = { LEP_tsingtau_level = 14 } }
+				country_event = lepaog.33
+			}
+
+			if = {
+				limit = {
+					check_variable = { LEP_tsingtau_level > 0 }
+				}
+				GEA = {
+					# Refresh docking rights - there are no triggers to check docking rights
+					# Applying it to the tag that already has docking rights causes error in log
+					diplomatic_relation = {
+						country = LEP
+						relation = docking_rights
+						active = no
+					}
+					diplomatic_relation = {
+						country = LEP
+						relation = docking_rights
+						active = yes
+					}
+				}
+				if = {
+					limit = {
+						check_variable = { LEP_tsingtau_level > 1 }
+						NOT = { has_military_access_to = GEA }
+					}
+					GEA = {
+						diplomatic_relation = {
+							country = LEP
+							relation = military_access
+							active = yes
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+LEP_reduce_damaged_industry = {
+	if = {
+		limit = {
+			has_idea = LEP_Damaged_Industry
+		}
+		swap_ideas = {
+			remove_idea = LEP_Damaged_Industry
+			add_idea = LEP_Damaged_Industry1
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = LEP_Damaged_Industry1
+		}
+		swap_ideas = {
+			remove_idea = LEP_Damaged_Industry1
+			add_idea = LEP_Damaged_Industry2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = LEP_Damaged_Industry2
+		}
+		remove_ideas = LEP_Damaged_Industry2
+	}
+}
+
+LEP_reduce_widespread_destruction = {
+	if = {
+		limit = {
+			has_idea = LEP_Widespread_Destruction
+		}
+		swap_ideas = {
+			remove_idea = LEP_Widespread_Destruction
+			add_idea = LEP_Widespread_Destruction1
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = LEP_Widespread_Destruction1
+		}
+		swap_ideas = {
+			remove_idea = LEP_Widespread_Destruction1
+			add_idea = LEP_Widespread_Destruction2
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = LEP_Widespread_Destruction2
+		}
+		swap_ideas = {
+			remove_idea = LEP_Widespread_Destruction2
+			add_idea = LEP_Widespread_Destruction3
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = LEP_Widespread_Destruction3
+		}
+		swap_ideas = {
+			remove_idea = LEP_Widespread_Destruction3
+			add_idea = LEP_Widespread_Destruction4
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = LEP_Widespread_Destruction4
+		}
+		remove_ideas = LEP_Widespread_Destruction4
+		hidden_effect = {
+			remove_targeted_decision = { decision = LEP_village_reconstruction_decision target = LEP }
+		}
+	}
+}
+
+LEP_increase_kmt_unrest_level = {
+	add_to_variable = { lep_kmt_unrest_level = 1 }
+	clamp_variable = { var = lep_kmt_unrest_level min = 0 max = 4 }
+
+	set_variable = { lep_suppress_kmt_mission_timeout = 120 }
+	set_temp_variable = { lep_temp_mission_calc_k = 20 }
+	multiply_temp_variable = { lep_temp_mission_calc_k = lep_kmt_unrest_level }
+	subtract_from_variable = { lep_suppress_kmt_mission_timeout = lep_temp_mission_calc_k }
+}
+LEP_decrease_kmt_unrest_level = {
+	add_to_variable = { lep_kmt_unrest_level = -1 }
+	clamp_variable = { var = lep_kmt_unrest_level min = 0 max = 4 }
+
+	set_variable = { lep_suppress_kmt_mission_timeout = 120 }
+	set_temp_variable = { lep_temp_mission_calc_k = 20 }
+	multiply_temp_variable = { lep_temp_mission_calc_k = lep_kmt_unrest_level }
+	subtract_from_variable = { lep_suppress_kmt_mission_timeout = lep_temp_mission_calc_k }
+}
+LEP_increase_rural_banditry_unrest_level = {
+	add_to_variable = { lep_rural_unrest_level = 1 }
+	clamp_variable = { var = lep_rural_unrest_level min = 0 max = 4 }
+
+	set_variable = { lep_suppress_rural_banditry_mission_timeout = 120 }
+	set_temp_variable = { lep_temp_mission_calc_y = 20 }
+	multiply_temp_variable = { lep_temp_mission_calc_y = lep_rural_unrest_level }
+	subtract_from_variable = { lep_suppress_rural_banditry_mission_timeout = lep_temp_mission_calc_y }
+}
+LEP_decrease_rural_banditry_unrest_level = {
+	add_to_variable = { lep_rural_unrest_level = -1 }
+	clamp_variable = { var = lep_rural_unrest_level min = 0 max = 4 }
+
+	set_variable = { lep_suppress_rural_banditry_mission_timeout = 120 }
+	set_temp_variable = { lep_temp_mission_calc_y = 20 }
+	multiply_temp_variable = { lep_temp_mission_calc_y = lep_rural_unrest_level }
+	subtract_from_variable = { lep_suppress_rural_banditry_mission_timeout = lep_temp_mission_calc_y }
+}
+LEP_negative_kmt_event = {
+	# Pick Random Location
+	random_owned_state = {
+		limit = { region = 217 } #Dongnan
+		set_variable = { PREV.LEP_KMT_attack_location = THIS }
+	}
+	# Pick Random Event
+	if = {
+		limit = { has_variable = LEP_KMT_attack_location } #To avoid error log spam
+		random_list = {
+			11 = { #ambush
+				country_event = lep.41
+			}
+			11 = { #railway bomb
+				country_event = lep.42
+			}
+			11 = { #assassination
+				country_event = lep.43
+			}
+			11 = { #factory bomb
+				country_event = lep.44
+			}
+			11 = { #gunfight
+				country_event = lep.45
+			}
+			11 = { #heavy factory bomb
+				country_event = lep.46
+			}
+			11 = { #battle
+				country_event = lep.47
+			}
+			11 = { #series of bombings, train
+				country_event = lep.48
+			}
+			11 = { #series of bombings, factories
+				country_event = lep.49
+			}
+		}
+	}
+}
+
+LEP_negative_rural_banditry_event = {
+	random_list = {
+		14 = { #opium storage attack
+			country_event = lep.51
+		}
+		14 = { #assault on caravan
+			country_event = lep.52
+		}
+		14 = { #patrol attack
+			country_event = lep.53
+		}
+		14 = { #barracks attack
+			country_event = lep.54
+		}
+		14 = { #town assault
+			country_event = lep.55
+		}
+		14 = { #railway occupation
+			country_event = lep.56
+		}
+		14 = { #army clashes
+			country_event = lep.57
+		}
+	}
+}
+
+LEP_create_QIE_support_units = {
+	613 = {
+		create_unit = {
+			division = "name = \"Jiangsu Paobing Zhen\" division_template = \"Paobing Zhen\" start_equipment_factor = 1.0 start_experience_factor = 0.6"
+			prioritize_location = 11913
+			owner = LEP
+		}
+		create_unit = {
+			division = "division_template = \"Bubing Xie\" start_equipment_factor = 1.0 start_experience_factor = 0.3"
+			prioritize_location = 11913
+			owner = LEP
+		}
+		create_unit = {
+			division = "division_template = \"Bubing Xie\" start_equipment_factor = 1.0 start_experience_factor = 0.3"
+			prioritize_location = 11913
+			owner = LEP
+		}
+		create_unit = {
+			division = "division_template = \"Bubing Xie\" start_equipment_factor = 1.0 start_experience_factor = 0.3"
+			prioritize_location = 11913
+			owner = LEP
+		}
+	}
+}
+
+LEP_fortifying_our_positions_effect = {
+	custom_effect_tooltip = LEP_fortifying_our_positions_tt
+	add_command_power = -60
+	613 = {
+		add_building_construction = {
+			type = bunker
+			province = 10076
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = bunker
+			province = 7120
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = bunker
+			province = 11982
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = bunker
+			province = 11913
+			level = 1
+			instant_build = yes
+		}
+	}
+	1014 = {
+		add_building_construction = {
+			type = bunker
+			province = 1099
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = bunker
+			province = 1171
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = bunker
+			province = 11937
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = bunker
+			province = 10044
+			level = 1
+			instant_build = yes
+		}
+	}
+	1044 = {
+		add_building_construction = {
+			type = bunker
+			province = 1153
+			level = 1
+			instant_build = yes
+		}
+	}
+	598 = {
+		add_building_construction = {
+			type = coastal_bunker
+			province = 12067
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = coastal_bunker
+			province = 9953
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = coastal_bunker
+			province = 4091
+			level = 1
+			instant_build = yes
+		}
+		add_building_construction = {
+			type = coastal_bunker
+			province = 11928
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+LEP_recruit_characters_effect = {
+	if = {
+		limit = {
+			NOT = {
+				THIS = { has_character_flag = is_dead }
+				LEP = { has_character = PREV }
+			}
+		}
+		if = {
+			limit = { THIS = { is_army_leader = yes } }
+			demote_to_general = yes
+			remove_trait = { trait = recently_promoted }
+		}
+		set_nationality = LEP
+	}
+}

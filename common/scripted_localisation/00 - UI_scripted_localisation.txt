@@ -1,0 +1,1097 @@
+### Party Popularity ###
+defined_text = {
+	name = GetPopIcon
+	text = {
+		trigger = {
+			has_variable = political_power_ideology
+		}
+		localization_key = "GFX_[?global.ideology_groups^political_power_ideology.GetTokenKey]_small"
+	}
+	text = {
+		localization_key = "GFX_[?current_party_ideology_group.GetTokenKey]_small"
+	}
+}
+
+defined_text = {
+	name = GetPopularityTooltipDesc
+	text = {
+		trigger = {
+			has_government = totalist
+		}
+		localization_key = totalist_subtype_desc
+	}
+	text = {
+		trigger = {
+			has_government = syndicalist
+		}
+		localization_key = syndicalist_subtype_desc
+	}
+	text = {
+		trigger = {
+			has_government = radical_socialist
+		}
+		localization_key = radical_socialist_subtype_desc
+	}
+	text = {
+		trigger = {
+			has_government = social_democrat
+		}
+		localization_key = social_democrat_subtype_desc
+	}
+	text = {
+		trigger = {
+			has_government = social_liberal
+		}
+		localization_key = social_liberal_subtype_desc
+	}
+	text = {
+		trigger = {
+			has_government = market_liberal
+		}
+		localization_key = market_liberal_subtype_desc
+	}
+	text = {
+		trigger = {
+			has_government = social_conservative
+		}
+		localization_key = social_conservative_subtype_desc
+	}
+	text = {
+		trigger = {
+			has_government = authoritarian_democrat
+		}
+		localization_key = authoritarian_democrat_subtype_desc
+	}
+	text = {
+		trigger = {
+			has_government = paternal_autocrat
+		}
+		localization_key = paternal_autocrat_subtype_desc
+	}
+	text = {
+		trigger = {
+			has_government = national_populist
+		}
+		localization_key = national_populist_subtype_desc
+	}
+}
+defined_text = {
+	name = GetPopularityPercent
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = party_popularity_dynamic_modifier_ideology_mapped }
+			set_temp_variable = { temp = global.ideology_groups^political_power_ideology }
+		}
+		localization_key = party_popularity_value_mapped
+	}
+	text = {
+		localization_key = party_popularity_value_default
+	}
+}
+defined_text = {
+	name = GetPopularityPPGain
+	text = {
+		trigger = {
+			OR = {
+				has_dynamic_modifier = { modifier = party_popularity_dynamic_modifier_ideology_mapped }
+				has_dynamic_modifier = { modifier = party_popularity_dynamic_modifier }
+			}
+		}
+		localization_key = party_popularity_tooltip_long
+	}
+}
+defined_text = {
+	name = GetPopularityPPGainValue
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = party_popularity_dynamic_modifier_ideology_mapped }
+			set_temp_variable = { temp = global.ideology_groups^political_power_ideology }
+		}
+		localization_key = party_popularity_gain_value_mapped
+	}
+	text = {
+		trigger = {
+			NOT = { has_dynamic_modifier = { modifier = party_popularity_dynamic_modifier } }
+		}
+		localization_key = party_popularity_gain_value_disabled
+	}
+	text = {
+		localization_key = party_popularity_gain_value_default
+	}
+}
+defined_text = {
+	name = GetHasCoalition
+	text = {
+		trigger = { has_coalition = yes }
+		localization_key = party_pop_coalition
+	}
+}
+defined_text = {
+	name = GetCoalitionTotalist
+	text = {
+		trigger = { is_in_coalition_with_totalist = yes }
+		localization_key = party_pop_coalition_totalist
+	}
+}
+defined_text = {
+	name = GetCoalitionSyndicalist
+	text = {
+		trigger = { is_in_coalition_with_syndicalist = yes }
+		localization_key = party_pop_coalition_syndicalist
+	}
+}
+defined_text = {
+	name = GetCoalitionRadicalSocialist
+	text = {
+		trigger = { is_in_coalition_with_radical_socialist = yes }
+		localization_key = party_pop_coalition_radical_socialist
+	}
+}
+defined_text = {
+	name = GetCoalitionSocialDemocrat
+	text = {
+		trigger = { is_in_coalition_with_social_democrat = yes }
+		localization_key = party_pop_coalition_social_democrat
+	}
+}
+defined_text = {
+	name = GetCoalitionSocialLiberal
+	text = {
+		trigger = { is_in_coalition_with_social_liberal = yes }
+		localization_key = party_pop_coalition_social_liberal
+	}
+}
+defined_text = {
+	name = GetCoalitionMarketLiberal
+	text = {
+		trigger = { is_in_coalition_with_market_liberal = yes }
+		localization_key = party_pop_coalition_market_liberal
+	}
+}
+defined_text = {
+	name = GetCoalitionSocialConservative
+	text = {
+		trigger = { is_in_coalition_with_social_conservative = yes }
+		localization_key = party_pop_coalition_social_conservative
+	}
+}
+defined_text = {
+	name = GetCoalitionAuthoritarianDemocrat
+	text = {
+		trigger = { is_in_coalition_with_authoritarian_democrat = yes }
+		localization_key = party_pop_coalition_authoritarian_democrat
+	}
+}
+defined_text = {
+	name = GetCoalitionPaternalAutocrat
+	text = {
+		trigger = { is_in_coalition_with_paternal_autocrat = yes }
+		localization_key = party_pop_coalition_paternal_autocrat
+	}
+}
+defined_text = {
+	name = GetCoalitionNationalPopulist
+	text = {
+		trigger = { is_in_coalition_with_national_populist = yes }
+		localization_key = party_pop_coalition_national_populist
+	}
+}
+defined_text = {
+	name = GetCoalitionTooltipColour
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:totalist }
+		}
+		localization_key = colour_totalist
+	}
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:syndicalist }
+		}
+		localization_key = colour_syndicalist
+	}
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:radical_socialist }
+		}
+		localization_key = colour_radsoc
+	}
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:social_democrat }
+		}
+		localization_key = colour_socdem
+	}
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:social_liberal }
+		}
+		localization_key = colour_soclib
+	}
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:market_liberal }
+		}
+		localization_key = colour_marlib
+	}
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:social_conservative }
+		}
+		localization_key = colour_soccon
+	}
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:authoritarian_democrat }
+		}
+		localization_key = colour_autdem
+	}
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:paternal_autocrat }
+		}
+		localization_key = colour_pataut
+	}
+	text = {
+		trigger = {
+			check_variable = { coalition_partner_var = token:national_populist }
+		}
+		localization_key = colour_natpop
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_Totalist
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@totalist }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^0 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^0 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_Syndicalist
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@syndicalist }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^1 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^1 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_RadicalSocialist
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@radical_socialist }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^2 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^2 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_SocialDemocrat
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@social_democrat }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^3 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^3 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_SocialLiberal
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@social_liberal }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^4 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^4 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_MarketLiberal
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@market_liberal }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^5 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^5 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_SocialConservative
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@social_conservative }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^6 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^6 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_AuthoritarianDemocrat
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@authoritarian_democrat }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^7 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^7 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_PaternalAutocrat
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@paternal_autocrat }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^8 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^8 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+defined_text = {
+	name = GetCoalitionPPGain_NationalPopulist
+	text = {
+		trigger = {
+			set_temp_variable = { coalition_pp = party_popularity@national_populist }
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^9 = 0 } } }
+				multiply_temp_variable = { coalition_pp = coalition_stability_array^9 }
+			}
+			else = {
+				multiply_temp_variable = { coalition_pp = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_pp_gain
+	}
+}
+
+defined_text = {
+	name = GetCoalitionStability_Totalist
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^0 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^0 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+defined_text = {
+	name = GetCoalitionStability_Syndicalist
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^1 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^1 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+defined_text = {
+	name = GetCoalitionStability_RadicalSocialist
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^2 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^2 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+defined_text = {
+	name = GetCoalitionStability_SocialDemocrat
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^3 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^3 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+defined_text = {
+	name = GetCoalitionStability_SocialLiberal
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^4 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^4 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+defined_text = {
+	name = GetCoalitionStability_MarketLiberal
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^5 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^5 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+defined_text = {
+	name = GetCoalitionStability_SocialConservative
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^6 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^6 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+defined_text = {
+	name = GetCoalitionStability_AuthoritarianDemocrat
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^7 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^7 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+defined_text = {
+	name = GetCoalitionStability_PaternalAutocrat
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^8 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^8 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+defined_text = {
+	name = GetCoalitionStability_NationalPopulist
+	text = {
+		trigger = {
+			if = {
+				limit = { NOT = { check_variable = { coalition_stability_array^9 = 0 } } }
+				set_temp_variable = { coalition_stab = coalition_stability_array^9 }
+			}
+			else = {
+				set_temp_variable = { coalition_stab = coalition_stability?0.5 }
+			}
+		}
+		localization_key = party_pop_coalition_stability
+	}
+}
+
+### Division Limits ###
+defined_text = {
+	name = unit_limit_count_loc
+	text = {
+		trigger = { NOT = { has_game_rule = { rule = unit_limit_options option = STANDARD } } }
+		localization_key = unit_limit_count_disabled
+	}
+	text = {
+		trigger = {
+			check_variable = { num_actual_divisions > max_divisions }
+		}
+		localization_key = unit_limit_count_above
+	}
+	text = {
+		trigger = {
+			check_variable = { num_actual_divisions = max_divisions }
+		}
+		localization_key = unit_limit_count_equal
+	}
+	text = {
+		localization_key = unit_limit_count_below
+	}
+}
+
+defined_text = {
+	name = unit_limit_breakdown
+	text = {
+		trigger = { has_game_rule = { rule = unit_limit_options option = STANDARD } }
+		localization_key = unit_limit_breakdown_default
+	}
+}
+
+defined_text = {
+	name = unit_limit_breakdown_desc
+	text = {
+		trigger = { NOT = { has_game_rule = { rule = unit_limit_options option = STANDARD } } }
+		localization_key = unit_limit_breakdown_desc_disabled
+	}
+	text = {
+		localization_key = unit_limit_breakdown_desc_enabled
+	}
+}
+
+defined_text = {
+	name = unit_limit_reached_floor
+	text = {
+		trigger = {
+			set_temp_variable = { floor = constant:unit_limits.min }
+			check_variable = { uncapped_max_divisions < floor }
+		}
+		localization_key = unit_limit_reached_floor_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_reached_ceiling
+	text = {
+		trigger = {
+			set_temp_variable = { ceiling = constant:unit_limits.max }
+			check_variable = { uncapped_max_divisions > ceiling }
+		}
+		localization_key = unit_limit_reached_ceiling_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_base_value
+	text = {
+		localization_key = unit_limit_base_value_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_core_population
+	text = {
+		localization_key = unit_limit_core_population_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_noncore_population
+	text = {
+		trigger = {
+			NOT = { check_variable = { non_core_base = 0 } }
+		}
+		localization_key = unit_limit_noncore_population_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_subject_population_bonus
+	text = {
+		trigger = {
+			NOT = { check_variable = { subject_base_units = 0 } }
+		}
+		localization_key = unit_limit_subject_population_bonus_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_states
+	text = {
+		localization_key = unit_limit_states_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_subject_state_bonus
+	text = {
+		trigger = {
+			NOT = { check_variable = { subject_states = 0 } }
+		}
+		localization_key = unit_limit_subject_state_bonus_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_factory_count_multiplier
+	text = {
+		localization_key = unit_limit_factory_count_multiplier_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_additional_multipliers
+	text = {
+		trigger = {
+			OR = {
+				is_faction_leader = yes
+				NOT = { check_variable = { modifier@unit_limit_factor = 0 } }
+				NOT = { check_variable = { modifier@unit_limit_law_bonus = 0 } }
+			}
+		}
+		localization_key = unit_limit_additional_multipliers_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_faction_leader
+	text = {
+		trigger = {
+			is_faction_leader = yes
+			set_temp_variable = { modifier = constant:unit_limits.faction_leader_bonus }
+		}
+		localization_key = unit_limit_faction_leader_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_factor
+	text = {
+		trigger = {
+			NOT = { check_variable = { modifier@unit_limit_factor = 0 } }
+		}
+		localization_key = unit_limit_factor_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_base
+	text = {
+		trigger = {
+			set_temp_variable = { base = constant:unit_limits.base }
+		}
+		localization_key = unit_limit_base_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_economy_law
+	text = {
+		trigger = { has_idea = low_economic_mobilisation }
+		localization_key = unit_limit_low_economic_mobilisation
+	}
+	text = {
+		trigger = { has_idea = partial_economic_mobilisation }
+		localization_key = unit_limit_partial_economic_mobilisation
+	}
+	text = {
+		trigger = { has_idea = war_economy }
+		localization_key = unit_limit_war_economy
+	}
+	text = {
+		trigger = { has_idea = tot_economic_mobilisation }
+		localization_key = unit_limit_tot_economic_mobilisation
+	}
+}
+
+defined_text = {
+	name = unit_limit_bonus
+	text = {
+		trigger = {
+			NOT = { check_variable = { modifier@unit_limit_bonus = 0 } }
+		}
+		localization_key = unit_limit_bonus_desc
+	}
+}
+
+defined_text = {
+	name = unit_limit_above_limit
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = mobilisation_penalty_modifier }
+		}
+		localization_key = unit_limit_above_limit_desc
+	}
+}
+
+### Economic Spheres ###
+defined_text = {
+	name = GetEconomicSphereName
+	text = {
+		trigger = {
+			is_in_economic_sphere = yes
+		}
+		localization_key = "[?THIS.economic_sphere.GetName]"
+	}
+}
+defined_text = {
+	name = GetEconomicSphereDesc
+	text = {
+		trigger = {
+			is_in_economic_sphere = yes
+			var:economic_sphere = { set_temp_variable = { economic_sphere_desc = THIS } }
+		}
+		localization_key = "[?THIS.economic_sphere:desc.GetName]"
+	}
+}
+defined_text = {
+	name = GetEconomicSphereIcon
+	text = {
+		trigger = {
+			is_in_economic_sphere = yes
+			var:economic_sphere = { set_temp_variable = { economic_sphere_icon = THIS } }
+		}
+		localization_key = "[?THIS.economic_sphere:icon.GetName]"
+	}
+}
+
+### Trigger Tooltips ###
+defined_text = {
+	name = MajorWorldPower_MajorCheck
+	text = {
+		trigger = { is_major = yes }
+		localization_key = TRIGGER_YES
+	}
+	text = {
+		localization_key = TRIGGER_NO
+	}
+}
+
+defined_text = {
+	name = MajorWorldPower_AmongSevenLargestIndustries
+	text = {
+		trigger = {
+			get_sorted_scored_countries_temp = {
+				scorer = major_industry_count_scorer
+				array = actual_majors
+			}
+			resize_temp_array = { actual_majors = 7 }
+			is_in_array = { actual_majors = THIS }
+		}
+		localization_key = TRIGGER_YES
+	}
+	text = {
+		localization_key = TRIGGER_NO
+	}
+}
+
+defined_text = {
+	name = MajorWorldPower_MoreThanSeventyPercentAverage
+	text = {
+		trigger = {
+			num_of_factories > 35 #MAJOR_MIN_FACTORIES
+			get_sorted_scored_countries_temp = {
+				scorer = major_industry_count_scorer
+				array = actual_majors
+			}
+			resize_temp_array = { actual_majors = 7 }
+			set_temp_variable = { factory_average = 0 }
+			all_of_scopes = {
+				array = actual_majors
+				add_to_temp_variable = { factory_average = THIS.num_of_factories }
+			}
+			divide_temp_variable = { factory_average = 4.9 }
+
+			# actual check
+			num_of_factories > factory_average
+		}
+		localization_key = TRIGGER_YES
+	}
+	text = {
+		localization_key = TRIGGER_NO
+	}
+}
+
+defined_text = {
+	name = MajorWorldPower_IsINT
+	text = {
+		trigger = { tag = INT }
+		localization_key = TRIGGER_YES
+	}
+	text = {
+		localization_key = TRIGGER_NO
+	}
+}
+
+defined_text = {
+	name = MajorWorldPower_IsENT
+	text = {
+		trigger = { tag = ENT }
+		localization_key = TRIGGER_YES
+	}
+	text = {
+		localization_key = TRIGGER_NO
+	}
+}
+
+defined_text = {
+	name = MajorWorldPower_IsGEX
+	text = {
+		trigger = { tag = GEX }
+		localization_key = TRIGGER_YES
+	}
+	text = {
+		localization_key = TRIGGER_NO
+	}
+}
+
+
+### Exile Toggle decision ###
+defined_text = {
+	name = toggle_exile_decisions_text
+	text = {
+		trigger = { has_country_flag = KR_disabled_exile_decisions }
+		localization_key = toggle_exile_decisions_enable
+	}
+	text = {
+		localization_key = toggle_exile_decisions_disable
+	}
+}
+
+defined_text = {
+	name = toggle_exile_decisions_desc_text
+	text = {
+		trigger = { has_country_flag = KR_disabled_exile_decisions }
+		localization_key = toggle_exile_decisions_enable_desc
+	}
+	text = {
+		localization_key = toggle_exile_decisions_disable_desc
+	}
+}
+
+### Raise Stability decision ###
+defined_text = {
+	name = generic_raise_stability_text
+	text = {
+		trigger = { has_socialist_government = yes }
+		localization_key = generic_raise_stability_socialist
+	}
+	text = {
+		trigger = { has_left_democratic_government = yes }
+		localization_key = generic_raise_stability_liberal
+	}
+	text = {
+		trigger = { has_government = market_liberal }
+		localization_key = generic_raise_stability_liberal
+	}
+	text = {
+		trigger = { has_dictatorship_government = yes }
+		localization_key = generic_raise_stability_authoritarian
+	}
+	text = {
+		localization_key = generic_raise_stability_conservative
+	}
+}
+
+defined_text = {
+	name = generic_raise_stability_desc_text
+	text = {
+		trigger = { has_socialist_government = yes }
+		localization_key = generic_raise_stability_socialist_desc
+	}
+	text = {
+		trigger = { has_left_democratic_government = yes }
+		localization_key = generic_raise_stability_liberal_desc
+	}
+	text = {
+		trigger = { has_government = market_liberal }
+		localization_key = generic_raise_stability_liberal_desc
+	}
+	text = {
+		trigger = { has_dictatorship_government = yes }
+		localization_key = generic_raise_stability_authoritarian_desc
+	}
+	text = {
+		localization_key = generic_raise_stability_conservative_desc
+	}
+}
+
+### Raise Support decision ###
+defined_text = {
+	name = generic_raise_support_text
+	text = {
+		trigger = {
+			OR = {
+				has_government = totalist
+				has_authoritarian_government = yes
+			}
+		}
+		localization_key = solidify_control
+	}
+	text = {
+		localization_key = rally_public_support
+	}
+}
+
+defined_text = {
+	name = generic_raise_support_desc_text
+	text = {
+		trigger = {
+			OR = {
+				has_government = totalist
+				has_authoritarian_government = yes
+			}
+		}
+		localization_key = solidify_control_desc
+	}
+	text = {
+		localization_key = rally_public_support_desc
+	}
+}
+
+### Map Modes ###
+defined_text = {
+	name = GetCoreClaimMapModeTooltip
+	text = {
+		trigger = { mapmode_cores_claims_is_core = yes }
+		localization_key = cores_claims_map_mode_tooltip_core
+	}
+	text = {
+		trigger = { mapmode_cores_claims_can_integrate_50 = yes }
+		localization_key = cores_claims_map_mode_tooltip_potential_core_50
+	}
+	text = {
+		trigger = { mapmode_cores_claims_can_integrate_80 = yes }
+		localization_key = cores_claims_map_mode_tooltip_potential_core_80
+	}
+	text = {
+		trigger = { mapmode_cores_claims_is_claim = yes }
+		localization_key = cores_claims_map_mode_tooltip_claim
+	}
+	text = {
+		trigger = { mapmode_cores_claims_is_owned = yes }
+		localization_key = cores_claims_map_mode_tooltip_owned
+	}
+}
+defined_text = {
+	name = GetOpinionMapModeTooltip
+	text = {
+		trigger = { NOT = { ROOT = { controls_state = FROM } } }
+		localization_key = opinion_map_mode_tooltip_delayed_desc
+	}
+}
+defined_text = {
+	name = GetEconomicSphereMapModeTooltip
+	text = {
+		trigger = { is_in_economic_sphere = no }
+		localization_key = economic_spheres_map_mode_tooltip_none
+	}
+	text = {
+		trigger = { tag = economic_sphere:members^0 }
+		localization_key = economic_spheres_map_mode_tooltip_leader
+	}
+	text = {
+		localization_key = economic_spheres_map_mode_tooltip_member
+	}
+}
+defined_text = {
+	name = GetEconomicSphereMapModeTooltip_SphereName
+	text = {
+		trigger = { var:FROM.controller = { is_in_economic_sphere = no } }
+		localization_key = economic_spheres_map_mode_none
+	}
+	text = {
+		trigger = { var:FROM.controller = { set_temp_variable = { target = economic_sphere } } }
+		localization_key = "[?target.GetName]"
+	}
+}
+defined_text = {
+	name = GetEconomicSphereMapModeTooltip_SphereLeader
+	text = {
+		trigger = { var:FROM.controller = { is_in_economic_sphere = no } }
+		localization_key = economic_spheres_map_mode_none
+	}
+	text = {
+		trigger = { var:FROM.controller = { set_temp_variable = { target = economic_sphere:members^0 } } }
+		localization_key = "[?target.GetNameWithFlag]"
+	}
+}
+
+### Alerts ###
+defined_text = {
+	name = GetIncomingWarAlertMessage
+	text = {
+		trigger = { ROOT = { tag = ROOT.alert_war_target_@PREV } }
+		localization_key = incoming_war_alert_message_self
+	}
+	text = {
+		trigger = { ROOT = { is_subject_of = ROOT.alert_war_target_@PREV } }
+		localization_key = incoming_war_alert_message_puppet
+	}
+	text = {
+		trigger = { ROOT = { has_guaranteed = ROOT.alert_war_target_@PREV } }
+		localization_key = incoming_war_alert_message_guarantor
+	}
+	text = {
+		trigger = { ROOT = { has_war_with = ROOT.alert_war_target_@PREV } }
+		localization_key = incoming_war_alert_message_civil_war
+	}
+	text = {
+		localization_key = incoming_war_alert_message_ally
+	}
+}

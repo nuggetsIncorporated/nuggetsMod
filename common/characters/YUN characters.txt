@@ -1,0 +1,983 @@
+characters = {
+	#######################
+	### Country Leaders ###
+	#######################
+	YUN_wang_fusheng = {
+		name = YUN_wang_fusheng
+		portraits = {
+			civilian = {
+				large = GFX_portrait_YUN_wang_fusheng_civilian_large
+			}
+		}
+		country_leader = {
+			desc = YUN_wang_fusheng_leader_desc
+			ideology = totalist_subtype
+		}
+	}
+	YUN_li_xin = {
+		name = YUN_li_xin
+		portraits = {
+			civilian = {
+				large = GFX_portrait_YUN_li_xin_civilian_large
+			}
+		}
+		country_leader = {
+			desc = YUN_li_xin_leader_desc
+			ideology = syndicalist_subtype
+		}
+	}
+	YUN_zhao_xingwu = {
+		name = YUN_zhao_xingwu
+		portraits = {
+			civilian = {
+				large = GFX_Portrait_Asia_Generic_new_1
+			}
+		}
+		country_leader = {
+			desc = YUN_zhao_xingwu_leader_desc
+			ideology = social_democrat_subtype
+		}
+	}
+	#朱德
+	YUN_zhu_de = {
+		name = YUN_zhu_de
+		portraits = {
+			army = {
+				large = GFX_portrait_YUN_zhu_de_army_large
+				small = GFX_portrait_YUN_zhu_de_army_small
+			}
+		}
+		country_leader = {
+			desc = YUN_zhu_de_leader_desc
+			ideology = radical_socialist_subtype
+			traits = { CHN_left_kuomintang_aligned }
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = YUN_zhu_de_army_chief
+			available = {
+				NOT = { has_country_leader = { character = YUN_tang_jiyao } }
+				not_already_hired_except_as = army_chief
+			}
+			traits = { KR_army_chief_reform_2 }
+			cost = 100
+			on_add = {
+				ROOT = {
+					if = {
+						limit = { original_tag = CHI }
+						custom_effect_tooltip = CHI_add_rca_aligned_advisor_tt
+						hidden_effect = { CHI_RCA_large_effect = yes }
+					}
+				}
+			}
+		}
+		field_marshal = {
+			desc = YUN_zhu_de_army_chief_desc
+			traits = { CHN_LKT_officer_trait career_officer inflexible_strategist politically_connected organizer irregulars_officer }
+			skill = 3
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 5
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_zhu_de_advisor
+			desc = YUN_zhu_de_army_chief_desc
+			available = { not_already_hired_except_as = political_advisor }
+			traits = { KR_respected_war_hero }
+			on_add = {
+				ROOT = {
+					if = {
+						limit = { original_tag = CHI }
+						custom_effect_tooltip = CHI_add_rca_aligned_advisor_tt
+						hidden_effect = { CHI_RCA_large_effect = yes }
+					}
+				}
+			}
+		}
+	}
+	#朱培德
+	YUN_zhu_peide = {
+		name = YUN_zhu_peide
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_zhu_peide_army_small
+				large = GFX_portrait_YUN_zhu_peide_army_large
+			}
+		}
+		country_leader = {
+			desc = YUN_zhu_peide_leader_desc
+			ideology = social_liberal_subtype
+			traits = { CHN_right_kuomintang_aligned }
+		}
+		country_leader = {
+			desc = YUN_zhu_peide_leader_desc
+			ideology = social_conservative_subtype
+			traits = { CHN_right_kuomintang_aligned }
+		}
+		country_leader = {
+			desc = YUN_zhu_peide_leader_desc
+			ideology = authoritarian_democrat_subtype
+			traits = { CHN_right_kuomintang_aligned }
+		}
+		country_leader = {
+			desc = YUN_zhu_peide_leader_desc
+			ideology = paternal_autocrat_subtype
+			traits = { CHN_right_kuomintang_aligned }
+		}
+		corps_commander = {
+			desc = YUN_zhu_peide_sic_desc
+			skill = 3
+			traits = { infantry_officer infantry_leader war_hero politically_connected hidden_sympathies CHN_RKT_officer_trait }
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 2
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = YUN_zhu_peide_sic
+			traits = { KR_patriotic_visionary_sic }
+			cost = 0
+			can_be_fired = no
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = YUN_zhu_peide_army_chief
+			desc = YUN_zhu_peide_sic_desc
+			available = {
+				not_already_hired_except_as = army_chief
+				YUN_zhu_peide = { is_unit_leader = yes }
+			}
+			traits = { KR_army_chief_drill_2 }
+			cost = 100
+			on_add = {
+				ROOT = {
+					if = {
+						limit = { original_tag = CHI }
+						owner = { hidden_effect = { CHI_RCF_medium_effect = yes } }
+						custom_effect_tooltip = CHI_add_RCF_aligned_advisor_tt
+					}
+				}
+			}
+		}
+	}
+	YUN_miao_yuntai = {
+		name = YUN_miao_yuntai
+		portraits = {
+			civilian = {
+				small = GFX_portrait_YUN_miao_yuntai_civilian_small
+				large = GFX_Portrait_Asia_Generic_new_1
+			}
+		}
+		country_leader = {
+			# Placeholder leader, doesn't need desc
+			ideology = market_liberal_subtype
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_miao_yuntai_advisor
+			traits = { KR_industrialiser }
+		}
+	}
+	YUN_gong_shou = {
+		name = YUN_gong_shou
+		portraits = {
+			civilian = {
+				large = GFX_portrait_YUN_gong_shou_civilian_large
+			}
+		}
+		country_leader = {
+			desc = YUN_gong_shou_leader_desc
+			ideology = national_populist_subtype
+		}
+	}
+	#唐繼堯
+	YUN_tang_jiyao = {
+		name = YUN_tang_jiyao
+		portraits = {
+			civilian = {
+				small = GFX_portrait_YUN_tang_jiyao_civilian_small
+				large = GFX_portrait_YUN_tang_jiyao_civilian_large
+			}
+			army = {
+				small = GFX_portrait_YUN_tang_jiyao_army_small
+				large = GFX_portrait_YUN_tang_jiyao_army_large
+			}
+		}
+		country_leader = {
+			desc = YUN_tang_jiyao_leader_desc
+			ideology = authoritarian_democrat_subtype
+			traits = { CHN_federalist_aligned }
+		}
+		country_leader = {
+			desc = YUN_tang_jiyao_leader_desc
+			ideology = paternal_autocrat_subtype
+			traits = { CHN_federalist_aligned }
+		}
+		field_marshal = {
+			desc = YUN_tang_jiyao_leader_desc
+			traits = { politically_connected trait_reckless organizer career_officer skilled_staffer expert_improviser CHN_YUN_officer }
+			skill = 3
+			attack_skill = 4
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 1
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = YUN_tang_jiyao_army_chief
+			desc = YUN_tang_jiyao_leader_desc
+			traits = { KR_army_chief_offensive_2 }
+			cost = 100
+			on_add = {
+				ROOT = {
+					if = {
+						limit = { original_tag = CHI }
+						custom_effect_tooltip = CHI_add_fed_aligned_advisor_tt
+						hidden_effect = { add_popularity = { ideology = market_liberal popularity = 0.03 } }
+					}
+				}
+			}
+		}
+	}
+	YUN_chen_guofu = {
+		name = YUN_chen_guofu
+		portraits = {
+			civilian = {
+				large = GFX_portrait_YUN_chen_guofu_civilian_large
+			}
+		}
+		country_leader = {
+			desc = YUN_chen_guofu_leader_desc
+			ideology = authoritarian_democrat_subtype
+		}
+	}
+
+	################
+	### Generals ###
+	################
+	#范石生
+	YUN_fan_shisheng = {
+		name = YUN_fan_shisheng
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_fan_shisheng_army_small
+				large = GFX_portrait_YUN_fan_shisheng_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_fan_shisheng_high_command_desc
+			traits = { career_officer infantry_officer trait_engineer trait_mountaineer CHN_RKT_officer_trait }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 3
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_fan_shisheng_high_command
+			ledger = army
+			available = { not_already_hired_except_as = high_command }
+			traits = { KR_MHC_commando_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_fan_shisheng_advisor
+			desc = YUN_fan_shisheng_high_command_desc
+			available = { not_already_hired_except_as = political_advisor }
+			traits = { KR_medical_expert }
+		}
+	}
+	#何應欽
+	YUN_he_yingqin = {
+		name = YUN_he_yingqin
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_he_yingqin_army_small
+				large = GFX_portrait_YUN_he_yingqin_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_he_yingqin_sic_desc
+			traits = { war_hero skilled_staffer infantry_officer organizer CHN_RKT_officer_trait hidden_sympathies brilliant_strategist politically_connected }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 3
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		# RKMT SiC
+		advisor = {
+			slot = second_in_command
+			idea_token = YUN_he_yingqin_sic
+			traits = { KR_faithful_lieutenant_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+	#陳毅
+	YUN_chen_yi = {
+		name = YUN_chen_yi
+		portraits = {
+			army = {
+				large = GFX_portrait_YUN_chen_yi_army_large
+				small = GFX_portrait_YUN_chen_yi_army_small
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_chen_yi_high_command
+			ledger = army
+			available = {
+				NOT = { has_country_leader = { character = YUN_tang_jiyao } }
+				not_already_hired_except_as = high_command
+			}
+			traits = { KR_MHC_infantry_2 }
+			cost = 100
+			on_add = {
+				ROOT = {
+					if = {
+						limit = { original_tag = CHI }
+						custom_effect_tooltip = CHI_add_rca_aligned_advisor_tt
+						hidden_effect = { CHI_RCA_large_effect = yes }
+					}
+				}
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_chen_yi_advisor
+			desc = YUN_chen_yi_high_command_desc
+			available = { not_already_hired_except_as = political_advisor }
+			traits = { KR_patriotic_socialist }
+		}
+		corps_commander = {
+			desc = YUN_chen_yi_high_command_desc
+			traits = { CHN_LKT_officer_trait light_infantry_officer trickster trait_engineer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+	}
+	#胡若愚
+	YUN_hu_ruoyu = {
+		name = YUN_hu_ruoyu
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_hu_ruoyu_army_small
+				large = GFX_portrait_YUN_hu_ruoyu_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_hu_ruoyu_commander_desc
+			traits = { career_officer politically_connected infantry_officer trait_mountaineer hidden_sympathies CHN_YUN_officer }
+			skill = 2
+			attack_skill = 2
+			defense_skill = 2
+			planning_skill = 1
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_hu_ruoyu_advisor
+			desc = YUN_hu_ruoyu_commander_desc
+			visible = {
+				has_country_leader = { character = YUN_tang_jiyao }
+			}
+			traits = { YUN_defence_commissioner_of_mengzi }
+			cost = 150
+		}
+	}
+	#金漢鼎
+	YUN_jin_handing = {
+		name = YUN_jin_handing
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_jin_handing_army_small
+				large = GFX_portrait_YUN_jin_handing_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_jin_handing_high_command_desc
+			traits = { trait_cautious career_officer CHN_RKT_officer_trait trickster infantry_leader commando }
+			skill = 3
+			attack_skill = 2
+			defense_skill = 4
+			planning_skill = 2
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_jin_handing_high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+			}
+			traits = { KR_MHC_infantry_2 }
+			cost = 100
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_jin_handing_advisor
+			desc = YUN_jin_handing_high_command_desc
+			available = {
+				not_already_hired_except_as = political_advisor
+			}
+			traits = { KR_general_staffer }
+			cost = 150
+		}
+	}
+	#龍雲
+	YUN_long_yun = {
+		name = YUN_long_yun
+		portraits = {
+			civilian = {
+				large = GFX_portrait_YUN_long_yun_civilian_large
+			}
+			army = {
+				small = GFX_portrait_YUN_long_yun_army_small
+				large = GFX_portrait_YUN_long_yun_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_long_yun_high_command_desc
+			traits = { infantry_officer career_officer politically_connected organizer trait_engineer inflexible_strategist hidden_sympathies CHN_YUN_officer }
+			skill = 3
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_long_yun_advisor
+			desc = YUN_long_yun_high_command_desc
+			available = {
+				not_already_hired_except_as = political_advisor
+			}
+			visible = {
+				has_country_leader = { character = YUN_tang_jiyao }
+			}
+			traits = { YUN_defence_commissioner_of_kunming }
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_long_yun_high_command
+			ledger = army
+			available = {
+				not_already_hired_except_as = high_command
+				is_country_leader = no
+			}
+			traits = { KR_MHC_army_regrouping_2 }
+			cost = 100
+		}
+	}
+	#盧漢
+	YUN_lu_han = {
+		name = YUN_lu_han
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_lu_han_army_small
+				large = GFX_portrait_YUN_lu_han_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_lu_han_commander_desc
+			traits = { career_officer light_infantry_officer politically_connected hidden_sympathies CHN_YUN_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_lu_han_advisor
+			desc = YUN_lu_han_commander_desc
+			visible = {
+				has_country_leader = { character = YUN_tang_jiyao }
+			}
+			traits = { YUN_defence_commissioner_of_zhaotong }
+		}
+	}
+	#羅炳輝
+	YUN_luo_binghui = {
+		name = YUN_luo_binghui
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_luo_binghui_army_small
+				large = GFX_portrait_YUN_luo_binghui_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_luo_binghui_high_command_desc
+			traits = { career_officer infantry_leader commando }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_luo_binghui_high_command
+			ledger = army
+			traits = { KR_MHC_entrenchment_1 }
+			cost = 50
+		}
+	}
+	#孫元良
+	YUN_sun_yuanliang = {
+		name = YUN_sun_yuanliang
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_sun_yuanliang_army_small
+				large = GFX_portrait_YUN_sun_yuanliang_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_sun_yuanliang_high_command_desc
+			traits = { career_officer artillery_officer artillery_specialist }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_sun_yuanliang_high_command
+			ledger = army
+			traits = { KR_MHC_artillery_2 }
+			cost = 100
+		}
+	}
+	#唐淮源
+	YUN_tang_huaiyuan = {
+		name = YUN_tang_huaiyuan
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_tang_huaiyuan_army_small
+				large = GFX_portrait_YUN_tang_huaiyuan_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_tang_huaiyuan_army_chief_desc
+			traits = { infantry_officer career_officer trait_reckless irregulars_officer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = YUN_tang_huaiyuan_army_chief
+			traits = { KR_army_chief_planning_2 }
+			cost = 100
+		}
+	}
+	#張靈甫
+	YUN_zhang_lingfu = {
+		name = YUN_zhang_lingfu
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_zhang_lingfu_army_small
+				large = GFX_portrait_YUN_zhang_lingfu_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_zhang_lingfu_high_command_desc
+			traits = { career_officer harsh_leader brilliant_strategist }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_zhang_lingfu_high_command
+			ledger = army
+			traits = { KR_MHC_army_radio_intelligence_2 }
+			cost = 100
+		}
+	}
+	#曾澤生
+	YUN_zeng_zesheng = {
+		name = YUN_zeng_zesheng
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_zeng_zesheng_army_small
+				large = GFX_portrait_YUN_zeng_zesheng_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_zeng_zesheng_commander_desc
+			traits = { trait_cautious politically_connected irregulars_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	#周保中
+	YUN_zhou_baozhong = {
+		name = YUN_zhou_baozhong
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_zhou_baozhong_army_small
+				large = GFX_portrait_YUN_zhou_baozhong_army_large
+			}
+		}
+		corps_commander = {
+			desc = YUN_zhou_baozhong_commander_desc
+			traits = { politically_connected irregulars_officer skilled_staffer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+	#唐继虞
+	YUN_tang_jiyu = {
+		name = YUN_tang_jiyu
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_tang_jiyu_army_small
+				large = GFX_portrait_YUN_tang_jiyu_army_large
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = YUN_tang_jiyu_sic
+			traits = { KR_fraternal_crony_sic }
+			cost = 0
+			can_be_fired = no
+		}
+		corps_commander = {
+			desc = YUN_tang_jiyu_commander_desc
+			traits = { career_officer politically_connected light_infantry_officer trait_cautious CHN_YUN_officer }
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+		}
+	}
+
+	################
+	### Advisors ###
+	################
+	YUN_liu_angong = {		#lkmt sic
+		name = YUN_liu_angong
+		portraits = {
+			civilian = {
+				small = GFX_portrait_YUN_liu_angong_civilian_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = YUN_liu_angong_sic
+			traits = { KR_naive_optimist_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+	YUN_zhang_chong = {		#longs sic
+		name = YUN_zhang_chong
+		portraits = {
+			civilian = {
+				small = GFX_portrait_YUN_zhang_chong_civilian_small
+			}
+		}
+		advisor = {
+			slot = second_in_command
+			idea_token = YUN_zhang_chong_sic
+			traits = { KR_silent_workhorse_sic }
+			cost = 0
+			can_be_fired = no
+		}
+	}
+	YUN_sun_du = { #tangs otl chief of staff
+		name = YUN_sun_du
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_sun_du_army_small
+			}
+		}
+		advisor = {
+			slot = army_chief
+			idea_token = YUN_sun_du_army_chief
+			traits = { KR_army_chief_organisational_2 }
+			cost = 100
+		}
+	}
+	YUN_gu_zhenglun = {	#military police
+		name = YUN_gu_zhenglun
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_gu_zhenglun_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_gu_zhenglun_advisor
+			available = {
+				NOT = { has_country_leader = { character = YUN_tang_jiyao } }
+			}
+			traits = { KR_crime_fighter }
+			on_add = {
+				ROOT = {
+					if = {
+						limit = { original_tag = CHI }
+						custom_effect_tooltip = CHI_add_rca_aligned_advisor_tt
+						hidden_effect = { CHI_rca_small_effect = yes }
+					}
+				}
+			}
+		}
+	}
+	YUN_li_peitian = { #political connections, guy for everything
+		name = YUN_li_peitian
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_li_peitian_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_li_peitian_advisor
+			traits = { KR_political_protege }
+		}
+	}
+	YUN_zhang_weihan = { #mayor of kunming
+		name = YUN_zhang_weihan
+		portraits = {
+			civilian = {
+				small = GFX_portrait_YUN_zhang_weihan_civilian_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_zhang_weihan_advisor
+			traits = { KR_popular_figurehead }
+		}
+	}
+	YUN_tao_hongtao = { #longs secretary/tin company owner
+		name = YUN_tao_hongtao
+		portraits = {
+			civilian = {
+				small = GFX_Portrait_Asia_Generic_new_3_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_tao_hongtao_advisor
+			available = {
+				has_country_leader = { character = YUN_long_yun }
+			}
+			traits = { KR_pragmatic_statesman }
+		}
+	}
+	YUN_chen_jun = { #owner of Gejiu-Bisezhai railway
+		name = YUN_chen_jun
+		portraits = {
+			civilian = {
+				small = GFX_Portrait_Asia_Generic_new_4_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_chen_jun_advisor
+			traits = { KR_railway_magnate }
+		}
+	}
+	YUN_dai_jitao = { #rkmt only
+		name = YUN_dai_jitao
+		portraits = {
+			civilian = {
+				small = GFX_portrait_YUN_dai_jitao_civilian_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_dai_jitao_advisor
+			available = {
+				if = {
+					limit = { original_tag = YUN }
+					OR = {
+						has_completed_focus = YUN_join_the_right_KMT_committee
+						has_completed_focus = GXC_kmt_congress
+					}
+				}
+			}
+			traits = { KR_ideological_crusader }
+		}
+	}
+	YUN_yang_yongtai = { #rkmt only
+		name = YUN_yang_yongtai
+		portraits = {
+			civilian = {
+				small = GFX_portrait_YUN_yang_yongtai_civilian_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_yang_yongtai_advisor
+			available = {
+				if = {
+					limit = { original_tag = YUN }
+					has_completed_focus = YUN_civilian_kmt
+				}
+			}
+			traits = { KR_armaments_organiser }
+		}
+	}
+	YUN_zhang_qun = { #rkmt only
+		name = YUN_zhang_qun
+		portraits = {
+			civilian = {
+				small = GFX_portrait_YUN_zhang_qun_civilian_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_zhang_qun_advisor
+			available = {
+				if = {
+					limit = { original_tag = YUN }
+					has_completed_focus = YUN_civilian_kmt
+				}
+			}
+			traits = { KR_political_specialist }
+		}
+	}
+	YUN_lu_chongren = { #minister of finance, cousin of Long Yun, taxation reformer
+		name = YUN_lu_chongren
+		portraits = {
+			civilian = {
+				small = GFX_Portrait_Asia_Generic_new_5_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_lu_chongren_advisor
+			available = {
+				has_country_leader = { character = YUN_long_yun }
+			}
+			traits = { KR_economic_reformer }
+		}
+	}
+	YUN_chen_lifu = {
+		name = YUN_chen_lifu
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_chen_lifu_army_small
+			}
+		}
+		advisor = {
+			slot = political_advisor
+			idea_token = YUN_chen_lifu_advisor
+			available = {
+				if = {
+					limit = { original_tag = YUN }
+					has_completed_focus = YUN_civilian_kmt
+				}
+			}
+			traits = { KR_ambitious_engineer }
+		}
+	}
+	#air guys taken over from old ministers
+	YUN_liu_peiquan = { #idk who this is, same as old trait
+		name = YUN_liu_peiquan
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_liu_peiquan_army_small
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_liu_peiquan_high_command
+			ledger = air
+			traits = { KR_MHC_air_superiority_2 }
+			cost = 100
+		}
+	}
+	YUN_wang_shuming = { #high ranking and capable KMT air officer
+		name = YUN_wang_shuming
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_wang_shuming_army_small
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_wang_shuming_high_command
+			ledger = air
+			traits = { KR_MHC_tactical_bombing_3 }
+			cost = 200
+		}
+	}
+	YUN_yan_yucong = { #idk who this is, had strat. bombing trait
+		name = YUN_yan_yucong
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_yan_yucong_army_small
+			}
+		}
+		advisor = {
+			slot = air_chief
+			idea_token = YUN_yan_yucong_air_chief
+			traits = { KR_air_chief_night_operations_2 }
+			cost = 100
+		}
+	}
+	YUN_chen_cheng = {
+		name = YUN_chen_cheng
+		portraits = {
+			army = {
+				large = GFX_portrait_YUN_chen_cheng_army_large
+				small = GFX_portrait_YUN_chen_cheng_army_small
+			}
+		}
+		advisor = {
+			slot = high_command
+			idea_token = YUN_chen_cheng_high_command
+			ledger = army
+			traits = { KR_MHC_artillery_2 }
+			cost = 100
+		}
+		corps_commander = {
+			desc = YUN_chen_cheng_high_command_desc
+			traits = { CHN_RKT_officer_trait expert_delegator harsh_leader artillery_officer trait_engineer }
+			skill = 2
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 3
+			logistics_skill = 2
+		}
+	}
+	YUN_naval_council = { #made up
+		name = YUN_naval_council
+		portraits = {
+			army = {
+				small = GFX_portrait_YUN_naval_council_army_small
+			}
+		}
+		advisor = {
+			slot = navy_chief
+			idea_token = YUN_naval_council_navy_chief
+			traits = { KR_navy_chief_reform_1 }
+			cost = 50
+		}
+	}
+}

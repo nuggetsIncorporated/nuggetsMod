@@ -1,0 +1,343 @@
+﻿#KAISERREICH for HEARTS of IRON 4
+Version 1.5 - 'Brave New World'
+
+#Created by the Kaiserreich 4 team
+Talented friends, every single one
+
+Alpinia
+Amber
+Angel
+Anthony OliveOil
+Arvidus
+Augenis
+AwsomeGuy49
+Blackfalcon501
+Blackleaf
+Carmain
+Cassrabbit
+Cazadorian
+Chazem
+Chiang Kai-shrek
+Chiron29
+ClawedAsh
+Cody
+Deliberus
+DerEherneRächer
+DidSomethingOnce
+DuoDex
+El Daddy
+falling_robin
+Fedex
+Flamefang
+Frill Shark
+Gaboemi
+Georgy
+Gre
+Hamfast
+Hazo
+Hexcron
+Ido
+Igor050301
+JazzyHugh
+Jeankedezeehond
+jerv
+Jonny BL
+Kano
+katieluka
+kergely
+KFateweaver
+Klyntar King
+Krčo
+lehmannmo
+Matoro
+McOmghall
+MrMano
+~mw~ // miwaco.
+Noot
+Pelmen
+PPsyrius
+Purple Jinjo
+Rnk
+Sasha
+Shiroe
+Sonny O'Cad
+SuperGreenBeans
+suzuha
+tan_mi.ya
+The Alpha Dog
+The Don Golian
+The Irredentista
+The Italian Jojo
+Toaster
+Vidyaország
+VladimirLemon
+Zimbabwe Salt Co.
+
+#Our Fallen Comrades
+Kaiserreich is built on your shoulders
+
+Conchobhar
+hildagrim
+Kara-Diamant
+Kennedy
+Luwofe
+NukeGaming
+RagnoStrangeros
+Rune
+
+#Kaiserreich 4 BETA (2019–2023)
+Those who carried the torch
+
+Adrianator2
+Anbory
+Asratius
+Beelzebub
+Delincious
+Dick Bong, Ace of Aces
+Dr. Njitram
+Drozdovite
+DSFDarker
+Edouard Saladier
+Éloïse
+Eragaxshim
+Fbruchmueller
+Fort
+Gideones
+Jonjon428
+Khalil
+Kracc
+Liegnitz
+Maltesefalcon
+MantisToboggan
+Mifil
+MPdisappeared
+Nijato
+O M D
+Pietrus
+Rei!
+Rinbro
+Roniius
+Roparex
+Rylock
+Saladenicoise
+Skip
+SPQR
+Story
+Telcontar101
+Thomahawk2k
+WordZero
+Yard1
+Zaddy-Chan
+Zankoas
+
+#Kaiserreich 4 ALPHA (2016–2019)
+Those who have lit the flame
+
+Ahearne
+Akamber
+AllyJammy
+Autovonbismarck
+BattleSarge
+Chef Exellence
+Cinzya
+CrazyZombie
+DDago
+Dedlift
+Denizz
+Devastator
+DrDiHai
+Dskod1
+Dylanstrategie
+Esmaerla
+Fatherlorris
+Firefly
+Foffy123
+Generalissima
+Gibzit
+Go.Jr
+Harmazon
+Herkles
+Hyvinvointinionvaakalaudalla
+Imhungry5462
+Indyclone77
+IratePirate
+JacKob
+Jak
+JakeR2000
+Kallar
+KeetnaWilson
+Kornilov
+MaelTec
+Mark
+MattTheCzar
+Medizine
+Miklos Horthy
+Mikus
+Miyokari
+MonarchistKaiser
+Packard
+Paul
+Phil
+Pinback
+Rangerage
+Raptor Jesus
+Rebi-chan
+Satellite Yung
+Sbadkins4
+Sea Lion
+Selim
+Sir Rogers
+Sjarlewis
+Skullcrusher
+Stekpanna
+Tatiana
+TheBeezKneez
+TheBlackWinds
+TornadoWatch
+VietcongTrap
+VirtualHummingbird
+WentBerzerk
+Wladyslaw Sikorski
+Wyandotte
+Zarasophos
+Zombieman2344
+
+#Special Thanks To
+Those who have so generously helped us along the way
+
+Adszok
+Halcyon Hush
+Nazar
+Sleight of Hand
+
+The whole of the Modding Coop
+
+Dayshine, among others, who created CWTools
+
+Ruskie Business and his period-style maps
+
+Extra thanks to the Führerreich team
+
+#With Work From the Following Modders
+People who so kindly donated their work to us
+
+Azerbaijan Democratic Republic 1936:
+Jeykhun
+
+Battlesound - Sound Modification:
+Tekoa
+
+Brazil, Ireland, Denmark, Netherlands, Sweden Uniform Reskins:
+Skyllio
+
+WCA military ensigns:
+RedFlag1945
+
+DH Entente Music Pack:
+Nightwing
+
+Expanded Tank Designer:
+Issaac411
+Freezer
+
+General 3D models of the tank (base game armor skins):
+Order
+KeTchyn
+
+Guns Trucks:
+McNaughton
+
+HOI4 Total Reskin Pack:
+AKAGIxxKAGA
+Majin guda-ko
+
+Icons for Plane:
+Schüewoo
+
+Iran - The sick man of the middle east:
+Boolean
+
+Impassable Terrain:
+Yakez
+
+Kaiserreich Custom Country Paths:
+Von_Laughing
+
+KR Submod - More Custom Country Paths:
+Bchevy
+Corvax
+HS1san
+Igor050301
+JPII
+Teneb Kel
+
+KR - Total Reskin:
+A Carton of Juice
+
+Lamp's Eqpt Icons:
+Diàndēng fú lǐ màn
+
+Lithuanian Voiceovers:
+MisterNKB
+Rick Windmann (Siggy)
+
+MI2:
+McNaughton
+
+Minor Nation Sprites:
+Majestic Lemmings
+
+More Model Images:
+Tnoji
+
+Operation Overhaul:
+Berk24
+CyclicRoF
+Lavo
+Ulmont
+VDNKh
+
+Player Led Peace Conferences (idea):
+Neutrino
+
+Swedish GFX:
+Minnó
+
+Siamese Troop VO:
+ToonPC
+
+State Transfer Tool:
+Dziurkacz
+
+Turkey, Manchukuo, and Finnish Reskins:
+SilentAssassin
+
+TY's KR Graphic Submod II:
+Portrochen
+
+Unique Infantry Equipment:
+Ulmont
+
+#Based On An Idea By
+Sarmatia1871
+
+...and finally thanks to you, the player!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,40 @@
+Long_state_support_low = {
+	icon = "GFX_modifiers_USA_long_for_president"
+	custom_modifier_tooltip = Long_state_support_tooltip
+}
+
+Long_state_support_even = {
+	icon = "GFX_modifiers_USA_long_for_president"
+	custom_modifier_tooltip = Long_state_support_tooltip
+}
+
+Long_state_support_high = {
+	icon = "GFX_modifiers_USA_long_for_president"
+	custom_modifier_tooltip = Long_state_support_tooltip
+}
+
+Long_state_support_guaranteed = {
+	icon = "GFX_modifiers_USA_long_for_president"
+	custom_modifier_tooltip = Long_guaranteed_state_tooltip
+}
+
+SPA_state_support_low = {
+	icon = "GFX_modifiers_USA_socialist_party_of_america"
+	custom_modifier_tooltip = SPA_state_support_tooltip
+}
+
+SPA_state_support_even = {
+	icon = "GFX_modifiers_USA_socialist_party_of_america"
+	custom_modifier_tooltip = SPA_state_support_tooltip
+}
+
+SPA_state_support_high = {
+	icon = "GFX_modifiers_USA_socialist_party_of_america"
+	custom_modifier_tooltip = SPA_state_support_tooltip
+}
+
+SPA_state_support_guaranteed = {
+	icon = "GFX_modifiers_USA_socialist_party_of_america"
+	custom_modifier_tooltip = SPA_guaranteed_state_tooltip
+}
+

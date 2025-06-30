@@ -1,0 +1,2245 @@
+#	Scripted triggers for Central America in general and the CEN tag
+#
+#	By Beelzebub and Ropa
+
+CA_SET_UFC_VAR = {
+	clamp_variable = { var = UFC_power min = 0 max = 100 }
+	set_variable = { UFC_effect11 = UFC_power }
+	multiply_variable = { var = UFC_effect11 value = -0.004 }
+	set_variable = { UFC_effect12 = UFC_power }
+	multiply_variable = { var = UFC_effect12 value = 0.003 }
+	set_variable = { UFC_effect13 = UFC_power }
+	multiply_variable = { var = UFC_effect13 value = -0.003 }
+	set_variable = { UFC_effect14 = UFC_power }
+	multiply_variable = { var = UFC_effect14 value = -0.004 }
+}
+
+CEN_move_characters = {
+	hidden_effect = {
+		if = {
+			limit = { is_central_american_tag = yes }
+			random_character = {
+				limit = { has_trait = KR_head_of_intelligence }
+				meta_effect = {
+					text = { set_character_flag = [FLAG] }
+					FLAG = "[ROOT.GetTag]_character"
+				}
+				set_nationality = CEN
+			}
+		}
+		else = {
+			random_country = {
+				limit = {
+					is_central_american_tag = yes
+					NOT = { tag = COS }
+				}
+				random_character = {
+					limit = { has_trait = KR_head_of_intelligence }
+					meta_effect = {
+						text = { set_character_flag = [FLAG] }
+						FLAG = "[PREV.GetTag]_character"
+					}
+					set_nationality = CEN
+				}
+			}
+		}
+		if = {
+			limit = { has_socialist_government = yes }
+			GUA = {
+				GUA_add_socialist_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_socialist = yes
+						NOT = { #These characters have duplicate traits with other characters transferred to CEN
+							is_character = GUA_jorge_toriello_garrido
+							is_character = GUA_flavio_herrera
+							is_character = GUA_federico_guillermo_toriello_garrido
+							is_character = GUA_jose_manuel_fortuny
+							is_character = GUA_roderico_anzueto_valencia
+							is_character = GUA_david_vela
+							is_character = GUA_manuel_maria_orellana_contreras
+							is_character = GUA_rafael_arevalo_martinez
+							is_character = GUA_miguel_angel_asturias
+							is_character = GUA_eduardo_villagran_ariza
+						}
+					}
+					set_character_flag = GUA_character
+					set_nationality = CEN
+				}
+			}
+			ELS = {
+				ELS_add_democratic_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_socialist = yes
+						NOT = {
+							is_character = ELS_claudia_lars
+							is_character = ELS_fidel_cristino_garay
+							is_character = ELS_miguel_marmol
+							is_character = ELS_oscar_bolanos
+						}
+					}
+					set_character_flag = ELS_character
+					set_nationality = CEN
+				}
+			}
+			HON = {
+				HON_remove_non_socialist_generals = yes
+				HON_add_non_reactionary_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_socialist = yes
+						NOT = {
+							is_character = HON_william_edgar_coleman
+							is_character = HON_calixto_andino_carias
+							is_character = HON_rafael_medina_raudales
+							is_character = HON_rafael_diaz_chavez
+							is_character = HON_jose_lino_zuniga
+						}
+					}
+					set_character_flag = HON_character
+					set_nationality = CEN
+				}
+			}
+			NIC = {
+				NIC_add_socialist_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_socialist = yes
+						NOT = {
+							is_character = NIC_gustavo_abaunza
+							is_character = NIC_carlos_castro_wassmer
+						}
+					}
+					set_character_flag = NIC_character
+					set_nationality = CEN
+				}
+			}
+		}
+		else_if = {
+			limit = { has_authoritarian_government = yes }
+			GUA = {
+				GUA_add_reactionary_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_reactionary = yes
+						NOT = {
+							is_character = GUA_jorge_toriello_garrido
+							is_character = GUA_flavio_herrera
+							is_character = GUA_federico_guillermo_toriello_garrido
+							is_character = GUA_jose_manuel_fortuny
+							is_character = GUA_roderico_anzueto_valencia
+							is_character = GUA_david_vela
+							is_character = GUA_manuel_maria_orellana_contreras
+							is_character = GUA_rafael_arevalo_martinez
+							is_character = GUA_miguel_angel_asturias
+							is_character = GUA_eduardo_villagran_ariza
+						}
+					}
+					set_character_flag = GUA_character
+					set_nationality = CEN
+				}
+			}
+			ELS = {
+				ELS_add_reactionary_generals = yes
+				if = {
+					limit = { NOT = { has_government = national_populist } }
+					retire_character = ELS_maximiliano_hernandez_martinez
+				}
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_reactionary = yes
+						NOT = {
+							is_character = ELS_claudia_lars
+							is_character = ELS_fidel_cristino_garay
+							is_character = ELS_oscar_bolanos
+							is_character = ELS_reynaldo_galindo_pohl
+						}
+					}
+					set_character_flag = ELS_character
+					set_nationality = CEN
+				}
+			}
+			HON = {
+				HON_add_non_socialist_generals = yes
+				HON_remove_non_reactionary_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_reactionary = yes
+						NOT = {
+							is_character = HON_william_edgar_coleman
+							is_character = HON_calixto_andino_carias
+							is_character = HON_rafael_medina_raudales
+							is_character = HON_rafael_diaz_chavez
+							is_character = HON_jose_lino_zuniga
+						}
+					}
+					set_character_flag = HON_character
+					set_nationality = CEN
+				}
+			}
+			NIC = {
+				NIC_add_reactionary_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_reactionary = yes
+						NOT = {
+							is_character = NIC_gustavo_abaunza
+							is_character = NIC_carlos_castro_wassmer
+						}
+					}
+					set_character_flag = NIC_character
+					set_nationality = CEN
+				}
+			}
+		}
+		else = {
+			GUA = {
+				GUA_add_liberal_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_liberal = yes
+						NOT = {
+							is_character = GUA_jorge_toriello_garrido
+							is_character = GUA_flavio_herrera
+							is_character = GUA_federico_guillermo_toriello_garrido
+							is_character = GUA_jose_manuel_fortuny
+							is_character = GUA_roderico_anzueto_valencia
+							is_character = GUA_david_vela
+							is_character = GUA_manuel_maria_orellana_contreras
+							is_character = GUA_rafael_arevalo_martinez
+							is_character = GUA_miguel_angel_asturias
+							is_character = GUA_eduardo_villagran_ariza
+						}
+					}
+					set_character_flag = GUA_character
+					set_nationality = CEN
+				}
+			}
+			ELS = {
+				ELS_add_liberal_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_liberal = yes
+						NOT = {
+							is_character = ELS_claudia_lars
+							is_character = ELS_fidel_cristino_garay
+							is_character = ELS_oscar_bolanos
+							is_character = ELS_reynaldo_galindo_pohl
+						}
+					}
+					set_character_flag = ELS_character
+					set_nationality = CEN
+				}
+			}
+			HON = {
+				HON_add_non_socialist_generals = yes
+				HON_add_non_reactionary_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_liberal = yes
+						NOT = {
+							is_character = HON_william_edgar_coleman
+							is_character = HON_calixto_andino_carias
+							is_character = HON_rafael_medina_raudales
+							is_character = HON_rafael_diaz_chavez
+							is_character = HON_jose_lino_zuniga
+						}
+					}
+					set_character_flag = HON_character
+					set_nationality = CEN
+				}
+			}
+			NIC = {
+				NIC_add_liberal_generals = yes
+				every_character = {
+					limit = {
+						CEN_character_should_transfer_liberal = yes
+						NOT = {
+							is_character = NIC_gustavo_abaunza
+							is_character = NIC_carlos_castro_wassmer
+						}
+					}
+					set_character_flag = NIC_character
+					set_nationality = CEN
+				}
+			}
+		}
+		GUA = { GUA_remove_socialist_generals = yes } #So Arevalo isn't a general for CEN
+		if = {
+			limit = { has_event_target = costa_rica_will_join }
+			if = {
+				limit = { has_socialist_government = yes }
+				COS = {
+					COS_rafael_angel_calderon_guardia = {
+						set_character_flag = COS_character
+						set_nationality = CEN
+					}
+					COS_teodoro_picado_michalski = {
+						set_character_flag = COS_character
+						set_nationality = CEN
+					}
+					COS_jose_figueres_ferrer = {
+						set_character_flag = COS_character
+						set_nationality = CEN
+					}
+				}
+			}
+			else_if = {
+				limit = { has_authoritarian_government = no }
+				COS = {
+					every_character = {
+						limit = {
+							is_generic_character = no
+							OR = {
+								is_country_leader = yes
+								is_unit_leader = yes
+								is_advisor = yes
+							}
+							NOT = { has_trait = KR_head_of_intelligence }
+						}
+						set_character_flag = COS_character
+						set_nationality = CEN
+					}
+				}
+			}
+		}
+		if = {
+			limit = { has_event_target = panama_will_join }
+			if = {
+				limit = { has_socialist_government = yes }
+				PAN = {
+					PAN_demetrio_augusto_porras_juarez = {
+						set_character_flag = PAN_character
+						set_nationality = CEN
+					}
+				}
+			}
+			else = {
+				PAN = {
+					every_character = {
+						limit = {
+							is_generic_character = no
+							OR = {
+								is_country_leader = yes
+								is_unit_leader = yes
+								is_advisor = yes
+							}
+							NOT = { has_trait = KR_head_of_intelligence }
+						}
+						set_character_flag = PAN_character
+						set_nationality = CEN
+					}
+				}
+			}
+		}
+	}
+}
+
+CEN_conflict_escalates = {
+	hidden_effect = {
+		if = {
+			limit = {
+				NOT = {
+					has_event_target = CEN_socialist_leader
+					has_event_target = CEN_liberal_leader
+					has_event_target = CEN_military_leader
+				}
+			}
+			every_country = {
+				limit = {
+					OR = {
+						tag = ELS
+						tag = GUA
+						tag = HON
+						tag = NIC
+					}
+				}
+				activate_mission = CEN_conflict_escalates_mission
+			}
+		}
+	}
+}
+
+CEN_setup_new_presidents = {
+	if = {
+		limit = {
+			NOT = { has_country_leader = { character = GUA_silverio_ortiz } }
+			NOT = { has_country_leader = { character = GUA_jacobo_arbenz } }
+		}
+		if = {
+			limit = { has_country_flag = CEN_create_arbenz }
+			clr_country_flag = CEN_create_arbenz
+			GUA_jacobo_arbenz = {
+				if = {
+					limit = { has_ideology = social_democrat_subtype }
+					promote_character = social_democrat_subtype
+				}
+				else = {
+					add_country_leader_role = {
+						country_leader = {
+							desc = GUA_jacobo_arbenz_leader_desc
+							ideology = social_democrat_subtype
+						}
+						promote_leader = yes
+					}
+				}
+			}
+		}
+		else_if = {
+			limit = { has_country_flag = CEN_create_arevalo }
+			clr_country_flag = CEN_create_arevalo
+			GUA_juan_jose_arevalo_bermejo = { promote_character = social_democrat_subtype }
+		}
+		else_if = {
+			limit = { has_country_flag = CEN_create_morales }
+			clr_country_flag = CEN_create_morales
+			HON_jose_ramon_adolfo_villeda_morales = { promote_character = social_democrat_subtype }
+		}
+		else_if = {
+			limit = { has_country_flag = CEN_create_moreno }
+			clr_country_flag = CEN_create_moreno
+			NIC_francisco_sequeira_moreno = {
+				if = {
+					limit = { has_ideology = social_democrat_subtype }
+					promote_character = social_democrat_subtype
+				}
+				else = {
+					add_country_leader_role = {
+						country_leader = {
+							desc = NIC_francisco_sequeira_moreno_leader_desc
+							ideology = social_democrat_subtype
+						}
+						promote_leader = yes
+					}
+				}
+			}
+		}
+	}
+	if = {
+		limit = { has_country_flag = CEN_create_molina }
+		clr_country_flag = CEN_create_molina
+		ELS_alfonso_quinonez_molina = { promote_character = social_liberal_subtype }
+	}
+}
+
+CEN_restore_socdem_president = {
+	hidden_effect = {
+		if = {
+			limit = {
+				OR = {
+					has_country_leader = { character = GUA_silverio_ortiz }
+					has_country_leader = { character = GUA_jacobo_arbenz }
+				}
+			}
+			set_party_name = {
+				ideology = social_democrat
+				name = CEN_social_democrat_liberal
+				long_name = CEN_social_democrat_liberal_long
+			}
+			if = {
+				limit = { has_country_flag = CEN_moreno_leads }
+				NIC_francisco_sequeira_moreno = { promote_character = social_democrat_subtype }
+			}
+			else = {
+				ELS_arturo_araujo = { promote_character = social_democrat_subtype }
+			}
+		}
+	}
+}
+
+CEN_reduce_economic_instability = {
+	if = {
+		limit = { has_idea = CENmil_economic_instability_idea }
+		custom_effect_tooltip = tooltip_white_line
+		swap_ideas = {
+			remove_idea = CENmil_economic_instability_idea
+			add_idea = CENmil_economic_instability_idea_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENmil_economic_instability_idea_2 }
+		custom_effect_tooltip = tooltip_white_line
+		swap_ideas = {
+			remove_idea = CENmil_economic_instability_idea_2
+			add_idea = CENmil_economic_instability_idea_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENmil_economic_instability_idea_3 }
+		custom_effect_tooltip = tooltip_white_line
+		remove_ideas = CENmil_economic_instability_idea_3
+	}
+	else = {
+		custom_effect_tooltip = tooltip_white_line
+		effect_tooltip = {
+			swap_ideas = {
+				remove_idea = CENmil_economic_instability_idea
+				add_idea = CENmil_economic_instability_idea_2
+			}
+		}
+	}
+}
+
+CENdem_increase_moderate_land_reform_idea = {
+	if = {
+		limit = { has_idea = CENdem_land_reform_0 }
+		swap_ideas = {
+			remove_idea = CENdem_land_reform_0
+			add_idea = CENdem_moderate_land_reform_1
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_moderate_land_reform_1 }
+		swap_ideas = {
+			remove_idea = CENdem_moderate_land_reform_1
+			add_idea = CENdem_moderate_land_reform_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_moderate_land_reform_2 }
+		swap_ideas = {
+			remove_idea = CENdem_moderate_land_reform_2
+			add_idea = CENdem_moderate_land_reform_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_moderate_land_reform_3 }
+		swap_ideas = {
+			remove_idea = CENdem_moderate_land_reform_3
+			add_idea = CENdem_moderate_land_reform_4
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_moderate_land_reform_4 }
+		swap_ideas = {
+			remove_idea = CENdem_moderate_land_reform_4
+			add_idea = CENdem_moderate_land_reform_5
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_moderate_land_reform_5 }
+		swap_ideas = {
+			remove_idea = CENdem_moderate_land_reform_5
+			add_idea = CENdem_moderate_land_reform_6
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_moderate_land_reform_6 }
+		swap_ideas = {
+			remove_idea = CENdem_moderate_land_reform_6
+			add_idea = CENdem_moderate_land_reform_7
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_moderate_land_reform_7 }
+		swap_ideas = {
+			remove_idea = CENdem_moderate_land_reform_7
+			add_idea = CENdem_moderate_land_reform_8
+		}
+	}
+}
+
+CENdem_increase_radical_land_reform_idea = {
+	if = {
+		limit = { has_idea = CENdem_land_reform_0 }
+		swap_ideas = {
+			remove_idea = CENdem_land_reform_0
+			add_idea = CENdem_radical_land_reform_1
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_radical_land_reform_1 }
+		swap_ideas = {
+			remove_idea = CENdem_radical_land_reform_1
+			add_idea = CENdem_radical_land_reform_2
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_radical_land_reform_2 }
+		swap_ideas = {
+			remove_idea = CENdem_radical_land_reform_2
+			add_idea = CENdem_radical_land_reform_3
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_radical_land_reform_3 }
+		swap_ideas = {
+			remove_idea = CENdem_radical_land_reform_3
+			add_idea = CENdem_radical_land_reform_4
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_radical_land_reform_4 }
+		swap_ideas = {
+			remove_idea = CENdem_radical_land_reform_4
+			add_idea = CENdem_radical_land_reform_5
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_radical_land_reform_5 }
+		swap_ideas = {
+			remove_idea = CENdem_radical_land_reform_5
+			add_idea = CENdem_radical_land_reform_6
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_radical_land_reform_6 }
+		swap_ideas = {
+			remove_idea = CENdem_radical_land_reform_6
+			add_idea = CENdem_radical_land_reform_7
+		}
+	}
+	else_if = {
+		limit = { has_idea = CENdem_radical_land_reform_7 }
+		swap_ideas = {
+			remove_idea = CENdem_radical_land_reform_7
+			add_idea = CENdem_radical_land_reform_8
+		}
+	}
+}
+
+CEN_reset_ideas = {
+	load_focus_tree = generic_focus
+	drop_cosmetic_tag = yes
+	remove_ideas = {
+		CENmil_political_instability_idea
+		CENmil_political_instability_idea_2
+		CENmil_political_instability_idea_3
+		CENmil_economic_instability_idea
+		CENmil_economic_instability_idea_2
+		CENmil_economic_instability_idea_3
+		CENmil_chaotic_army_idea
+		CENmil_united_in_faith
+		CENmil_creating_a_national_identity
+		CENmil_centralised_union
+		CENmil_spy_idea1
+		CENmil_spy_idea2
+		CENmil_spy_idea2_lar
+		CENmil_loyal_military_idea
+		CENmil_check_opposition_idea
+		CENmil_foreign_collaboration_idea
+		CENmil_foreign_collaboration_idea_2
+		CENmil_economic_control_idea
+		CENmil_european_doctrine
+		CENmil_chain_command_idea
+		CENmil_better_equipment
+		CENmil_better_equipment_2
+		CENmil_better_equipment_3
+		CENmil_professional_army_idea
+		CENmil_updating_our_arsenal
+		CENmil_updating_our_arsenal_2
+		CENmil_updating_our_arsenal_3
+		CENmil_autonomous_officers_idea
+		CENmil_small_units_idea
+		CENmil_extended_recruitment
+		CENmil_guerilla_tactics_idea
+		CENmil_military_awesome_idea
+		CENmil_air_officers
+		CENmil_air_officers2
+		CENmil_naval_air_coord_idea
+		CENmil_naval_officers
+		CENmil_naval_officers2
+		CENmil_world_exports_inter_idea
+		CENmil_world_exports_lf_idea
+		CENmil_large_investments
+		CENmil_medium_investments
+		CENmil_small_investments
+		CENmil_investing_in_industry
+		CENmil_made_in_ca_idea
+		CENmil_cheap_labour_idea
+		CENmil_support_for_the_farmers
+		CENmil_protecting_UFC_land_inter
+		CENmil_protecting_UFC_land_inter_2
+		CENmil_protecting_UFC_land_lf
+		CENmil_protecting_UFC_land_lf_2
+		CENmil_cash_crops
+		CENmil_agri_boom_idea
+		CENmil_agri_money_idea
+		CENmil_trans_ca_rail_1
+		CENmil_trans_ca_rail_2
+		CENmil_trans_ca_rail_3
+		CENmil_trans_ca_rail_4
+		CENmil_trans_ca_rail_5
+		CENmil_major_strike
+		CENmil_major_strike2
+		CENmil_major_port_strike
+		CENmil_major_port_strike2
+		CENmil_major_rail_strike
+		CENmil_major_rail_strike2
+
+		CENdem_an_unstable_union
+		CENdem_Incompetent_Army
+		CENdem_an_unstable_union2
+		CENdem_an_unstable_union3
+		CENdem_a_new_central_american_identity
+		CENdem_a_new_central_american_identity2
+		CENdem_a_new_central_american_identity3
+		CENdem_a_new_central_american_identity4
+		CENdem_UFC_influence_rooted_out
+		CENdem_spirit_of_reunification
+		CENcem_usurped_autonomy
+		CENdem_industrialisation_desperation_1
+		CENdem_industrialisation_desperation_2
+		CENdem_industrialisation_desperation_3
+		CENdem_industrialisation_desperation_fixed
+		CENcem_bleeding_the_cash_crops_dry
+		CENcem_trading_priorities
+		CENdem_defanged_army
+		CENdem_infrastructure_grants
+		CENdem_infrastructure_grants2
+		CENdem_infrastructure_grants3
+		CENdem_infrastructure_grants4
+		CENdem_federation_principles
+		CENdem_federation_principles_2
+		CENdem_a_business_friendly_country
+		CENdem_anti_trust_laws
+		CENdem_self_employment
+		CENdem_progressive_taxation_idea
+		CENdem_weakend_general_influence
+		CENdem_weakend_general_influence_2
+		CENdem_weakend_general_influence_3
+		CENdem_decentralised_economy
+		CENdem_the_workers_plight_idea
+		CENdem_the_workers_plight_idea_2
+		CENdem_the_workers_plight_idea_3
+		CENdem_the_workers_plight_idea_4
+		CENdem_the_workers_plight_idea_5
+		CENdem_democratic_socialism
+		CENdem_racial_equality
+		CENdem_land_reform_0
+		CENdem_moderate_land_reform_1
+		CENdem_moderate_land_reform_2
+		CENdem_moderate_land_reform_3
+		CENdem_moderate_land_reform_4
+		CENdem_moderate_land_reform_5
+		CENdem_moderate_land_reform_6
+		CENdem_moderate_land_reform_7
+		CENdem_moderate_land_reform_8
+		CENdem_radical_land_reform_1
+		CENdem_radical_land_reform_2
+		CENdem_radical_land_reform_3
+		CENdem_radical_land_reform_4
+		CENdem_radical_land_reform_5
+		CENdem_radical_land_reform_6
+		CENdem_radical_land_reform_7
+		CENdem_radical_land_reform_8
+		CENdem_beacon_democracy
+		CENdem_key_industries_nationalised
+		CENdem_key_industries_nationalised_2
+		CENdem_key_industries_nationalised_3
+		CENdem_fair_taxation_scheme
+		CENdem_integrating_army
+		CENdem_integrating_army_2_a
+		CENdem_integrating_army_2_b
+		CENdem_integrating_army_3
+		CENdem_completed_integration
+		CENdem_federal_recruitment
+		CENdem_improved_planning
+		CENdem_improved_planning_2
+		CENdem_prolonged_conscription
+		CENdem_preparing_a_task_force
+		CENdem_preparing_a_task_force_1_0_0
+		CENdem_preparing_a_task_force_0_1_0
+		CENdem_preparing_a_task_force_0_0_1
+		CENdem_preparing_a_task_force_1_1_0
+		CENdem_preparing_a_task_force_0_1_1
+		CENdem_preparing_a_task_force_1_0_1
+		CENdem_preparing_a_task_force_1_1_1
+		CENdem_the_central_american_task_force_idea
+		CENdem_mobile_army_a
+		CENdem_mobile_army_b
+		CENdem_mobile_army_2
+		CENdem_combine_arms
+		CENdem_swiftness_training
+		CENdem_republican_armies
+		CENdem_republican_armies_2
+		CENdem_republican_armies_3
+		CENdem_republican_armies_4
+		CENdem_military_supplies
+		CENdem_democratic_armies
+		CENdem_democratic_armies_2
+		CENdem_expanding_our_navy
+		CENdem_expanding_our_navy_2
+		CENdem_convoy_protection_tactics_a
+		CENdem_convoy_protection_tactics_b
+		CENdem_convoy_protection_tactics_2
+		CENdem_large_merchant_navy
+		CENcem_prestigious_pilots
+		CENcem_well_trained_pilots
+
+		CEN_congress_idea
+		CEN_chairman_idea
+		CEN_army_idea
+		CEN_army_idea2
+		CEN_militias_idea
+		CEN_militias_idea2
+		CEN_breadbasket_idea
+		CEN_breadbasket_idea2
+		CEN_industrial_idea
+		CEN_industrial_idea2
+		CEN_resistance_to_atheism
+		CEN_atheistic_state
+		CEN_totalist_resistance
+		CEN_seized_capitalist_assets
+		CEN_chairman_idea2
+		CEN_controlled_congress
+		CEN_consolidation_idea0
+		CEN_consolidation_idea1
+		CEN_consolidation_idea2
+		CEN_consolidation_idea3
+		CEN_relieve_for_people
+		CEN_farmer_support
+		CEN_a_new_industry
+		CEN_native_rights
+		CEN_trade_unions
+		CEN_trade_unions2
+		CEN_rel_soc_idea
+		CEN_resistance_to_hispanification_idea
+		CEN_spread_light_idea
+		CEN_small_man_idea
+		CEN_edu_reform_idea
+		CEN_food_distribution_idea
+		CEN_healthcare_idea
+		CEN_export_profits
+		CEN_agri_reform_idea
+		CEN_cash_crop_idea
+		CEN_self_suff_idea
+		CEN_pop_defense_idea
+		CEN_agri_reform_idea2
+		CEN_agri_reform_idea3
+		CEN_cash_crop_idea2
+		CEN_high_budget_idea
+		CEN_mid_budget_idea
+		CEN_low_budget_idea
+		CEN_high_budget_research_idea
+		CEN_mid_budget_research_idea
+		CEN_low_budget_research_idea
+		CEN_high_budget_construction_idea
+		CEN_mid_budget_construction_idea
+		CEN_low_budget_construction_idea
+		CEN_high_budget_production_idea
+		CEN_mid_budget_production_idea
+		CEN_low_budget_production_idea
+		CEN_air_supplies
+		CEN_farm_to_fact_idea
+		CEN_statewide_idea
+		CEN_statewide_idea2
+		CEN_normalize_idea
+		CEN_spread_revo_idea
+		CEN_army_restructure
+		CEN_professional_army
+		CEN_moving_jungle_idea
+		CEN_professional_army_0_1
+		CEN_professional_army_1_0
+		CEN_professional_army_1_1
+		CEN_new_generals_idea
+		CEN_conscription_idea
+		CEN_training_idea
+		CEN_core_defense_idea
+		CEN_dig_in_idea
+		CEN_supply_idea
+		CEN_increased_motorised_production
+		CEN_soc_fund_idea
+		CEN_air_restructure
+		CEN_new_air_force_idea
+		CEN_new_air_force_idea2a
+		CEN_new_air_force_idea2b
+		CEN_new_air_force_idea3a
+		CEN_new_air_force_idea3b
+		CEN_new_air_officers
+		CEN_new_air_officers2F
+		CEN_new_air_officers2C
+		CEN_new_air_officers2
+		CEN_new_air_officers3F
+		CEN_new_air_officers3C
+		CEN_socialist_airforce_3a_2
+		CEN_socialist_airforce_3a_3F
+		CEN_socialist_airforce_3a_3C
+		CEN_socialist_airforce_3b_2
+		CEN_socialist_airforce_3b_3F
+		CEN_socialist_airforce_3b_3C
+		CEN_naval_start_idea
+		CEN_naval_budget
+		CEN_naval_start_idea2a
+		CEN_naval_start_idea2b
+		CEN_naval_start_idea3
+		CEN_naval_start_idea4
+		CEN_paying_MEX_low
+		CEN_paying_MEX_mid
+		CEN_paying_MEX_high
+		CEN_heavy_prod_idea
+		CEN_heavy_prod_idea2
+		CEN_light_prod_idea
+		CEN_light_prod_idea2
+		CEN_diverted_production_navy
+	}
+	if = {
+		limit = { has_dynamic_modifier = { modifier = CENmil_united_fruit } }
+		remove_dynamic_modifier = { modifier = CENmil_united_fruit }
+	}
+	MEX = {
+		remove_ideas = {
+			CEN_MEX_fees_low
+			CEN_MEX_fees_mid
+			CEN_MEX_fees_high
+		}
+	}
+}
+
+CEN_add_mexican_infrastructure_effect = {
+	if = {
+		limit = { has_event_target = CEN_offered_help }
+		add_political_power = -100
+		build_railway = {
+			fallback = yes
+			path = { 10886 10842 13704 13442 12753 }
+			start_province = 10886
+			target_province = 12753
+		}
+		build_railway = {
+			fallback = yes
+			path = { 10886 13444 13446 4991 4904 }
+			start_province = 10886
+			target_province = 4904
+		}
+		313 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		474 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+		475 = {
+			add_building_construction = {
+				type = infrastructure
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+}
+
+CEN_add_correct_mexican_oil_idea = {
+	if = {
+		limit = { FROM = { has_idea = CEN_MEX_fees_high } }
+		add_ideas = CEN_paying_MEX_high
+	}
+	else_if = {
+		limit = { FROM = { has_idea = CEN_MEX_fees_mid } }
+		add_ideas = CEN_paying_MEX_mid
+	}
+	else = {
+		add_ideas = CEN_paying_MEX_low
+	}
+}
+
+CEN_puppet_setup = {
+	if = {
+		limit = { has_elected_government = yes }
+		load_focus_tree = CA_DEM_focus
+		hidden_effect = {
+			set_party_name = {
+				ideology = social_democrat
+				name = CEN_social_democrat_liberal
+				long_name = CEN_social_democrat_liberal_long
+			}
+			add_ideas = {
+				CENdem_an_unstable_union
+				CENdem_Incompetent_Army
+			}
+		}
+	}
+	else_if = {
+		limit = { has_authoritarian_government = yes }
+		load_focus_tree = CA_military_focus
+		hidden_effect = {
+			add_ideas = {
+				CENmil_political_instability_idea
+				CENmil_economic_instability_idea
+				CENmil_chaotic_army_idea
+			}
+		}
+	}
+	else = {
+		load_focus_tree = Centroamerica_focus
+	}
+	hidden_effect = {
+		CEN_move_characters = yes
+		GUA = { remove_targeted_decision = { decision = CEN_unite_central_america target = THIS } }
+		HON = { remove_targeted_decision = { decision = CEN_unite_central_america target = THIS } }
+		ELS = { remove_targeted_decision = { decision = CEN_unite_central_america target = THIS } }
+		NIC = { remove_targeted_decision = { decision = CEN_unite_central_america target = THIS } }
+		COS = { remove_targeted_decision = { decision = CEN_unite_central_america target = THIS } }
+		PAN = { remove_targeted_decision = { decision = CEN_unite_central_america target = THIS } }
+	}
+}
+
+#################
+### Guatemala ###
+#################
+GUA_restore_missing_characters = {
+	CEN = {
+		every_character = {
+			limit = { has_character_flag = GUA_character }
+			clr_character_flag = GUA_character
+			set_nationality = GUA
+		}
+	}
+	GUA = {
+		if = {
+			limit = { NOT = { has_character = GUA_silverio_ortiz } }
+			GUA_silverio_ortiz = {
+				set_nationality = PREV
+				promote_character = radical_socialist_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = GUA_juan_jose_arevalo_bermejo } }
+			GUA_juan_jose_arevalo_bermejo = {
+				set_nationality = PREV
+				promote_character = social_democrat_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = GUA_julio_domingo_bianchi_smout } }
+			GUA_julio_domingo_bianchi_smout = {
+				set_nationality = PREV
+				promote_character = social_conservative_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = GUA_jose_azmitia_gonzalez } }
+			GUA_jose_azmitia_gonzalez = {
+				set_nationality = PREV
+				promote_character = social_conservative_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = GUA_lazaro_chacon_gonzalez } }
+			GUA_lazaro_chacon_gonzalez = {
+				set_nationality = PREV
+				promote_character = social_conservative_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = GUA_jose_maria_orellana } }
+			GUA_jose_maria_orellana = {
+				set_nationality = PREV
+				promote_character = authoritarian_democrat_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = GUA_jorge_ubico_castaneda } }
+			GUA_jorge_ubico_castaneda = {
+				set_nationality = PREV
+				promote_character = paternal_autocrat_subtype
+			}
+		}
+	}
+}
+
+GUA_puppet_setup = {
+	if = {
+		limit = { has_socialist_government = yes }
+		GUA = {
+			set_politics = {
+				ruling_party = radical_socialist
+				elections_allowed = no
+			}
+			set_political_party = {
+				ideology = radical_socialist
+				popularity = 60
+			}
+		}
+	}
+	else_if = {
+		limit = { has_authoritarian_government = yes }
+		GUA = {
+			set_politics = {
+				ruling_party = paternal_autocrat
+				elections_allowed = no
+			}
+			add_popularity = {
+				ideology = paternal_autocrat
+				popularity = 60
+			}
+		}
+	}
+	else_if = {
+		limit = { has_right_democratic_government = yes }
+		GUA = {
+			set_politics = {
+				ruling_party = social_conservative
+				elections_allowed = yes
+			}
+			add_popularity = {
+				ideology = social_conservative
+				popularity = 60
+			}
+		}
+	}
+	else = {
+		GUA = {
+			set_politics = {
+				ruling_party = social_democrat
+				elections_allowed = yes
+			}
+			add_popularity = {
+				ideology = social_democrat
+				popularity = 60
+			}
+		}
+	}
+	GUA = {
+		if = {
+			limit = {
+				NOT = { has_government = authoritarian_democrat }
+				has_completed_focus = GUA_orellana_holds_on
+			}
+			uncomplete_national_focus = {
+				focus = GUA_orellana_holds_on
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = { has_government = paternal_autocrat }
+				OR = {
+					has_completed_focus = GUA_ubico_returns
+					has_completed_focus = GUA_ubico_wins
+				}
+			}
+			uncomplete_national_focus = {
+				focus = GUA_ubico_wins
+				uncomplete_children = yes
+			}
+			uncomplete_national_focus = {
+				focus = GUA_ubico_returns
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_government = social_democrat
+					has_government = radical_socialist
+					has_government = social_conservative
+				}
+				has_completed_focus = GUA_guatemalan_revolution
+			}
+			uncomplete_national_focus = {
+				focus = GUA_guatemalan_revolution
+				uncomplete_children = yes
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { has_government = social_democrat }
+				has_completed_focus = GUA_prn_win
+			}
+			uncomplete_national_focus = {
+				focus = GUA_prn_win
+				uncomplete_children = yes
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { has_government = radical_socialist }
+				has_completed_focus = GUA_pcg_win
+			}
+			uncomplete_national_focus = {
+				focus = GUA_pcg_win
+				uncomplete_children = yes
+			}
+		}
+		else_if = {
+			limit = {
+				NOT = { has_government = social_conservative }
+				has_completed_focus = GUA_unionist_win
+			}
+			uncomplete_national_focus = {
+				focus = GUA_unionist_win
+				uncomplete_children = yes
+			}
+		}
+	}
+}
+
+GUA_add_socialist_generals = {
+	GUA_juan_jose_arevalo_bermejo = { set_character_flag = show_unit_leader_role } #TODO: revert when bug with country_leader variable is fixed
+	GUA_remove_liberal_generals = yes
+	GUA_remove_reactionary_generals = yes
+}
+
+GUA_remove_socialist_generals = {
+	GUA_juan_jose_arevalo_bermejo = { clr_character_flag = show_unit_leader_role } #TODO: revert when bug with country_leader variable is fixed
+}
+
+GUA_add_liberal_generals = {
+	GUA_juan_jose_arevalo_bermejo = { set_character_flag = show_unit_leader_role } #TODO: revert when bug with country_leader variable is fixed
+	if = {
+		limit = { NOT = { has_character = GUA_lazaro_chacon_gonzalez } }
+		GUA_lazaro_chacon_gonzalez = {
+			set_nationality = PREV
+			promote_character = social_conservative_subtype
+		}
+	}
+	GUA_remove_reactionary_generals = yes
+}
+
+GUA_remove_liberal_generals = {
+	if = {
+		limit = { has_character = GUA_lazaro_chacon_gonzalez }
+		retire_character = GUA_lazaro_chacon_gonzalez
+	}
+}
+
+GUA_add_reactionary_generals = {
+	if = {
+		limit = { NOT = { has_character = GUA_jose_maria_orellana } }
+		GUA_jose_maria_orellana = {
+			set_nationality = PREV
+			promote_character = authoritarian_democrat_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = GUA_jorge_ubico_castaneda } }
+		GUA_jorge_ubico_castaneda = {
+			set_nationality = PREV
+			promote_character = paternal_autocrat_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = GUA_manuel_maria_orellana_contreras } }
+		GUA_manuel_maria_orellana_contreras = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = GUA_juan_federico_ponce_vaides } }
+		GUA_juan_federico_ponce_vaides = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = GUA_buenaventura_pineda } }
+		GUA_buenaventura_pineda = { set_nationality = PREV }
+	}
+	GUA_remove_socialist_generals = yes
+	GUA_remove_liberal_generals = yes
+}
+
+GUA_remove_reactionary_generals = {
+	if = {
+		limit = { has_character = GUA_jose_maria_orellana }
+		retire_character = GUA_jose_maria_orellana
+	}
+	if = {
+		limit = { has_character = GUA_jorge_ubico_castaneda }
+		retire_character = GUA_jorge_ubico_castaneda
+	}
+	if = {
+		limit = { has_character = GUA_manuel_maria_orellana_contreras }
+		retire_character = GUA_manuel_maria_orellana_contreras
+	}
+	if = {
+		limit = { has_character = GUA_juan_federico_ponce_vaides }
+		retire_character = GUA_juan_federico_ponce_vaides
+	}
+	if = {
+		limit = { has_character = GUA_buenaventura_pineda }
+		retire_character = GUA_buenaventura_pineda
+	}
+}
+
+GUA_recover_civil_war = {
+	if = {
+		limit = { has_idea = GUA_civil_war1 }
+		swap_ideas = {
+			remove_idea = GUA_civil_war1
+			add_idea = GUA_civil_war2
+		}
+	}
+	else_if = {
+		limit = { has_idea = GUA_civil_war2 }
+		swap_ideas = {
+			remove_idea = GUA_civil_war2
+			add_idea = GUA_civil_war3
+		}
+	}
+	else_if = {
+		limit = { has_idea = GUA_civil_war3 }
+		swap_ideas = {
+			remove_idea = GUA_civil_war3
+			add_idea = GUA_civil_war4
+		}
+	}
+	else_if = {
+		limit = { has_idea = GUA_civil_war4 }
+		remove_ideas = GUA_civil_war4
+	}
+}
+
+GUA_puppet_setup = {
+	if = {
+		limit = { PREV = { has_socialist_government = yes } }
+		set_politics = {
+			ruling_party = radical_socialist
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = radical_socialist
+			popularity = 60
+		}
+	}
+	else_if = {
+		limit = { PREV = { has_authoritarian_government = yes } }
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = paternal_autocrat
+			popularity = 60
+		}
+	}
+	else = {
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = social_conservative
+			popularity = 60
+		}
+	}
+}
+
+###################
+### El Salvador ###
+###################
+ELS_restore_missing_characters = {
+	CEN = {
+		every_character = {
+			limit = { has_character_flag = ELS_character }
+			clr_character_flag = ELS_character
+			set_nationality = ELS
+		}
+	}
+	ELS = {
+		if = {
+			limit = { NOT = { has_character = ELS_agustin_farabundo_marti } }
+			ELS_agustin_farabundo_marti = {
+				set_nationality = PREV
+				promote_character = syndicalist_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = ELS_feliciano_ama } }
+			ELS_feliciano_ama = {
+				set_nationality = PREV
+				promote_character = radical_socialist_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = ELS_arturo_araujo } }
+			ELS_arturo_araujo = {
+				set_nationality = PREV
+				promote_character = social_democrat_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = ELS_alfonso_quinonez_molina } }
+			ELS_alfonso_quinonez_molina = {
+				set_nationality = PREV
+				promote_character = social_liberal_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = ELS_salvador_castaneda_castro } }
+			ELS_salvador_castaneda_castro = {
+				set_nationality = PREV
+				promote_character = authoritarian_democrat_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = ELS_osmin_aguirre_y_salinas } }
+			ELS_osmin_aguirre_y_salinas = {
+				set_nationality = PREV
+				promote_character = paternal_autocrat_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = ELS_maximiliano_hernandez_martinez } }
+			ELS_maximiliano_hernandez_martinez = {
+				set_nationality = PREV
+				promote_character = national_populist_subtype
+			}
+		}
+	}
+}
+
+ELS_add_democratic_generals = {
+	if = {
+		limit = { NOT = { has_character = ELS_agustin_farabundo_marti } }
+		ELS_agustin_farabundo_marti = {
+			set_nationality = PREV
+			promote_character = syndicalist_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = ELS_feliciano_ama } }
+		ELS_feliciano_ama = {
+			set_nationality = PREV
+			promote_character = radical_socialist_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = ELS_salvador_castaneda_castro } }
+		ELS_salvador_castaneda_castro = {
+			set_nationality = PREV
+			promote_character = authoritarian_democrat_subtype
+		}
+	}
+	ELS_remove_reactionary_generals = yes
+}
+
+ELS_remove_democratic_generals = {
+	if = {
+		limit = { has_character = ELS_agustin_farabundo_marti }
+		retire_character = ELS_agustin_farabundo_marti
+	}
+	if = {
+		limit = { has_character = ELS_feliciano_ama }
+		retire_character = ELS_feliciano_ama
+	}
+	if = {
+		limit = {
+			has_character = ELS_salvador_castaneda_castro
+			has_completed_focus = ELS_37_revolution
+			NOT = { has_government = authoritarian_democrat }
+		}
+		retire_character = ELS_salvador_castaneda_castro
+	}
+}
+
+ELS_add_liberal_generals = {
+	if = {
+		limit = { NOT = { has_character = ELS_salvador_castaneda_castro } }
+		ELS_salvador_castaneda_castro = {
+			set_nationality = PREV
+			promote_character = authoritarian_democrat_subtype
+		}
+	}
+	if = {
+		limit = { has_character = ELS_agustin_farabundo_marti }
+		retire_character = ELS_agustin_farabundo_marti
+	}
+	if = {
+		limit = { has_character = ELS_feliciano_ama }
+		retire_character = ELS_feliciano_ama
+	}
+	ELS_remove_reactionary_generals = yes
+}
+
+ELS_add_reactionary_generals = {
+	if = {
+		limit = { NOT = { has_character = ELS_maximiliano_hernandez_martinez } }
+		ELS_maximiliano_hernandez_martinez = {
+			set_nationality = PREV
+			promote_character = national_populist_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = ELS_osmin_aguirre_y_salinas } }
+		ELS_osmin_aguirre_y_salinas = {
+			set_nationality = PREV
+			promote_character = paternal_autocrat_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = ELS_andres_ignacio_menendez } }
+		ELS_andres_ignacio_menendez = { set_nationality = PREV }
+	}
+	ELS_remove_democratic_generals = yes
+}
+
+ELS_remove_reactionary_generals = {
+	if = {
+		limit = { has_character = ELS_maximiliano_hernandez_martinez }
+		retire_character = ELS_maximiliano_hernandez_martinez
+	}
+	if = {
+		limit = { has_character = ELS_osmin_aguirre_y_salinas }
+		retire_character = ELS_osmin_aguirre_y_salinas
+	}
+	if = {
+		limit = {
+			has_character = ELS_andres_ignacio_menendez
+			NOT = { has_government = authoritarian_democrat }
+		}
+		retire_character = ELS_andres_ignacio_menendez
+	}
+}
+
+ELS_puppet_setup = {
+	if = {
+		limit = { PREV = { has_socialist_government = yes } }
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = syndicalist
+			popularity = 60
+		}
+		set_country_flag = ELS_syndicalist_country_flag
+	}
+	else_if = {
+		limit = { PREV = { has_authoritarian_government = yes } }
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = paternal_autocrat
+			popularity = 60
+		}
+		set_country_flag = ELS_pro_patria_destroyed_flag
+	}
+	else = {
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = social_democrat
+			popularity = 60
+		}
+		set_country_flag = ELS_labour_victory_flag
+	}
+}
+
+################
+### Honduras ###
+################
+HON_restore_missing_characters = {
+	CEN = {
+		every_character = {
+			limit = { has_character_flag = HON_character }
+			clr_character_flag = HON_character
+			set_nationality = HON
+		}
+	}
+	HON = {
+		if = {
+			limit = { NOT = { has_character = HON_juan_pablo_wainwright } }
+			HON_juan_pablo_wainwright = {
+				set_nationality = PREV
+				promote_character = totalist_subtype
+				promote_character = syndicalist_subtype
+				promote_character = radical_socialist_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = HON_jose_ramon_adolfo_villeda_morales } }
+			HON_jose_ramon_adolfo_villeda_morales = {
+				set_nationality = PREV
+				promote_character = social_democrat_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = HON_jose_maria_moncada_tapia } }
+			HON_jose_maria_moncada_tapia = {
+				set_nationality = PREV
+				promote_character = social_liberal_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = HON_jose_angel_zuniga_huete } }
+			HON_jose_angel_zuniga_huete = {
+				set_nationality = PREV
+				promote_character = market_liberal_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = HON_venancio_callejas_lozano } }
+			HON_venancio_callejas_lozano = {
+				set_nationality = PREV
+				promote_character = social_conservative_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = HON_jose_leon_castro } }
+			HON_jose_leon_castro = {
+				set_nationality = PREV
+				promote_character = paternal_autocrat_subtype
+				promote_character = national_populist_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = HON_rufino_solis_juarez } }
+			HON_rufino_solis_juarez = {
+				set_nationality = PREV
+			}
+		}
+	}
+}
+
+HON_add_non_reactionary_generals = {
+	if = {
+		limit = { NOT = { has_character = HON_gregorio_ferrera } }
+		HON_gregorio_ferrera = {
+			set_nationality = PREV
+		}
+	}
+}
+
+HON_remove_non_reactionary_generals = {
+	if = {
+		limit = { has_character = HON_gregorio_ferrera }
+		retire_character = HON_gregorio_ferrera
+	}
+}
+
+HON_add_non_socialist_generals = {
+	if = {
+		limit = { NOT = { has_character = HON_jose_leon_castro } }
+		HON_jose_leon_castro = {
+			set_nationality = PREV
+			promote_character = paternal_autocrat_subtype
+			promote_character = national_populist_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = HON_francisco_martinez_funes } }
+		HON_francisco_martinez_funes = {
+			set_nationality = PREV
+		}
+	}
+}
+
+HON_remove_non_socialist_generals = {
+	if = {
+		limit = { has_character = HON_jose_leon_castro }
+		retire_character = HON_jose_leon_castro
+	}
+	if = {
+		limit = { has_character = HON_francisco_martinez_funes }
+		retire_character = HON_francisco_martinez_funes
+	}
+}
+
+HON_add_autdem_PNH = {
+	save_current_party_popularities = yes
+	set_temp_variable = { HON_new_autdem_value = saved_popularities^7 } #autdem
+	add_to_temp_variable = { HON_new_autdem_value = saved_popularities^6 } #soccon
+	set_temp_variable = { HON_new_soccon_value = HON_new_autdem_value }
+	divide_temp_variable = { HON_new_autdem_value = 4 }
+	subtract_from_temp_variable = { HON_new_soccon_value = HON_new_autdem_value }
+	set_popularities = {
+		totalist = saved_popularities^0
+		syndicalist = saved_popularities^1
+		radical_socialist = saved_popularities^2
+		social_democrat = saved_popularities^3
+		social_liberal = saved_popularities^4
+		market_liberal = saved_popularities^5
+		social_conservative = HON_new_soccon_value
+		authoritarian_democrat = HON_new_autdem_value
+		paternal_autocrat = saved_popularities^8
+		national_populist = saved_popularities^9
+	}
+	retire_character = HON_honduran_council
+	set_party_name = {
+		ideology = social_conservative
+		name = HON_moderate_nationalist
+		long_name = HON_moderate_nationalist_long
+	}
+	set_party_name = {
+		ideology = authoritarian_democrat
+		name = HON_social_conservative_party
+		long_name = HON_social_conservative_party_long
+	}
+}
+
+HON_puppet_setup = {
+	if = {
+		limit = {
+			has_completed_focus = HON_castro
+			has_authoritarian_government = no
+		}
+		uncomplete_national_focus = {
+			focus = HON_castro
+			uncomplete_children = yes
+		}
+		remove_ideas = {
+			HON_yellow_press
+			HON_anti_syndie_media
+			HON_clean_government
+			HON_more_bananas
+			HON_more_bananas2
+			HON_ufc_plantations
+			HON_ufc_plantations2
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = HON_callejas
+			has_right_democratic_government = no
+		}
+		uncomplete_national_focus = {
+			focus = HON_callejas
+			uncomplete_children = yes
+		}
+		remove_ideas = {
+			HON_coffee_cash
+			HON_free_market_idea
+			HON_free_press
+			HON_urban_growth
+			HON_agricultural_school
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = HON_morales
+			has_left_democratic_government = no
+		}
+		uncomplete_national_focus = {
+			focus = HON_morales
+			uncomplete_children = yes
+		}
+		remove_ideas = {
+			HON_free_market_idea
+			HON_empowering_the_workers_idea
+			HON_free_press
+			HON_panama_friends
+			HON_defensive_preparations
+			MEX_agrarian_economy_idea2
+		}
+	}
+	if = {
+		limit = {
+			has_completed_focus = HON_revolution
+			has_socialist_government = no
+		}
+		uncomplete_national_focus = {
+			focus = HON_revolution
+			uncomplete_children = yes
+		}
+		remove_ideas = {
+			HON_wainwright_revolution
+			HON_international_trade
+			HON_church_property
+			HON_red_youth
+			HON_people_republic
+			HON_south_support
+			HON_socialist_economy
+			HON_socialist_economy2
+			HON_socialist_economy3
+			HON_ufc_banned
+			HON_urban_growth
+			HON_urban_growth2
+		}
+	}
+
+	if = {
+		limit = { PREV = { has_government = authoritarian_democrat } }
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = paternal_autocrat
+			popularity = 60
+		}
+	}
+}
+
+#################
+### Nicaragua ###
+#################
+NIC_restore_missing_characters = {
+	CEN = {
+		every_character = {
+			limit = { has_character_flag = NIC_character }
+			clr_character_flag = NIC_character
+			set_nationality = NIC
+		}
+	}
+	NIC = {
+		if = {
+			limit = { NOT = { has_character = NIC_augusto_cesar_sandino } }
+			NIC_augusto_cesar_sandino = {
+				set_nationality = PREV
+				promote_character = syndicalist_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = NIC_francisco_sequeira_moreno } }
+			NIC_francisco_sequeira_moreno = {
+				set_nationality = PREV
+				promote_character = radical_socialist_subtype
+				promote_character = social_democrat_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = NIC_juan_bautista_sacasa } }
+			NIC_juan_bautista_sacasa = {
+				set_nationality = PREV
+				promote_character = social_liberal_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = NIC_emiliano_chamorro_vargas } }
+			NIC_emiliano_chamorro_vargas = {
+				set_nationality = PREV
+				promote_character = social_conservative_subtype
+			}
+		}
+		if = {
+			limit = { NOT = { has_character = NIC_anastasio_somoza_garcia } }
+			NIC_anastasio_somoza_garcia = {
+				set_nationality = PREV
+				promote_character = authoritarian_democrat_subtype
+				promote_character = paternal_autocrat_subtype
+			}
+		}
+	}
+}
+
+NIC_add_socialist_generals = {
+	if = {
+		limit = { NOT = { has_character = NIC_augusto_cesar_sandino } }
+		NIC_augusto_cesar_sandino = {
+			set_nationality = PREV
+			promote_character = syndicalist_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_francisco_sequeira_moreno } }
+		NIC_francisco_sequeira_moreno = {
+			set_nationality = PREV
+			promote_character = radical_socialist_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_yank_levy } }
+		NIC_yank_levy = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_pedro_altamirano } }
+		NIC_pedro_altamirano = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_pedro_antonio_irias } }
+		NIC_pedro_antonio_irias = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_juan_pablo_umanzor } }
+		NIC_juan_pablo_umanzor = { set_nationality = PREV }
+	}
+
+	#remove non-socialist advisors
+	if = {
+		limit = { has_character = NIC_juan_escamilla }
+		retire_character = NIC_juan_escamilla
+	}
+	if = {
+		limit = { has_character = NIC_augusto_caldera }
+		retire_character = NIC_augusto_caldera
+	}
+	if = {
+		limit = { has_character = NIC_ramon_telles }
+		retire_character = NIC_ramon_telles
+	}
+	if = {
+		limit = { has_character = NIC_carlos_castro_wassmer }
+		retire_character = NIC_carlos_castro_wassmer
+	}
+	NIC_remove_liberal_generals = yes
+	NIC_remove_reactionary_generals = yes
+}
+
+NIC_remove_socialist_generals = {
+	if = {
+		limit = { has_character = NIC_augusto_cesar_sandino }
+		retire_character = NIC_augusto_cesar_sandino
+	}
+	if = {
+		limit = { has_character = NIC_yank_levy }
+		retire_character = NIC_yank_levy
+	}
+	if = {
+		limit = { has_character = NIC_pedro_altamirano }
+		retire_character = NIC_pedro_altamirano
+	}
+	if = {
+		limit = { has_character = NIC_pedro_antonio_irias }
+		retire_character = NIC_pedro_antonio_irias
+	}
+	if = {
+		limit = { has_character = NIC_juan_pablo_umanzor }
+		retire_character = NIC_juan_pablo_umanzor
+	}
+}
+
+NIC_add_liberal_generals = {
+	if = {
+		limit = {
+			NOT = {
+				has_character = NIC_francisco_sequeira_moreno
+				NIC_francisco_sequeira_moreno = { has_character_flag = NIC_loyal_to_sandino }
+			}
+		}
+		NIC_francisco_sequeira_moreno = { set_nationality = PREV }
+	}
+	if = {
+		limit = {
+			NOT = { has_character = NIC_emiliano_chamorro_vargas }
+			has_completed_focus = NIC_collaborate_exiles
+		}
+		NIC_emiliano_chamorro_vargas = {
+			set_nationality = PREV
+			promote_character = social_conservative_subtype
+		}
+	}
+	if = {
+		limit = {
+			NOT = { has_character = NIC_abelardo_cuadra }
+			has_completed_focus = NIC_liberal_revolution
+		}
+		NIC_abelardo_cuadra = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_juan_escamilla } }
+		NIC_juan_escamilla = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_augusto_caldera } }
+		NIC_augusto_caldera = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_ramon_telles } }
+		NIC_ramon_telles = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_carlos_castro_wassmer } }
+		NIC_carlos_castro_wassmer = { set_nationality = PREV }
+	}
+	if = {
+		limit = {
+			has_character = NIC_francisco_sequeira_moreno
+			NIC_francisco_sequeira_moreno = { has_character_flag = NIC_loyal_to_sandino }
+		}
+		retire_character = NIC_francisco_sequeira_moreno
+	}
+	NIC_remove_socialist_generals = yes
+}
+
+NIC_remove_liberal_generals = {
+	if = {
+		limit = { has_character = NIC_emiliano_chamorro_vargas }
+		retire_character = NIC_emiliano_chamorro_vargas
+	}
+	if = {
+		limit = { has_character = NIC_abelardo_cuadra }
+		retire_character = NIC_abelardo_cuadra
+	}
+}
+
+NIC_add_reactionary_generals = {
+	if = {
+		limit = { NOT = { has_character = NIC_anastasio_somoza_garcia } }
+		NIC_anastasio_somoza_garcia = {
+			set_nationality = PREV
+			promote_character = authoritarian_democrat_subtype
+			promote_character = paternal_autocrat_subtype
+		}
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_federico_davidson_blanco } }
+		NIC_federico_davidson_blanco = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_juan_escamilla } }
+		NIC_juan_escamilla = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_augusto_caldera } }
+		NIC_augusto_caldera = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_ramon_telles } }
+		NIC_ramon_telles = { set_nationality = PREV }
+	}
+	if = {
+		limit = { NOT = { has_character = NIC_carlos_castro_wassmer } }
+		NIC_carlos_castro_wassmer = { set_nationality = PREV }
+	}
+	if = {
+		limit = { has_character = NIC_francisco_sequeira_moreno }
+		retire_character = NIC_francisco_sequeira_moreno
+	}
+	NIC_remove_liberal_generals = yes
+	NIC_remove_socialist_generals = yes
+}
+
+NIC_remove_reactionary_generals = {
+	if = {
+		limit = { has_character = NIC_anastasio_somoza_garcia }
+		retire_character = NIC_anastasio_somoza_garcia
+	}
+	if = {
+		limit = { has_character = NIC_federico_davidson_blanco }
+		retire_character = NIC_federico_davidson_blanco
+	}
+}
+
+NIC_puppet_setup = {
+	if = {
+		limit = { PREV = { has_socialist_government = yes } }
+		NIC_remove_democratic_ideas = yes
+		NIC_remove_authoritarian_ideas = yes
+		set_country_flag = NIC_socialist_revolution_flag
+		NIC_francisco_sequeira_moreno = { set_character_flag = NIC_loyal_to_sandino }
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+		hidden_effect = {
+			set_popularities = {
+				totalist = 1
+				syndicalist = 36
+				radical_socialist = 32
+				social_democrat = 4
+				social_liberal = 11
+				market_liberal = 3
+				authoritarian_democrat = 10
+				paternal_autocrat = 3
+			}
+		}
+	}
+	else_if = {
+		limit = { PREV = { has_authoritarian_government = yes } }
+		NIC_remove_socialist_democratic_ideas = yes
+		if = {
+			limit = { has_completed_focus = NIC_new_independence }
+			set_politics = {
+				ruling_party = authoritarian_democrat
+				elections_allowed = no
+			}
+			hidden_effect = {
+				set_popularities = {
+					syndicalist = 12
+					radical_socialist = 3
+					social_democrat = 7
+					social_liberal = 11
+					market_liberal = 4
+					social_conservative = 11
+					authoritarian_democrat = 34
+					paternal_autocrat = 14
+					national_populist = 4
+				}
+			}
+		}
+		else = {
+			set_politics = {
+				ruling_party = paternal_autocrat
+				elections_allowed = no
+			}
+			hidden_effect = {
+				set_popularities = {
+					syndicalist = 30
+					radical_socialist = 7
+					social_democrat = 5
+					social_liberal = 9
+					market_liberal = 2
+					social_conservative = 3
+					authoritarian_democrat = 11
+					paternal_autocrat = 28
+					national_populist = 5
+				}
+			}
+			if = {
+				limit = { NOT = { has_country_flag = NIC_sandino_bacc } }
+				add_ideas = NIC_sandino_resistance_base
+				set_country_flag = NIC_sandino_attack_flag
+				country_event = { id = nic.107 days = 14 }
+			}
+			else = {
+				add_popularity = { ideology = authoritarian_democrat popularity = -0.15 }
+			}
+		}
+	}
+	else = {
+		NIC_remove_socialist_ideas = yes
+		NIC_remove_authoritarian_ideas = yes
+		set_politics = {
+			ruling_party = social_liberal
+			elections_allowed = no
+		}
+		hidden_effect = {
+			set_popularities = {
+				totalist = 3
+				syndicalist = 22
+				radical_socialist = 11
+				social_democrat = 3
+				social_liberal = 35
+				market_liberal = 6
+				authoritarian_democrat = 10
+				paternal_autocrat = 9
+				national_populist = 1
+			}
+		}
+		set_country_flag = NIC_liberal_revolution_flag
+	}
+}
+
+##################
+### Costa Rica ###
+##################
+COS_puppet_setup = {
+	if = {
+		limit = { PREV = { has_socialist_government = yes } }
+		if = {
+			limit = { has_idea = COS_influence_of_the_UFC_idea }
+			set_temp_variable = { cos_UFC_change = -100 }
+			update_UFC_influence = yes
+			remove_ideas = COS_influence_of_the_UFC_idea
+			if = {
+				limit = { has_idea = COS_UFC_Profit_idea }
+				set_temp_variable = { cos_delete_profit = cos_profit_factor }
+				multiply_temp_variable = { cos_delete_profit = -1 }
+				set_temp_variable = { cos_profit_change = cos_delete_profit }
+				update_UFC_profits = yes
+				remove_ideas = COS_UFC_Profit_idea
+			}
+		}
+		if = {
+			limit = { has_idea = COS_influence_of_the_ZKG_idea }
+			set_temp_variable = { cos_ZKG_change = -100 }
+			update_ZKG_influence = yes
+			remove_ideas = COS_influence_of_the_ZKG_idea
+		}
+		set_politics = {
+			ruling_party = syndicalist
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = syndicalist
+			popularity = 60
+		}
+	}
+	else_if = {
+		limit = { PREV = { has_left_democratic_government = yes } }
+		set_politics = {
+			ruling_party = social_democrat
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = social_democrat
+			popularity = 60
+		}
+	}
+	else_if = {
+		limit = { PREV = { has_right_democratic_government = yes } }
+		set_politics = {
+			ruling_party = social_conservative
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = social_conservative
+			popularity = 60
+		}
+	}
+	else = {
+		set_politics = {
+			ruling_party = paternal_autocrat
+			elections_allowed = no
+		}
+		set_political_party = {
+			ideology = paternal_autocrat
+			popularity = 60
+		}
+	}
+}
+
+##############
+### Panama ###
+##############
+PAN_puppet_setup = {
+	PAN = {
+		if = {
+			limit = { PAN = { has_country_flag = PAN_40_elections } }
+			uncomplete_national_focus = {
+				focus = PAN_40_elections
+				uncomplete_children = yes
+			}
+			load_focus_tree = panama
+		}
+		if = {
+			limit = {
+				has_completed_focus = PAN_liberal_victory
+				NOT = { has_government = social_liberal }
+			}
+			uncomplete_national_focus = {
+				focus = PAN_liberal_victory
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = {
+				has_completed_focus = PAN_conservative_government
+				NOT = { has_right_democratic_government = yes }
+			}
+			uncomplete_national_focus = {
+				focus = PAN_conservative_government
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = {
+				has_completed_focus = PAN_PNR_holds_on
+				NOT = { has_government = authoritarian_democrat has_government = national_populist }
+			}
+			uncomplete_national_focus = {
+				focus = PAN_PNR_holds_on
+				uncomplete_children = yes
+			}
+		}
+		if = {
+			limit = {
+				has_completed_focus = PAN_police_coup
+				NOT = { has_government = paternal_autocrat }
+			}
+			uncomplete_national_focus = {
+				focus = PAN_police_coup
+				uncomplete_children = yes
+			}
+		}
+
+		if = {
+			limit = { has_government = social_liberal }
+			complete_national_focus = PAN_liberal_victory
+		}
+		else_if = {
+			limit = { has_right_democratic_government = yes }
+			complete_national_focus = PAN_conservative_government
+		}
+		else_if = {
+			limit = { OR = { has_government = authoritarian_democrat has_government = national_populist } }
+			complete_national_focus = PAN_PNR_holds_on
+		}
+		else_if = {
+			limit = { has_government = paternal_autocrat }
+			complete_national_focus = PAN_police_coup
+		}
+		else = { #just so SocDem and socialist don't get stuck with the idea
+			remove_ideas = PAN_economic_depression
+		}
+	}
+}
